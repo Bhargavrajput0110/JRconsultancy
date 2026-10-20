@@ -462,29 +462,88 @@ export default function Home() {
         <AnimatePresence>
           {selectedService && (
             <motion.div 
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(5, 8, 6, 0.88)', backdropFilter: 'blur(12px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              style={{ 
+                position: 'fixed', 
+                top: 0, 
+                left: 0, 
+                width: '100vw', 
+                height: '100vh', 
+                background: 'rgba(5, 8, 6, 0.92)', 
+                backdropFilter: 'blur(16px)', 
+                WebkitBackdropFilter: 'blur(16px)',
+                zIndex: 1000, 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                padding: 'clamp(0.75rem, 3vw, 2rem)' 
+              }}
               onClick={() => setSelectedService(null)}
             >
               <motion.div 
                 layoutId={`service-${selectedService}`}
-                style={{ background: 'rgba(11, 18, 13, 0.98)', border: '1px solid rgba(196, 154, 108, 0.35)', borderRadius: '32px', padding: '4rem', maxWidth: '800px', width: '100%', position: 'relative', boxShadow: '0 30px 60px rgba(0,0,0,0.7)' }}
+                style={{ 
+                  background: 'rgba(11, 18, 13, 0.98)', 
+                  border: '1px solid rgba(196, 154, 108, 0.35)', 
+                  borderRadius: 'clamp(20px, 4vw, 32px)', 
+                  padding: 'clamp(1.5rem, 5vw, 3.5rem)', 
+                  maxWidth: '780px', 
+                  width: '100%', 
+                  maxHeight: '90vh',
+                  overflowY: 'auto',
+                  WebkitOverflowScrolling: 'touch',
+                  position: 'relative', 
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.85)' 
+                }}
                 onClick={(e) => e.stopPropagation()}
               >
-                <button onClick={() => setSelectedService(null)} style={{ position: 'absolute', top: '2rem', right: '2rem', background: 'transparent', border: 'none', color: 'var(--color-text)', cursor: 'pointer' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <button 
+                  onClick={() => setSelectedService(null)} 
+                  aria-label="Close details"
+                  style={{ 
+                    position: 'absolute', 
+                    top: 'clamp(1rem, 3vw, 2rem)', 
+                    right: 'clamp(1rem, 3vw, 2rem)', 
+                    background: 'rgba(255, 255, 255, 0.06)', 
+                    border: '1px solid rgba(196, 154, 108, 0.25)', 
+                    borderRadius: '50%',
+                    width: '40px',
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--color-text)', 
+                    cursor: 'pointer',
+                    zIndex: 2
+                  }}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
 
                 {selectedService === 1 && (
                   <>
                     <p className="bento-tag">01 / Planning</p>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Set the foundations.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '2rem' }}>Example: We analyze foot traffic, local demographics, and structural feasibility before you sign a lease.</p>
-                    <ul className="bento-list" style={{ fontSize: '1.1rem' }}>
-                      <li><strong>Site Selection:</strong> Detailed pros/cons of commercial locations.</li>
-                      <li><strong>Layout Review:</strong> Civil engineering checks for load-bearing walls and drainage.</li>
-                      <li><strong>Vastu Consultation:</strong> Basic energy flow and layout planning.</li>
-                      <li><strong>Budgeting:</strong> Granular CAPEX forecasting to prevent overspending.</li>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Set the foundations.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We analyze foot traffic, local demographics, and structural feasibility before you sign a lease.</p>
+                    <ul className="modal-feature-list">
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Site Selection:</strong> Detailed pros/cons of commercial locations.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Layout Review:</strong> Civil engineering checks for load-bearing walls and drainage.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Vastu Consultation:</strong> Basic energy flow and layout planning.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Budgeting:</strong> Granular CAPEX forecasting to prevent overspending.</div>
+                      </li>
                     </ul>
                   </>
                 )}
@@ -492,13 +551,25 @@ export default function Home() {
                 {selectedService === 2 && (
                   <>
                     <p className="bento-tag">02 / Design & Procurement</p>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Shape the experience.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '2rem' }}>Example: We design commercial kitchens where chefs take 3 steps instead of 10 to plate a dish, drastically reducing service times.</p>
-                    <ul className="bento-list" style={{ fontSize: '1.1rem' }}>
-                      <li><strong>Menu Design:</strong> Engineering menus for high margin and prep efficiency.</li>
-                      <li><strong>Kitchen Workflow:</strong> Station-by-station ergonomic planning.</li>
-                      <li><strong>MEP Services:</strong> Mechanical, Electrical, and Plumbing load distributions.</li>
-                      <li><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices.</li>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Shape the experience.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We design commercial kitchens where chefs take 3 steps instead of 10 to plate a dish, drastically reducing service times.</p>
+                    <ul className="modal-feature-list">
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Menu Design:</strong> Engineering menus for high margin and prep efficiency.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Kitchen Workflow:</strong> Station-by-station ergonomic planning.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>MEP Services:</strong> Mechanical, Electrical, and Plumbing load distributions.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices.</div>
+                      </li>
                     </ul>
                   </>
                 )}
@@ -506,23 +577,23 @@ export default function Home() {
                 {selectedService === 3 && (
                   <>
                     <p className="bento-tag">03 / People & Operations</p>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>The people. The process.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '2rem' }}>Example: We build your FSSAI compliance binders and daily checklist systems so your manager runs the floor on autopilot.</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>The people. The process.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We build your FSSAI compliance binders and daily checklist systems so your manager runs the floor on autopilot.</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1.5rem' }}>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '1rem' }}>People & Training</h4>
-                        <ul className="bento-list">
-                          <li>Manpower recruitment & trials</li>
-                          <li>Role clarity & SOPs</li>
-                          <li>Front-of-house service training</li>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>People & Training</h4>
+                        <ul className="modal-feature-list">
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Manpower recruitment & trials</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Role clarity & SOPs</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Front-of-house service training</div></li>
                         </ul>
                       </div>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '1rem' }}>Systems & Control</h4>
-                        <ul className="bento-list">
-                          <li>FSSAI document systems</li>
-                          <li>Inventory & wastage control</li>
-                          <li>Food cost analysis</li>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Systems & Control</h4>
+                        <ul className="modal-feature-list">
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">FSSAI document systems</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Inventory & wastage control</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Food cost analysis</div></li>
                         </ul>
                       </div>
                     </div>
@@ -532,13 +603,25 @@ export default function Home() {
                 {selectedService === 4 && (
                   <>
                     <p className="bento-tag">04 / Launch & Support</p>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Opening day is only the beginning.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '2rem' }}>Example: After a massive launch weekend, we stay on board to optimize ingredient prep times based on actual real-world order volumes.</p>
-                    <ul className="bento-list" style={{ fontSize: '1.1rem' }}>
-                      <li><strong>Marketing Strategy:</strong> Pre-launch buzz creation and budget allocation.</li>
-                      <li><strong>Soft Launch Execution:</strong> Stress-testing the kitchen with invited guests.</li>
-                      <li><strong>Post-Launch Audits:</strong> Monthly operational reviews to maintain FSSAI standards.</li>
-                      <li><strong>Menu Tweaks:</strong> Adjusting dishes based on early customer feedback.</li>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Opening day is only the beginning.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: After a massive launch weekend, we stay on board to optimize ingredient prep times based on actual real-world order volumes.</p>
+                    <ul className="modal-feature-list">
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Marketing Strategy:</strong> Pre-launch buzz creation and budget allocation.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Soft Launch Execution:</strong> Stress-testing the kitchen with invited guests.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews to maintain FSSAI standards.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Menu Tweaks:</strong> Adjusting dishes based on early customer feedback.</div>
+                      </li>
                     </ul>
                   </>
                 )}
@@ -1002,7 +1085,7 @@ export default function Home() {
             },
             {
               q: 'Which locations and restaurant formats do you service?',
-              a: 'We are based in Vadodara, Gujarat, and actively undertake turnkey and kitchen consulting projects across Gujarat (Vadodara, Ahmedabad, Surat, Rajkot) as well as pan-India (Mumbai, Pune, Delhi NCR, Bangalore, and tier-2 hubs). We work with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
+              a: 'We are headquartered in Vadodara, India, and actively undertake turnkey restaurant setup and kitchen engineering projects Pan-India. We serve clients across all states and major hubs, working with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
             }
           ].map((item, index) => {
             const isOpen = openFaq === index

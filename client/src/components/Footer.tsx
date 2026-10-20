@@ -43,7 +43,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="footer-social-btn" aria-label="Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="mailto:jigarrajgor@hotmail.com" className="footer-social-btn" aria-label="Email">
+            <a href="mailto:jrajgor@jrconsulting.in" className="footer-social-btn" aria-label="Email">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
@@ -55,7 +55,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
           <ul>
             <li><strong>Jigar Rajgor</strong></li>
             <li><a href="tel:+919909558212" style={{ color: 'inherit', textDecoration: 'none' }}>+91 99095 58212</a></li>
-            <li><a href="mailto:jigarrajgor@hotmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>jigarrajgor@hotmail.com</a></li>
+            <li><a href="mailto:jrajgor@jrconsulting.in" style={{ color: 'inherit', textDecoration: 'none' }}>jrajgor@jrconsulting.in</a></li>
             <li style={{ marginTop: '1rem', color: 'var(--color-text-muted)' }}>
               Headquartered in Vadodara, Gujarat.<br/>Undertaking Turnkey Projects Pan-India.
             </li>
@@ -76,17 +76,15 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
           </ul>
         </div>
 
-        {/* Locations Column for SEO */}
+        {/* Locations Column */}
         <div className="footer-col">
           <h3>Locations Served</h3>
           <ul>
-            <li><Link to="/locations/ahmedabad">Ahmedabad, Gujarat</Link></li>
-            <li><Link to="/locations/surat">Surat, Gujarat</Link></li>
-            <li><Link to="/locations/vadodara">Vadodara, Gujarat</Link></li>
-            <li><Link to="/locations/rajkot">Rajkot, Gujarat</Link></li>
-            <li><Link to="/locations/mumbai">Mumbai, Maharashtra</Link></li>
-            <li><Link to="/locations/pune">Pune, Maharashtra</Link></li>
-            <li><Link to="/locations/delhi-ncr">Delhi NCR & Pan-India</Link></li>
+            <li style={{ color: 'var(--color-text)', fontWeight: 600, fontSize: '0.98rem' }}>Vadodara, India</li>
+            <li style={{ color: 'var(--color-accent)', fontSize: '0.82rem', marginTop: '0.35rem', letterSpacing: '0.5px', textTransform: 'uppercase', fontWeight: 600 }}>Serving Pan-India</li>
+            <li style={{ marginTop: '0.75rem', color: 'var(--color-text-muted)', lineHeight: 1.6, fontSize: '0.88rem' }}>
+              Turnkey restaurant setup, kitchen engineering, and operational consulting across all states in India.
+            </li>
           </ul>
         </div>
       </div>

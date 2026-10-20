@@ -89,7 +89,7 @@ export default function AboutPage() {
         </div>
 
         {/* Founder Story Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2.5rem', marginBottom: '6rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '2.5rem', marginBottom: '6rem' }}>
           <SpotlightCard className="bento-card" style={{ padding: '3rem' }}>
             <p className="bento-tag">The Background</p>
             <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', color: 'var(--color-text)' }}>Jigar Rajgor</h2>

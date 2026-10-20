@@ -217,7 +217,7 @@ export default function ServicesPage() {
                   <h3 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--color-text)', marginBottom: '1.25rem' }}>
                     Key Deliverables & Specifications:
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem 2rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1rem 2rem' }}>
                     {svc.deliverables.map((item, dIdx) => (
                       <div key={dIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '0.2rem' }}>

@@ -41,7 +41,7 @@ export default function FaqPage() {
     {
       category: 'Geography & Reach',
       q: 'Which locations and restaurant formats do you service across India?',
-      a: 'We are based in Vadodara, Gujarat, and actively undertake turnkey and kitchen consulting projects across Gujarat (Vadodara, Ahmedabad, Surat, Rajkot) as well as pan-India (Mumbai, Pune, Delhi NCR, Bangalore, and tier-2 hubs). We work with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
+      a: 'We are headquartered in Vadodara, India, and actively undertake turnkey restaurant setup and kitchen engineering projects Pan-India. We serve clients across all states and major hubs, working with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
     },
     {
       category: 'Project Scope & Execution',
