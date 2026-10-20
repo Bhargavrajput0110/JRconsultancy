@@ -68,8 +68,88 @@ const Services = () => {
               </div>
             </div>
           </div>
+        {/* Complimentary Add-On Insights Strip */}
+        <div className="complimentary-insights-block" style={{ marginTop: '5rem', borderTop: '1px solid rgba(196, 154, 108, 0.25)', paddingTop: '4rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{ 
+              display: 'inline-block', 
+              color: 'var(--color-accent, #c49a6c)', 
+              fontSize: '0.8rem', 
+              fontWeight: 600, 
+              letterSpacing: '1.5px', 
+              textTransform: 'uppercase', 
+              background: 'rgba(196, 154, 108, 0.1)', 
+              padding: '6px 16px', 
+              borderRadius: '20px', 
+              border: '1px solid rgba(196, 154, 108, 0.3)',
+              marginBottom: '1rem' 
+            }}>
+              ✦ COMPLIMENTARY VALUE-ADD INSIGHTS
+            </span>
+            <h3 style={{ fontSize: '2.4rem', fontFamily: 'var(--font-heading)', margin: '0 0 1rem 0' }}>
+              Strategic Insights Included With Every Service.
+            </h3>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.05rem', lineHeight: 1.6 }}>
+              Every consulting scope includes these proprietary civil audits, air-balancing models, and compliance blueprints at zero extra cost.
+            </p>
+          </div>
+
+          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <h4>Pre-Lease MEP & Civil Audit</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                  Slab load-bearing checks, exhaust shaft heights, and plumbing fall verification before you commit to a commercial lease.
+                </p>
+                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
+                  Prevents ₹1.5L–₹3L in unexpected rework.
+                </span>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <h4>Hood CFM & HVAC Air Balancing</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                  Scientific fresh air makeup and exhaust velocity calculation preventing kitchen hot pockets and smoke rollback into dining areas.
+                </p>
+                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
+                  Saves 15%–22% on power bills.
+                </span>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <h4>Vendor Tender & Price Benchmark</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                  Factory-direct procurement tender floatation with strict SS 304 gauge audits, bypassing agent commissions and fabricator markups.
+                </p>
+                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
+                  Saves 15%–25% on equipment CAPEX.
+                </span>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <h4>FSSAI Sanitary Zoning Blueprint</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                  Strict dirty-to-clean flow zoning and grease interceptor positioning mapped precisely to municipal food safety standards.
+                </p>
+                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
+                  100% first-attempt license approval.
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="cta-section">
         <div className="cta-container">

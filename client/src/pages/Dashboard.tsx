@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { LogOut } from 'lucide-react';
+import AdminLogin from '../components/AdminLogin';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<'Overview' | 'Clients' | 'Projects' | 'Proposals' | 'Finances' | 'Settings'>('Overview');
@@ -8,6 +10,79 @@ export default function Dashboard() {
   const [showNewProjectModal, setShowNewProjectModal] = useState(false);
   const [notification, setNotification] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Executive Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [adminUser, setAdminUser] = useState<{ email: string; name: string; role: string } | null>(null);
+
+  // Verify Admin Session on mount
+  useEffect(() => {
+    const verifySession = async () => {
+      const token = localStorage.getItem('jr_admin_token') || sessionStorage.getItem('jr_admin_token');
+      const storedUser = localStorage.getItem('jr_admin_user') || sessionStorage.getItem('jr_admin_user');
+
+      if (!token) {
+        setIsAuthenticated(false);
+        return;
+      }
+
+      if (storedUser) {
+        try {
+          setAdminUser(JSON.parse(storedUser));
+        } catch (e) {
+          // ignore parsing error
+        }
+      }
+
+      try {
+        const res = await fetch('/api/admin/verify', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          setIsAuthenticated(true);
+          if (data.user) {
+            setAdminUser(data.user);
+          }
+        } else {
+          // Explicit token rejection / expiration
+          localStorage.removeItem('jr_admin_token');
+          localStorage.removeItem('jr_admin_user');
+          sessionStorage.removeItem('jr_admin_token');
+          sessionStorage.removeItem('jr_admin_user');
+          setIsAuthenticated(false);
+          setAdminUser(null);
+        }
+      } catch (err) {
+        // Fallback for offline or static environment
+        if (storedUser) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    verifySession();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' });
+    } catch (e) {
+      // ignore
+    }
+    localStorage.removeItem('jr_admin_token');
+    localStorage.removeItem('jr_admin_user');
+    sessionStorage.removeItem('jr_admin_token');
+    sessionStorage.removeItem('jr_admin_user');
+    setIsAuthenticated(false);
+    setAdminUser(null);
+    setMobileMenuOpen(false);
+    triggerNotification('Executive session terminated. You have been safely logged out.');
+  };
 
   // Lock background scroll and handle Escape key when mobile sidebar drawer is open
   useEffect(() => {
@@ -161,6 +236,49 @@ export default function Dashboard() {
     triggerNotification('New consulting task scheduled.');
   };
 
+  // Loading verification screen
+  if (isAuthenticated === null) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        background: '#070c08',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        color: '#c49a6c',
+        fontFamily: 'var(--font-body, "Century Gothic", sans-serif)'
+      }}>
+        <div style={{
+          width: '40px',
+          height: '40px',
+          border: '3px solid rgba(196, 154, 108, 0.2)',
+          borderTopColor: 'var(--color-accent, #c49a6c)',
+          borderRadius: '50%',
+          animation: 'spin 0.8s linear infinite'
+        }} />
+        <span style={{ fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#9bb0a5' }}>
+          Verifying Executive Session...
+        </span>
+        <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
+
+  // Admin Login Gateway
+  if (!isAuthenticated) {
+    return (
+      <AdminLogin
+        onLoginSuccess={(user) => {
+          setAdminUser(user);
+          setIsAuthenticated(true);
+          triggerNotification(`Welcome back to JR Executive Suite, ${user.name}`);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="crm-layout">
       {/* Toast Alert */}
@@ -197,28 +315,51 @@ export default function Dashboard() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img src="/jr-logo.jpg" alt="JR Logo" style={{ height: '36px', width: '36px', borderRadius: '8px', objectFit: 'contain' }} />
           <div>
-            <h2 style={{ fontSize: '1.1rem', margin: 0, fontFamily: 'Georgia, serif', color: '#fff' }}>JR CRM</h2>
+            <h2 style={{ fontSize: '1.1rem', margin: 0, fontFamily: 'var(--font-heading)', color: '#fff' }}>JR CRM</h2>
             <span style={{ fontSize: '0.72rem', color: 'var(--color-accent, #c49a6c)' }}>{activeTab}</span>
           </div>
         </div>
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Menu"
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(196, 154, 108, 0.4)',
-            color: 'var(--color-accent, #c49a6c)',
-            padding: '8px 14px',
-            borderRadius: '10px',
-            fontSize: '1.2rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button
+            type="button"
+            onClick={handleLogout}
+            title="Sign Out of CRM"
+            style={{
+              background: 'rgba(239, 68, 68, 0.12)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              color: '#f87171',
+              padding: '8px 12px',
+              borderRadius: '10px',
+              fontSize: '0.85rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px'
+            }}
+          >
+            <LogOut size={15} />
+            <span style={{ fontSize: '0.76rem', fontWeight: 600 }}>Exit</span>
+          </button>
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Menu"
+            style={{
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(196, 154, 108, 0.4)',
+              color: 'var(--color-accent, #c49a6c)',
+              padding: '8px 14px',
+              borderRadius: '10px',
+              fontSize: '1.2rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
 
       {/* Backdrop for mobile drawer */}
@@ -239,7 +380,7 @@ export default function Dashboard() {
           >
             <img src="/jr-logo.jpg" alt="JR Logo" style={{ height: '40px', width: '40px', objectFit: 'contain', borderRadius: '10px', marginRight: '0.85rem', border: '1px solid rgba(196, 154, 108, 0.3)' }} />
             <div>
-              <h2 style={{ fontSize: '1.2rem', color: '#fff', margin: 0, fontFamily: 'Georgia, serif', letterSpacing: '0.5px' }}>JR CRM</h2>
+              <h2 style={{ fontSize: '1.2rem', color: '#fff', margin: 0, fontFamily: 'var(--font-heading)', letterSpacing: '0.5px' }}>JR CRM</h2>
               <span style={{ fontSize: '0.7rem', color: 'var(--color-accent, #c49a6c)', letterSpacing: '1px', textTransform: 'uppercase' }}>Executive Suite</span>
             </div>
           </Link>
@@ -316,7 +457,7 @@ export default function Dashboard() {
           }}
           onMouseEnter={(e: any) => {
             e.currentTarget.style.background = 'var(--color-accent, #c49a6c)';
-            e.currentTarget.style.color = '#0c1a13';
+            e.currentTarget.style.color = '#050806';
           }}
           onMouseLeave={(e: any) => {
             e.currentTarget.style.background = 'rgba(196, 154, 108, 0.12)';
@@ -327,34 +468,73 @@ export default function Dashboard() {
           <span>Back to Live Site</span>
         </Link>
 
-        {/* User Card */}
+        {/* User Card & Logout */}
         <div style={{ 
           padding: '1.1rem', 
           background: 'rgba(255,255,255,0.03)', 
           borderRadius: '16px', 
           border: '1px solid rgba(255,255,255,0.06)',
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: 'column',
           gap: '12px'
         }}>
-          <div style={{ 
-            width: '38px', 
-            height: '38px', 
-            borderRadius: '50%', 
-            background: 'linear-gradient(135deg, #c49a6c, #8b683e)', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            fontWeight: 700,
-            fontSize: '0.95rem',
-            color: '#0c1a13'
-          }}>
-            JR
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ 
+              width: '38px', 
+              height: '38px', 
+              borderRadius: '50%', 
+              background: 'linear-gradient(135deg, #c49a6c, #8b683e)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              color: '#050806',
+              flexShrink: 0
+            }}>
+              {adminUser?.name ? adminUser.name.split(' ').map(n => n[0]).join('') : 'JR'}
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ margin: 0, fontSize: '0.92rem', fontWeight: 600, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {adminUser?.name || 'Julian Rajput'}
+              </p>
+              <p style={{ margin: 0, fontSize: '0.72rem', color: '#9bb0a5', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {adminUser?.role || 'Principal Consultant & Founder'}
+              </p>
+            </div>
           </div>
-          <div>
-            <p style={{ margin: 0, fontSize: '0.92rem', fontWeight: 600, color: '#fff' }}>Julian Rajput</p>
-            <p style={{ margin: 0, fontSize: '0.72rem', color: '#9bb0a5' }}>Founder & Principal Consultant</p>
-          </div>
+
+          <button
+            type="button"
+            onClick={handleLogout}
+            style={{
+              background: 'rgba(239, 68, 68, 0.08)',
+              border: '1px solid rgba(239, 68, 68, 0.25)',
+              color: '#f87171',
+              padding: '8px 12px',
+              borderRadius: '10px',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              transition: 'all 0.2s ease',
+              width: '100%'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)';
+              e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.08)';
+              e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.25)';
+            }}
+          >
+            <LogOut size={14} />
+            <span>Sign Out of CRM</span>
+          </button>
         </div>
       </aside>
 
@@ -368,7 +548,7 @@ export default function Dashboard() {
               <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)' }}>/</span>
               <span style={{ fontSize: '0.8rem', color: '#9bb0a5' }}>{activeTab}</span>
             </div>
-            <h1 style={{ fontSize: '2.5rem', margin: 0, fontFamily: 'Georgia, serif', fontWeight: 'normal', color: '#fff' }}>
+            <h1 style={{ fontSize: '2.5rem', margin: 0, fontFamily: 'var(--font-heading)', fontWeight: 500, color: '#fff' }}>
               {activeTab === 'Overview' && <>Welcome back, <span style={{ fontStyle: 'italic', color: 'var(--color-accent, #c49a6c)' }}>Julian</span></>}
               {activeTab === 'Projects' && <>Client Consulting <span style={{ fontStyle: 'italic', color: 'var(--color-accent, #c49a6c)' }}>Projects</span></>}
               {activeTab === 'Clients' && <>Client Accounts & <span style={{ fontStyle: 'italic', color: 'var(--color-accent, #c49a6c)' }}>Partners</span></>}
@@ -430,12 +610,43 @@ export default function Dashboard() {
             >
               Export Report
             </button>
+            <button
+              type="button"
+              onClick={handleLogout}
+              style={{
+                background: 'rgba(239, 68, 68, 0.08)',
+                border: '1px solid rgba(239, 68, 68, 0.25)',
+                color: '#fca5a5',
+                padding: '0.8rem 1.35rem',
+                borderRadius: '30px',
+                cursor: 'pointer',
+                fontSize: '0.88rem',
+                fontWeight: 500,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                transition: 'all 0.2s'
+              }}
+              onMouseEnter={(e: any) => {
+                e.currentTarget.style.background = 'rgba(239, 68, 68, 0.18)';
+                e.currentTarget.style.color = '#fff';
+                e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)';
+              }}
+              onMouseLeave={(e: any) => {
+                e.currentTarget.style.background = 'rgba(239, 68, 68, 0.08)';
+                e.currentTarget.style.color = '#fca5a5';
+                e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.25)';
+              }}
+            >
+              <LogOut size={15} />
+              <span>Sign Out</span>
+            </button>
             <button 
               onClick={() => setShowNewLeadModal(true)}
               style={{ 
                 background: 'var(--color-accent, #c49a6c)', 
                 border: 'none', 
-                color: '#0c1a13', 
+                color: '#050806', 
                 padding: '0.8rem 1.5rem', 
                 borderRadius: '30px', 
                 fontWeight: 600,
@@ -477,7 +688,7 @@ export default function Dashboard() {
               {/* Active Pipeline */}
               <motion.div variants={springUp} className="crm-card">
                 <div className="crm-card-header">
-                  <h3 style={{ margin: 0, fontSize: '1.3rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Active Pipeline</h3>
+                  <h3 style={{ margin: 0, fontSize: '1.3rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Active Pipeline</h3>
                   <button 
                     onClick={() => setActiveTab('Projects')}
                     style={{ background: 'transparent', border: 'none', color: 'var(--color-accent, #c49a6c)', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 500 }}
@@ -527,7 +738,7 @@ export default function Dashboard() {
               {/* Tasks & Operations Reminders */}
               <motion.div variants={springUp} className="crm-card" style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="crm-card-header">
-                  <h3 style={{ margin: 0, fontSize: '1.3rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Tasks & Reminders</h3>
+                  <h3 style={{ margin: 0, fontSize: '1.3rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Tasks & Reminders</h3>
                   <span style={{ fontSize: '0.85rem', color: 'var(--color-accent, #c49a6c)' }}>{tasks.filter(t => !t.done).length} Pending</span>
                 </div>
 
@@ -592,7 +803,7 @@ export default function Dashboard() {
                       }}
                     />
                     <div style={{ display: 'flex', gap: '8px' }}>
-                      <button type="submit" style={{ flex: 1, padding: '0.6rem', background: 'var(--color-accent, #c49a6c)', color: '#0c1a13', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>Add Task</button>
+                      <button type="submit" style={{ flex: 1, padding: '0.6rem', background: 'var(--color-accent, #c49a6c)', color: '#050806', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>Add Task</button>
                       <button type="button" onClick={() => setShowTaskInput(false)} style={{ padding: '0.6rem 1rem', background: 'rgba(255,255,255,0.1)', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Cancel</button>
                     </div>
                   </form>
@@ -631,7 +842,7 @@ export default function Dashboard() {
                     onClick={() => setProjectFilter(status)}
                     style={{
                       background: projectFilter === status ? 'var(--color-accent, #c49a6c)' : 'transparent',
-                      color: projectFilter === status ? '#0c1a13' : '#9bb0a5',
+                      color: projectFilter === status ? '#050806' : '#9bb0a5',
                       border: 'none',
                       padding: '0.5rem 1.25rem',
                       borderRadius: '20px',
@@ -667,7 +878,7 @@ export default function Dashboard() {
                   onClick={() => setShowNewProjectModal(true)}
                   style={{
                     background: 'var(--color-accent, #c49a6c)',
-                    color: '#0c1a13',
+                    color: '#050806',
                     border: 'none',
                     padding: '0.75rem 1.5rem',
                     borderRadius: '30px',
@@ -716,8 +927,14 @@ export default function Dashboard() {
                           }}>
                             {project.type}
                           </span>
-                          <h3 style={{ margin: '0.3rem 0', fontSize: '1.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>{project.name}</h3>
-                          <p style={{ margin: 0, fontSize: '0.88rem', color: '#9bb0a5' }}>📍 {project.location}</p>
+                          <h3 style={{ margin: '0.3rem 0', fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>{project.name}</h3>
+                          <p style={{ margin: 0, fontSize: '0.88rem', color: '#9bb0a5', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-accent, #c49a6c)' }}>
+                              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                              <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            {project.location}
+                          </p>
                         </div>
                         <span style={{ 
                           background: `${project.color}18`, 
@@ -794,12 +1011,12 @@ export default function Dashboard() {
           <motion.div variants={staggerContainer} initial="hidden" animate="visible">
             <div className="crm-card">
               <div className="crm-card-header">
-                <h3 style={{ margin: 0, fontSize: '1.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Client Directory & Stakeholders</h3>
+                <h3 style={{ margin: 0, fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Client Directory & Stakeholders</h3>
                 <button 
                   onClick={() => setShowNewLeadModal(true)}
                   style={{
                     background: 'var(--color-accent, #c49a6c)',
-                    color: '#0c1a13',
+                    color: '#050806',
                     border: 'none',
                     padding: '0.7rem 1.5rem',
                     borderRadius: '30px',
@@ -896,7 +1113,7 @@ export default function Dashboard() {
             </div>
 
             <div className="crm-card">
-              <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Proposals & Scopes of Work</h3>
+              <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Proposals & Scopes of Work</h3>
               <div className="crm-table-container">
                 <table className="crm-table">
                   <thead>
@@ -976,12 +1193,12 @@ export default function Dashboard() {
 
             <div className="crm-card">
               <div className="crm-card-header">
-                <h3 style={{ margin: 0, fontSize: '1.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Recent Invoices & Retainers</h3>
+                <h3 style={{ margin: 0, fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Recent Invoices & Retainers</h3>
                 <button 
                   onClick={() => triggerNotification('Generating new GST Tax Invoice...')}
                   style={{
                     background: 'var(--color-accent, #c49a6c)',
-                    color: '#0c1a13',
+                    color: '#050806',
                     border: 'none',
                     padding: '0.65rem 1.4rem',
                     borderRadius: '24px',
@@ -1059,7 +1276,7 @@ export default function Dashboard() {
         {activeTab === 'Settings' && (
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" style={{ maxWidth: '800px' }}>
             <div className="crm-card" style={{ marginBottom: '2rem' }}>
-              <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Consultancy Firm Credentials</h3>
+              <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#fff' }}>Consultancy Firm Credentials</h3>
               
               <div className="crm-form-row">
                 <div>
@@ -1087,7 +1304,7 @@ export default function Dashboard() {
                 onClick={() => triggerNotification('Practice profile updated successfully.')}
                 style={{
                   background: 'var(--color-accent, #c49a6c)',
-                  color: '#0c1a13',
+                  color: '#050806',
                   border: 'none',
                   padding: '0.8rem 1.8rem',
                   borderRadius: '24px',
@@ -1122,7 +1339,7 @@ export default function Dashboard() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               style={{
-                background: '#0c1a13',
+                background: '#090e0a',
                 border: '1px solid var(--color-accent, #c49a6c)',
                 borderRadius: '24px',
                 padding: '2.5rem',
@@ -1131,7 +1348,7 @@ export default function Dashboard() {
                 boxShadow: '0 20px 50px rgba(0,0,0,0.8)'
               }}
             >
-              <h2 style={{ margin: '0 0 0.5rem 0', fontFamily: 'Georgia, serif', color: '#fff' }}>Register New F&B Lead</h2>
+              <h2 style={{ margin: '0 0 0.5rem 0', fontFamily: 'var(--font-heading)', color: '#fff' }}>Register New F&B Lead</h2>
               <p style={{ margin: '0 0 2rem 0', color: '#9bb0a5', fontSize: '0.9rem' }}>Record an incoming restaurant setup inquiry.</p>
 
               <form onSubmit={(e) => {
@@ -1153,7 +1370,7 @@ export default function Dashboard() {
                 </div>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
                   <button type="button" onClick={() => setShowNewLeadModal(false)} style={{ padding: '0.8rem 1.5rem', background: 'rgba(255,255,255,0.08)', color: '#fff', border: 'none', borderRadius: '24px', cursor: 'pointer' }}>Cancel</button>
-                  <button type="submit" style={{ padding: '0.8rem 1.8rem', background: 'var(--color-accent, #c49a6c)', color: '#0c1a13', border: 'none', borderRadius: '24px', fontWeight: 600, cursor: 'pointer' }}>Save Lead</button>
+                  <button type="submit" style={{ padding: '0.8rem 1.8rem', background: 'var(--color-accent, #c49a6c)', color: '#050806', border: 'none', borderRadius: '24px', fontWeight: 600, cursor: 'pointer' }}>Save Lead</button>
                 </div>
               </form>
             </motion.div>
@@ -1179,7 +1396,7 @@ export default function Dashboard() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               style={{
-                background: '#0c1a13',
+                background: '#090e0a',
                 border: '1px solid var(--color-accent, #c49a6c)',
                 borderRadius: '24px',
                 padding: '2.5rem',
@@ -1188,7 +1405,7 @@ export default function Dashboard() {
                 boxShadow: '0 20px 50px rgba(0,0,0,0.8)'
               }}
             >
-              <h2 style={{ margin: '0 0 0.5rem 0', fontFamily: 'Georgia, serif', color: '#fff' }}>Initiate Turnkey Project</h2>
+              <h2 style={{ margin: '0 0 0.5rem 0', fontFamily: 'var(--font-heading)', color: '#fff' }}>Initiate Turnkey Project</h2>
               <p style={{ margin: '0 0 2rem 0', color: '#9bb0a5', fontSize: '0.9rem' }}>Create a new consulting engagement file.</p>
 
               <form onSubmit={(e) => {
@@ -1249,7 +1466,7 @@ export default function Dashboard() {
                 </div>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
                   <button type="button" onClick={() => setShowNewProjectModal(false)} style={{ padding: '0.8rem 1.5rem', background: 'rgba(255,255,255,0.08)', color: '#fff', border: 'none', borderRadius: '24px', cursor: 'pointer' }}>Cancel</button>
-                  <button type="submit" style={{ padding: '0.8rem 1.8rem', background: 'var(--color-accent, #c49a6c)', color: '#0c1a13', border: 'none', borderRadius: '24px', fontWeight: 600, cursor: 'pointer' }}>Create Project</button>
+                  <button type="submit" style={{ padding: '0.8rem 1.8rem', background: 'var(--color-accent, #c49a6c)', color: '#050806', border: 'none', borderRadius: '24px', fontWeight: 600, cursor: 'pointer' }}>Create Project</button>
                 </div>
               </form>
             </motion.div>
