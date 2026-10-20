@@ -116,19 +116,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav-drawer {
   position: fixed;
-  top: 75px;
+  top: 98px;
   left: 1rem;
   right: 1rem;
   background: rgba(9, 14, 10, 0.98);
   border: 1px solid rgba(196, 154, 108, 0.35);
   border-radius: 24px;
-  padding: 1.5rem;
+  padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
   box-shadow: 0 15px 35px rgba(0,0,0,0.8);
   backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   z-index: 999;
+  pointer-events: auto;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
 .mobile-nav-drawer a {
@@ -977,12 +981,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Mobile Breakpoint for Portfolio & FABs */
 @media (max-width: 768px) {
-  /* Move FABs to bottom right to avoid blocking reading flow */
+  /* Position FABs cleanly on bottom-left away from Netlify badge on bottom-right */
   .fab-container {
-    bottom: 1.25rem !important;
-    right: 1.25rem !important;
-    left: auto !important;
-    gap: 0.6rem !important;
+    bottom: 1.5rem !important;
+    left: 1.25rem !important;
+    right: auto !important;
+    gap: 0.65rem !important;
     z-index: 998 !important;
   }
   .fab-btn {
@@ -1939,6 +1943,30 @@ h1, h2, h3, h4, h5, h6 {
   .process-step-num {
     font-size: 0.75rem !important;
     padding: 0.35rem 0.85rem !important;
+  }
+
+  /* Hero action buttons on phone */
+  .hero-ios a.hover-target {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+    padding: 0.85rem 1.4rem !important;
+    font-size: 1rem !important;
+    margin: 0 auto !important;
+  }
+
+  /* Complimentary badge banner on phone */
+  .complimentary-badge-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: left !important;
+    padding: 1.5rem 1.25rem !important;
+    gap: 1.25rem !important;
+  }
+  .complimentary-badge-banner a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 }
 

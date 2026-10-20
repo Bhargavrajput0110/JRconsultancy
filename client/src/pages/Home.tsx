@@ -394,6 +394,7 @@ export default function Home() {
 
         {/* Complimentary Insights Value-Add Strip */}
         <motion.div
+          className="complimentary-badge-banner"
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={springUp}
           style={{
             marginTop: '2rem',
