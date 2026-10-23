@@ -78,7 +78,7 @@ export default function AboutPage() {
         <div className="trust-strip" style={{ borderRadius: '24px', margin: '2rem 0 5rem' }}>
           <div className="trust-stats-grid">
             {[
-              { num: '15+', label: 'Years in Civil Engineering' },
+              { num: '15+', label: 'Years in Civil Engineering Experience' },
               { num: '5+', label: 'Kitchens Designed' },
               { num: '10+', label: 'Years in Restaurant Ops' },
             ].map((stat, i) => (
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <div className="trust-strip-footer">
             <span className="trust-fssai-badge">
               <ShieldCheck size={16} />
-              <span>FSSAI Compliance</span>
+              <span>Assured FSSAI Compliance</span>
             </span>
           </div>
         </div>

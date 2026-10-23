@@ -201,7 +201,7 @@ export default function Home() {
       >
         <div className="trust-stats-grid">
           {[
-            { num: '15+', label: 'Years in Civil Engineering' },
+            { num: '15+', label: 'Years in Civil Engineering Experience' },
             { num: '5+', label: 'Kitchens Designed' },
             { num: '10+', label: 'Years in Restaurant Ops' },
           ].map((stat, i) => (
@@ -214,7 +214,7 @@ export default function Home() {
         <div className="trust-strip-footer">
           <span className="trust-fssai-badge">
             <ShieldCheck size={16} />
-            <span>FSSAI Compliance</span>
+            <span>Assured FSSAI Compliance</span>
           </span>
         </div>
       </motion.div>
@@ -254,8 +254,7 @@ export default function Home() {
               <ul className="bento-list">
                 <li>Commercial kitchen layout</li>
                 <li>Space planning</li>
-                <li>Structural safety</li>
-                <li>Code compliance advisory</li>
+                <li>Structural safety & code compliance advisory</li>
                 <li>Kitchen workflow expertise</li>
                 <li>Operational efficiency</li>
                 <li>New build & renovation</li>
