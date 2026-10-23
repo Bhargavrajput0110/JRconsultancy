@@ -26,7 +26,7 @@ export default function FaqPage() {
     {
       category: 'Civil Engineering',
       q: 'How does your Civil Engineering background specifically help restaurant owners?',
-      a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, or poor ventilation causing kitchen heat to spill into dining rooms. As a civil engineer with 15+ years of experience, Jigar Rajgor designs drainage slopes, CFM exhaust air balancing, and electrical circuits to run seamlessly under peak weekend pressure.'
+      a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, or poor ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor coordinates drainage slopes, CFM exhaust air balancing, and electrical circuits to run smoothly under peak weekend pressure.'
     },
     {
       category: 'Equipment & CAPEX',
@@ -35,8 +35,8 @@ export default function FaqPage() {
     },
     {
       category: 'Compliance & Licenses',
-      q: 'How do you guarantee 100% FSSAI and statutory compliance?',
-      a: 'We design kitchen layouts strictly aligned with FSSAI Schedule 4 sanitary zoning regulations. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts pass municipal health inspections on the first submission.'
+      q: 'How do you ensure FSSAI and statutory code compliance?',
+      a: 'We design kitchen layouts strictly aligned with FSSAI Schedule 4 sanitary zoning regulations. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts are engineered to meet municipal health inspection standards smoothly.'
     },
     {
       category: 'Geography & Reach',

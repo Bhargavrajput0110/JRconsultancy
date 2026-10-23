@@ -31,10 +31,10 @@ const Services = () => {
                 <h3>Shape the experience.</h3>
                 <ul>
                   <li>Menu design assistance</li>
-                  <li>Kitchen workflow & layout (MEP services)*</li>
-                  <li>Equipment selection & procurement</li>
+                  <li>Kitchen workflow & layout (incl. MEP services assistance)*</li>
+                  <li>Kitchen equipment selection & procurement assistance</li>
                   <li>Vendor recommendations</li>
-                  <li>Crockery, cutlery, uniforms & packaging</li>
+                  <li>Crockery, cutlery, uniforms & packaging advice</li>
                 </ul>
               </div>
             </div>
@@ -45,11 +45,12 @@ const Services = () => {
                 <span className="service-tag">03 / PEOPLE & OPERATIONS</span>
                 <h3>The people. The process.</h3>
                 <ul>
-                  <li>Manpower recruitment & role clarity</li>
+                  <li>Manpower recruitment assistance</li>
+                  <li>Job responsibilities & role clarity</li>
                   <li>General service & kitchen staff training</li>
-                  <li>Document management (FSSAI norms)</li>
-                  <li>Stores & inventory management</li>
-                  <li>Cost analysis</li>
+                  <li>Document management system in accordance with FSSAI norms</li>
+                  <li>Stores & inventory management assistance</li>
+                  <li>Food and other cost analysis advisory</li>
                 </ul>
               </div>
             </div>
@@ -90,14 +91,14 @@ const Services = () => {
               Strategic Insights Included With Every Service.
             </h3>
             <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              Every consulting scope includes these proprietary civil audits, air-balancing models, and compliance blueprints at zero extra cost.
+              Every consulting scope includes these proprietary civil audits, air-balancing models, and compliance blueprints as complimentary inclusions.
             </p>
           </div>
 
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
-                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Pre-Lease MEP & Civil Audit</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
                   Slab load-bearing checks, exhaust shaft heights, and plumbing fall verification before you commit to a commercial lease.
@@ -110,7 +111,7 @@ const Services = () => {
 
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
-                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Hood CFM & HVAC Air Balancing</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
                   Scientific fresh air makeup and exhaust velocity calculation preventing kitchen hot pockets and smoke rollback into dining areas.
@@ -123,7 +124,7 @@ const Services = () => {
 
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
-                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Vendor Tender & Price Benchmark</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
                   Factory-direct procurement tender floatation with strict SS 304 gauge audits, bypassing agent commissions and fabricator markups.
@@ -136,13 +137,13 @@ const Services = () => {
 
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
-                <span className="service-tag" style={{ color: '#4ade80' }}>✓ ₹0 COMPLIMENTARY</span>
+                <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>FSSAI Sanitary Zoning Blueprint</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
                   Strict dirty-to-clean flow zoning and grease interceptor positioning mapped precisely to municipal food safety standards.
                 </p>
                 <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
-                  100% first-attempt license approval.
+                  Municipal compliance alignment.
                 </span>
               </div>
             </div>

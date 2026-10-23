@@ -54,7 +54,7 @@ export default function ServicesPage() {
         'Industrial grease interceptor sizing and underground pipe fall gradients',
         'Stainless steel equipment BOQ (Bill of Quantities) with technical specs',
         'Factory tender floatation saving 15–25% on direct equipment procurement',
-        'FSSAI Schedule 4 sanitary zoning with zero cross-contamination pathways'
+        'FSSAI Schedule 4 sanitary zoning with segregated food prep pathways'
       ]
     },
     {
@@ -65,7 +65,7 @@ export default function ServicesPage() {
       deliverables: [
         'FOH hospitality protocols and upselling training programs',
         'BOH station mise-en-place checklists and line prep guides',
-        'Recipe standardization, food portion control, and wastage audits',
+        'Food and other cost analysis advisory, portion control, and wastage audits',
         'Complete FSSAI compliance binder setup and food hygiene audit logs',
         'POS software configuration, KDS workflow, and inventory management',
         'Core kitchen leadership recruitment and trial tasting evaluations'
@@ -118,7 +118,7 @@ export default function ServicesPage() {
       title: 'FSSAI Schedule 4 Sanitary Zoning Blueprint',
       pairedWith: 'Pillar 02 & 03: Kitchen Layout & SOPs',
       desc: 'Strict demarcation of dirty receiving, wet prep, hot line, and plating zones. Complete with grease interceptor sizing and wash station locations to satisfy municipal health inspector guidelines.',
-      impact: 'Ensures 100% first-attempt municipal licensing clearance without stop-work notices.'
+      impact: 'Designed to satisfy municipal health guidelines and licensing inspections without costly rework notices.'
     },
     {
       icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,
@@ -293,7 +293,7 @@ export default function ServicesPage() {
               margin: '0 auto',
               lineHeight: 1.7
             }}>
-              We believe great hospitality ventures shouldn't be nickeled-and-dimed for essential engineering advice. Every JR Consulting project automatically comes bundled with these proprietary strategic audits and blueprints at <strong style={{ color: '#fff' }}>zero extra cost</strong>.
+              We believe great hospitality ventures shouldn't be nickeled-and-dimed for essential engineering advice. Every JR Consulting project automatically comes bundled with these proprietary strategic audits and blueprints as <strong style={{ color: '#fff' }}>complimentary inclusions</strong>.
             </p>
           </motion.div>
 
@@ -441,7 +441,7 @@ export default function ServicesPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
                 <ShieldCheck size={18} color="var(--color-accent, #c49a6c)" />
                 <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--color-accent, #c49a6c)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  The JR Consulting Guarantee
+                  The JR Consulting Standard
                 </span>
               </div>
               <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-heading)' }}>

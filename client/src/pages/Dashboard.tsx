@@ -203,7 +203,7 @@ export default function Dashboard() {
   const proposalsList = [
     { title: 'Turnkey Restobar Setup & Bar Mixology SOPs', client: 'Velvet Lounge, Bandra', amount: '₹9.5 Lakhs', date: 'Oct 09, 2026', status: 'Sent & Pending Signature', prob: '85%' },
     { title: 'Commercial Kitchen Audit & Energy Efficiency Optimization', client: 'Copper Chimney Franchisee', amount: '₹3.8 Lakhs', date: 'Oct 07, 2026', status: 'Under Review', prob: '60%' },
-    { title: 'Complete Cloud Kitchen Chain SOP & Central Base Kitchen Design', client: 'Bowl Republic (3 Outlets)', amount: '₹14.0 Lakhs', date: 'Oct 04, 2026', status: 'Proposal Accepted', prob: '100%' },
+    { title: 'Complete Cloud Kitchen Chain SOP & Central Base Kitchen Design', client: 'Bowl Republic (3 Outlets)', amount: '₹14.0 Lakhs', date: 'Oct 04, 2026', status: 'Proposal Accepted', prob: '95%' },
     { title: 'Culinary Menu Engineering & Gross Margin Restructuring', client: 'Bakehouse 71, Goa', amount: '₹2.7 Lakhs', date: 'Sep 29, 2026', status: 'Drafting', prob: '40%' }
   ];
 

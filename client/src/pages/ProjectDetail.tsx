@@ -26,7 +26,7 @@ const projectsData: Record<string, any> = {
       },
       {
         heading: 'Staff Training & FSSAI Compliance',
-        text: 'Conducted rigorous, comprehensive front-of-house and kitchen brigade training programs. Implemented daily digital audit checklists ensuring 100% compliance with strict municipal and FSSAI hygiene standards.',
+        text: 'Conducted rigorous, comprehensive front-of-house and kitchen brigade training programs. Implemented daily digital audit checklists ensuring strict alignment with municipal and FSSAI hygiene standards.',
         image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80'
       }
     ]
@@ -117,7 +117,7 @@ const projectsData: Record<string, any> = {
     tag: 'Multi-Cuisine Family Dining',
     location: 'Mumbai, Maharashtra',
     heroImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80',
-    overview: 'Operational turnaround and station re-engineering for a 160-seater multi-cuisine venue serving North Indian, Pan-Asian, and Continental menus with zero kitchen cross-contamination.',
+    overview: 'Operational turnaround and station re-engineering for a 160-seater multi-cuisine venue serving North Indian, Pan-Asian, and Continental menus with segregated prep bays and contamination prevention.',
     details: [
       {
         heading: 'Independent Production Line Zoning',

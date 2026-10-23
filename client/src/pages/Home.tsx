@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import SmoothScroll from '../components/SmoothScroll'
 import SpotlightCard from '../components/SpotlightCard'
 import HorizontalScroll from '../components/HorizontalScroll'
+import { ShieldCheck } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../index.css'
@@ -84,8 +85,18 @@ export default function Home() {
 
       {/* Hero with Awwwards-Level Blur Stagger & Cinematic Video Background */}
       <section className="hero-ios" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', paddingTop: 'clamp(9.5rem, 16vh, 12rem)', paddingBottom: '5rem' }}>
-        {/* Background Video */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
+        {/* Background Video with Smooth Fade-Out Mask */}
+        <div style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          zIndex: 0, 
+          pointerEvents: 'none',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 96%)',
+          maskImage: 'linear-gradient(to bottom, black 55%, transparent 96%)'
+        }}>
           <video
             autoPlay
             loop
@@ -95,121 +106,24 @@ export default function Home() {
               width: '100%', 
               height: '100%', 
               objectFit: 'cover', 
-              opacity: 0.22, 
+              opacity: 0.18, 
               filter: 'grayscale(100%) brightness(0.3) contrast(1.15)' 
             }}
             src="/hero-bg-v2.mp4"
           />
-          {/* Subtle Deep Noir Gradient Overlay */}
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(9, 14, 10, 0.75), rgba(9, 14, 10, 0.88), #090e0a)' }} />
+          <div style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            background: 'linear-gradient(to bottom, rgba(6, 13, 8, 0.45) 0%, rgba(6, 13, 8, 0.8) 100%)' 
+          }} />
         </div>
 
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
           
-          {/* Prominent Official Client Logo Medallion */}
-          <motion.div
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={blurReveal}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              marginBottom: '1.5rem',
-              position: 'relative'
-            }}
-          >
-            {/* Ambient Golden Halo Glow */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '140px',
-                height: '140px',
-                background: 'radial-gradient(circle, rgba(196, 154, 108, 0.35) 0%, rgba(9, 14, 10, 0) 70%)',
-                borderRadius: '50%',
-                filter: 'blur(20px)',
-                pointerEvents: 'none',
-                zIndex: 0
-              }}
-            />
-
-            {/* Emblem Card Container */}
-            <div
-              style={{
-                position: 'relative',
-                zIndex: 1,
-                width: 'clamp(85px, 10vw, 105px)',
-                height: 'clamp(85px, 10vw, 105px)',
-                borderRadius: '24px',
-                background: '#ffffff',
-                padding: '6px',
-                boxShadow: '0 16px 36px rgba(0, 0, 0, 0.45), 0 0 0 1.5px rgba(196, 154, 108, 0.7), inset 0 0 0 1.5px rgba(255, 255, 255, 0.9)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden'
-              }}
-            >
-              <img
-                src="/jr-logo.jpg"
-                alt="JR Consulting - Jigar Rajgor Restaurant Set-up & Operations"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain'
-                }}
-              />
-            </div>
-
-            {/* Sub-label Under Logo */}
-            <div
-              style={{
-                marginTop: '0.9rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                padding: '0.35rem 1.1rem',
-                borderRadius: '24px',
-                background: 'rgba(13, 20, 15, 0.88)',
-                border: '1px solid rgba(196, 154, 108, 0.45)',
-                backdropFilter: 'blur(12px)',
-                zIndex: 1,
-                boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.78rem',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  color: 'var(--color-accent)'
-                }}
-              >
-                JR CONSULTING
-              </span>
-              <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--color-accent)' }} />
-              <span
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '1.2px',
-                  textTransform: 'uppercase',
-                  color: 'rgba(253, 251, 247, 0.85)',
-                  fontWeight: 500
-                }}
-              >
-                JIGAR RAJGOR
-              </span>
-            </div>
-          </motion.div>
-
-          <motion.p custom={1} initial="hidden" animate="visible" variants={blurReveal} className="hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)', marginTop: '0.2rem' }}>
+          <motion.p custom={0} initial="hidden" animate="visible" variants={blurReveal} className="hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)', marginTop: '0.5rem' }}>
             {isSeoPage ? `Expert Services in ${formattedLocation}` : 'Restaurant Set-up & Operations Specialist'}
           </motion.p>
           
@@ -285,17 +199,24 @@ export default function Home() {
         transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
         className="trust-strip"
       >
-        {[
-          { num: '15+', label: 'Years in Civil Engineering' },
-          { num: '5+', label: 'Kitchens Designed' },
-          { num: '10+', label: 'Years in Restaurant Ops' },
-          { num: '100%', label: 'FSSAI Compliance Rate' },
-        ].map((stat, i) => (
-          <div key={i} className="trust-stat">
-            <span className="trust-stat-num">{stat.num}</span>
-            <span className="trust-stat-label">{stat.label}</span>
-          </div>
-        ))}
+        <div className="trust-stats-grid">
+          {[
+            { num: '15+', label: 'Years in Civil Engineering' },
+            { num: '5+', label: 'Kitchens Designed' },
+            { num: '10+', label: 'Years in Restaurant Ops' },
+          ].map((stat, i) => (
+            <div key={i} className="trust-stat">
+              <span className="trust-stat-num">{stat.num}</span>
+              <span className="trust-stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="trust-strip-footer">
+          <span className="trust-fssai-badge">
+            <ShieldCheck size={16} />
+            <span>FSSAI Compliance</span>
+          </span>
+        </div>
       </motion.div>
 
       {/* Bento Box Layout - About & Expertise */}
@@ -422,14 +343,14 @@ export default function Home() {
               textTransform: 'uppercase',
               letterSpacing: '1px'
             }}>
-              ✦ ₹0 Complimentary
+              ✦ Complimentary Inclusions
             </div>
             <div>
               <h4 style={{ margin: 0, fontSize: '1.15rem', color: '#fff', fontFamily: 'var(--font-heading)' }}>
                 Every Scope Includes Complimentary Strategic Insights & Civil Audits
               </h4>
               <p style={{ margin: '0.25rem 0 0 0', color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                Pre-lease MEP audits, CFM hood air balancing, and FSSAI Schedule 4 sanitary blueprints bundled at zero extra fee.
+                Pre-lease MEP audits, CFM hood air balancing, and FSSAI Schedule 4 sanitary blueprints bundled as complimentary additions.
               </p>
             </div>
           </div>
@@ -557,7 +478,7 @@ export default function Home() {
                     <ul className="modal-feature-list">
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Menu Design:</strong> Engineering menus for high margin and prep efficiency.</div>
+                        <div className="modal-feature-text"><strong>Menu Design Assistance:</strong> Menu engineering advisory, recipe standardization, and prep-efficient kitchen execution.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -565,7 +486,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>MEP Services:</strong> Mechanical, Electrical, and Plumbing load distributions.</div>
+                        <div className="modal-feature-text"><strong>MEP Services:</strong> Basic MEP service provision and detailed MEP service coordination assistance.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -584,17 +505,18 @@ export default function Home() {
                       <div>
                         <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>People & Training</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Manpower recruitment & trials</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Role clarity & SOPs</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Front-of-house service training</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Manpower recruitment assistance</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Job responsibilities & role clarity</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">General service training</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Kitchen staff training, cleaning & hygiene requirements</div></li>
                         </ul>
                       </div>
                       <div>
                         <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Systems & Control</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">FSSAI document systems</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Inventory & wastage control</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Food cost analysis</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Document management system in accordance with FSSAI norms</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Stores & inventory management assistance</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Food and other cost analysis advisory</div></li>
                         </ul>
                       </div>
                     </div>
@@ -617,7 +539,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews to maintain FSSAI standards.</div>
+                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews and maintain FSSAI standards.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -788,7 +710,7 @@ export default function Home() {
                 </span>
                 <div className="eng-item-text">
                   <h4>Engineered Drain Slopes & Industrial Grease Traps</h4>
-                  <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors ensure municipal compliance and zero foul odor.</p>
+                  <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors ensure municipal compliance and prevent foul odors.</p>
                 </div>
               </div>
               <div className="eng-item">
@@ -812,7 +734,7 @@ export default function Home() {
                 </span>
                 <div className="eng-item-text">
                   <h4>3-Phase Electrical Load & Gas Bank Zoning</h4>
-                  <p>KW loads mapped per cooking station with isolated breaker panels to eliminate Saturday night power trips and equipment burnout.</p>
+                  <p>KW loads mapped per cooking station with isolated breaker panels to prevent costly power trips and protect equipment from burnout.</p>
                 </div>
               </div>
               <div className="eng-item">
@@ -823,7 +745,7 @@ export default function Home() {
                   </svg>
                 </span>
                 <div className="eng-item-text">
-                  <h4>100% FSSAI Schedule 4 Sanitary Zoning</h4>
+                  <h4>FSSAI Schedule 4 Sanitary Zoning Alignment</h4>
                   <p>Non-cross-contamination workflows separating raw receiving, cold chain, hot line, and dishwash for swift municipal approval.</p>
                 </div>
               </div>
@@ -1074,15 +996,15 @@ export default function Home() {
             },
             {
               q: 'How does your Civil Engineering background specifically help restaurant owners?',
-              a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, or poor ventilation causing kitchen heat to spill into dining rooms. As a civil engineer with 15+ years of experience, Jigar Rajgor designs drainage slopes, CFM exhaust air balancing, and electrical circuits to run seamlessly under peak weekend pressure.'
+              a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, or poor ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor coordinates drainage slopes, CFM exhaust air balancing, and electrical circuits to run smoothly under peak weekend pressure.'
             },
             {
               q: 'Do you sell or supply commercial kitchen equipment directly?',
               a: 'No, we remain strictly vendor-neutral to act in your best financial interest. We prepare the complete Kitchen Equipment Schedule & BOQ (Bill of Quantities) with detailed stainless steel grades (SS304), thickness, and electrical/gas specifications. We then float tenders to India\'s top equipment manufacturers and fabricators, negotiating factory-direct pricing that typically saves our clients 15–25% on CAPEX.'
             },
             {
-              q: 'How do you guarantee 100% FSSAI and statutory compliance?',
-              a: 'We design kitchen layouts strictly aligned with FSSAI Schedule 4 sanitary zoning regulations. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts pass municipal health inspections on the first submission.'
+              q: 'How do you ensure FSSAI and statutory code compliance?',
+              a: 'We design kitchen layouts strictly aligned with FSSAI Schedule 4 sanitary zoning regulations. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts are engineered to meet municipal health inspection standards smoothly.'
             },
             {
               q: 'Which locations and restaurant formats do you service?',

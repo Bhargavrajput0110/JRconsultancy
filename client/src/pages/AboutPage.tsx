@@ -6,6 +6,7 @@ import SmoothScroll from '../components/SmoothScroll'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import SpotlightCard from '../components/SpotlightCard'
+import { ShieldCheck } from 'lucide-react'
 import '../index.css'
 
 export default function AboutPage() {
@@ -75,17 +76,24 @@ export default function AboutPage() {
 
         {/* Stats Strip */}
         <div className="trust-strip" style={{ borderRadius: '24px', margin: '2rem 0 5rem' }}>
-          {[
-            { num: '15+', label: 'Years in Civil Engineering' },
-            { num: '5+', label: 'Commercial Kitchens Designed' },
-            { num: '10+', label: 'Years in Restaurant Operations' },
-            { num: '100%', label: 'FSSAI First-Time Approval Rate' },
-          ].map((stat, i) => (
-            <div key={i} className="trust-stat">
-              <span className="trust-stat-num">{stat.num}</span>
-              <span className="trust-stat-label">{stat.label}</span>
-            </div>
-          ))}
+          <div className="trust-stats-grid">
+            {[
+              { num: '15+', label: 'Years in Civil Engineering' },
+              { num: '5+', label: 'Kitchens Designed' },
+              { num: '10+', label: 'Years in Restaurant Ops' },
+            ].map((stat, i) => (
+              <div key={i} className="trust-stat">
+                <span className="trust-stat-num">{stat.num}</span>
+                <span className="trust-stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="trust-strip-footer">
+            <span className="trust-fssai-badge">
+              <ShieldCheck size={16} />
+              <span>FSSAI Compliance</span>
+            </span>
+          </div>
         </div>
 
         {/* Founder Story Grid */}
@@ -94,10 +102,10 @@ export default function AboutPage() {
             <p className="bento-tag">The Background</p>
             <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', color: 'var(--color-text)' }}>Jigar Rajgor</h2>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1.5rem', fontSize: '1.02rem' }}>
-              With over 15 years as a practicing civil engineer, Jigar learned structural load calculations, slab reinforcement, plumbing hydraulics, and industrial MEP systems from the ground up.
+              With over 15 years in civil engineering and infrastructure projects, Jigar developed extensive practical expertise in spatial planning, structural safety coordination, plumbing hydraulics, and commercial MEP systems from the ground up.
             </p>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, fontSize: '1.02rem' }}>
-              When he transitioned into restaurant ownership and operations over a decade ago, he saw firsthand that 70% of restaurant operational nightmares — clotted grease traps, tripping breakers, high kitchen temperatures, and slow ticket times — were caused by paper-only architects who did not understand physical kitchen pressure.
+              When he transitioned into restaurant ownership and operations over a decade ago, he recognized that truly exceptional hospitality projects happen when visionary architecture and back-of-house operational engineering work seamlessly together. While leading architects and interior designers craft unforgettable dining ambiances and guest journeys, commercial kitchens require specialized technical integration — balancing heavy electrical loads, precision exhaust ventilation, grease interceptors, and ergonomic service lines. Today, Jigar partners closely with architects and interior design firms across India, providing the technical back-of-house engineering and MEP blueprints that empower their creative designs to run flawlessly under real service pressure.
             </p>
           </SpotlightCard>
 
@@ -105,7 +113,7 @@ export default function AboutPage() {
             <p className="bento-tag">The Philosophy</p>
             <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', color: 'var(--color-text)' }}>Operations First.</h2>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1.5rem', fontSize: '1.02rem' }}>
-              We do not design kitchens simply to look impressive on 3D renders. We design them to withstand peak 150-cover dinner rushes with zero MEP tripping, smooth ergonomic chef movement, and zero cross-contamination.
+              We do not design kitchens simply to look impressive on 3D renders. We design them to withstand peak 100+ cover dinner rushes with reliable MEP load balancing, smooth ergonomic chef movement, and sanitary food safety pathways.
             </p>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, fontSize: '1.02rem' }}>
               Every pipe slope, exhaust duct CFM, grease interceptor size, and gas bank manifold is engineered with precision before a single brick is laid.
@@ -142,11 +150,11 @@ export default function AboutPage() {
               },
               {
                 title: '3-Phase Power & Gas Bank Layout',
-                desc: 'Dedicated electrical circuit mapping to eliminate power outages and protect heavy kitchen appliances from voltage burnout.'
+                desc: 'Dedicated electrical circuit mapping to prevent breaker tripping, balance phase loads, and protect heavy kitchen appliances from voltage burnout.'
               },
               {
                 title: 'FSSAI Schedule 4 Compliance',
-                desc: 'Separation of raw prep, cold storage, hot cooking line, and dishwashing to ensure 100% inspection pass rate.'
+                desc: 'Separation of raw prep, cold storage, hot cooking line, and dishwashing to streamline health inspections and statutory hygiene compliance.'
               }
             ].map((cap, i) => (
               <div key={i} style={{ padding: '1.5rem', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '18px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>

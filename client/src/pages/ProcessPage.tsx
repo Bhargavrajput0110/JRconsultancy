@@ -192,7 +192,7 @@ export default function ProcessPage() {
                   </span>
                   <div className="eng-item-text">
                     <h4>Engineered Floor Slopes & Industrial Grease Traps</h4>
-                    <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors ensure zero clogs and zero foul odors.</p>
+                    <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors prevent stubborn drain clogs and foul odors.</p>
                   </div>
                 </div>
                 <div className="eng-item">
@@ -210,7 +210,7 @@ export default function ProcessPage() {
                   </span>
                   <div className="eng-item-text">
                     <h4>3-Phase Electrical Load & Gas Manifold Zoning</h4>
-                    <p>Power loads mapped per station with isolated breaker boards to eliminate Saturday night power trips and equipment motor burnout.</p>
+                    <p>Power loads mapped per station with isolated breaker boards to prevent costly power trips and protect equipment from motor burnout.</p>
                   </div>
                 </div>
               </div>

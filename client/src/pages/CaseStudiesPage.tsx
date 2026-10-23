@@ -76,7 +76,7 @@ export default function CaseStudiesPage() {
     {
       id: 'pure-veg-family',
       name: 'Pure Vegetarian Family Dining',
-      subtext: '100% Pure Veg Fine Dining, Jain-Friendly & Multi-Generation Venues',
+      subtext: 'Pure Vegetarian Fine Dining, Jain-Friendly & Multi-Generation Venues',
       icon: '🥗',
       category: 'Full-Service Dining',
       description: 'Strict vegetarian segregation, dedicated Jain food preparation stations, high-capacity table arrangements, and rapid Sunday family rush expediting passes.'
@@ -223,7 +223,7 @@ export default function CaseStudiesPage() {
       subtext: 'Organic Grain Bowls, Cold-Pressed Juiceries & Superfood Dining',
       icon: '🥑',
       category: 'Cafes & Bistros',
-      description: 'Cold-room temperature controlled prep bays for fresh produce, commercial hydraulic juice presses, blast chillers, and zero-cross-contamination allergen workflows.'
+      description: 'Cold-room temperature controlled prep bays for fresh produce, commercial hydraulic juice presses, blast chillers, and segregated allergen-safe workflows.'
     },
     {
       id: 'book-work-cafe',

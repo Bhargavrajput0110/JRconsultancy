@@ -73,26 +73,26 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
         className="nav-ios"
       >
         <div className="nav-ios-container hover-target">
-          <Link to="/" className="nav-logo hover-target" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <Link to="/" className="nav-logo hover-target" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <div style={{
-              height: '42px',
-              width: '42px',
+              height: '52px',
+              width: '52px',
               background: '#ffffff',
-              borderRadius: '12px',
-              padding: '2px',
+              borderRadius: '14px',
+              padding: '3px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
-              border: '1.5px solid rgba(196, 154, 108, 0.45)',
+              boxShadow: '0 6px 20px rgba(0,0,0,0.35)',
+              border: '2px solid rgba(196, 154, 108, 0.65)',
               overflow: 'hidden',
               flexShrink: 0
             }}>
               <img src="/jr-logo.jpg" alt="JR Consulting Logo" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand-text" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.92rem', letterSpacing: '0.5px', color: '#fff', lineHeight: 1.15 }}>JR CONSULTING</span>
-              <span style={{ fontSize: '0.62rem', letterSpacing: '1.2px', textTransform: 'uppercase', color: 'var(--color-accent)', fontWeight: 600 }}>Restaurant Set-up</span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.05rem', letterSpacing: '0.8px', color: '#fff', lineHeight: 1.15 }}>JR CONSULTING</span>
+              <span style={{ fontSize: '0.68rem', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--color-accent)', fontWeight: 600, marginTop: '2px' }}>Restaurant Set-up</span>
             </div>
           </Link>
           
