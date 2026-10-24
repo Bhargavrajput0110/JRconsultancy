@@ -22,10 +22,10 @@ export default function ProcessPage() {
       title: 'Discovery & Concept Scoping',
       desc: 'We start by understanding your culinary concept, seating capacity, target customer demographic, and investment envelope. We identify whether your vision calls for an intimate bistro, high-throughput cloud kitchen, or fine dining destination.',
       bullets: [
-        'Detailed business & menu concept breakdown',
-        'Seating capacity and kitchen square-footage ratio balancing',
-        'Initial CAPEX forecast and project timeline roadmap',
-        'Regulatory requirements and local municipal checklist'
+        'Detailed business & menu concept breakdown assistance',
+        'Seating capacity and kitchen square-footage ratio balancing review',
+        'Initial CAPEX forecast and project timeline roadmap review',
+        'Regulatory requirements and local local checklist'
       ],
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -36,12 +36,11 @@ export default function ProcessPage() {
     {
       step: '02',
       title: 'Site Civil & MEP Audit',
-      desc: 'Using civil engineering rigor, we inspect your physical site before demolition begins. We review floor slab load-bearing capacities, plumbing falls, exhaust shaft clearances, and 3-phase power availability to prevent structural redesigns.',
+      desc: 'Using civil engineering rigor, we inspect your physical site before aby civil works  begin. We review structural bearing capacities, plumbing gradients , clearances for exhaust and air conditioning units , power distribution availability.',
       bullets: [
-        'On-site structural & civil feasibility verification',
-        'Floor slope and municipal drainage connectivity plan',
-        'Exhaust shaft and grease duct route sign-off',
-        'Electrical transformer kW load and backup generator planning'
+        'Floor gradient and local authorite drainage connectivity plan',
+        'Exhaust shaft , fresh air , grease duct route',
+        'Electrical power supply distribution planning advisory'
       ],
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,10 +54,10 @@ export default function ProcessPage() {
     {
       step: '03',
       title: 'Kitchen CAD Design & Equipment BOQ',
-      desc: 'We draft the detailed 2D architectural kitchen layouts, station-by-station flow, and MEP connection points. We prepare the complete Stainless Steel Equipment BOQ and float tenders directly to India\'s top fabricators.',
+      desc: 'We draft the detailed architectural kitchen layouts, station-by-station flow, and MEP connection points. We prepare the complete Stainless Steel Equipment BOQ and float tenders directly to renowed vendors.',
       bullets: [
-        'Ergonomic 2D CAD layouts for line cooks and prep stations',
-        'Exhaust CFM and fresh air intake balancing calculations',
+        'Ergonomic CAD layouts for kitchent teams and prep stations',
+        'Basic Exhaust CFM and fresh air intake balancing design',
         'Equipment BOQ with detailed technical specifications',
         'Factory tender floatation to renowned equipment manufacturers and fabricators'
       ],
@@ -73,11 +72,11 @@ export default function ProcessPage() {
     {
       step: '04',
       title: 'Commissioning, Staff SOPs & Launch',
-      desc: 'We supervise equipment installation, test grease traps and hood air flow, run staff training simulations, finalize FSSAI compliance documentation, and advise on soft launch management through your grand opening.',
+      desc: 'We supervise equipment installation, test grease traps and hood air flow, run staff training simulations, finalize FSSAI compliance documentation, and advise on soft launch management for the grand opening.',
       bullets: [
         'Soft launch dry run advice & stress-test simulations',
-        'BOH and FOH standard operating procedure manuals',
-        'FSSAI norms compliance & license inspection sign-off',
+        'BOH and FOH standard operating procedure training',
+        'FSSAI norms compliance assistance',
         'Post-opening 30-day operational margin and speed review'
       ],
       icon: (
@@ -130,7 +129,7 @@ export default function ProcessPage() {
           </h1>
 
           <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', maxWidth: '780px', margin: '0 auto', lineHeight: 1.7 }}>
-            Our 4-stage process combines rigorous civil engineering oversight with real-world restaurant management, eliminating guesswork and costly mid-project rework.
+            Our 4-stage process combines rigorous civil engineering oversight with real-world restaurant management, eliminating assumptioms and expensive repetitive work schedules.
           </p>
         </motion.div>
 
