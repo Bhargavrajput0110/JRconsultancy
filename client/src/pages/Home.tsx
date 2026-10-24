@@ -1012,7 +1012,7 @@ export default function Home() {
             },
             {
               q: 'How does your Civil Engineering background specifically help restaurant owners?',
-              a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, or poor ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor coordinates drainage slopes, CFM exhaust air balancing, and electrical circuits to run smoothly under peak weekend pressure.'
+              a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, poor lux levels and inadequate ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor brings valuable insights to allivate aforesaid unseen factors for a smoother operations '
             },
             {
               q: 'Do you sell or supply commercial kitchen equipment directly?',
