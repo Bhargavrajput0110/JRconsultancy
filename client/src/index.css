@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Top-Left Brand Island (Desktop) */
 .nav-brand-desktop {
   position: fixed;
-  top: 45px;
+  top: 42px;
   left: 2rem;
   z-index: 101;
   pointer-events: auto;
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(8, 17, 10, 0.92);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  padding: 0.5rem 1.15rem 0.5rem 0.65rem;
+  padding: 0.45rem 1.4rem 0.45rem 0.55rem;
   border-radius: 50px;
   border: 1.5px solid rgba(196, 154, 108, 0.35);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
