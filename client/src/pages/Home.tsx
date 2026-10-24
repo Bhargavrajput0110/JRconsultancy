@@ -669,7 +669,7 @@ export default function Home() {
             </span>
           </h2>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '720px', margin: '1.25rem auto 0', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Over 70% of restaurant post-opening shutdowns and costly renovations are caused by plumbing clogs, inadequate exhaust CFM, or electrical trips during peak hours. Here is how we engineer around them:
+            Over 70% of restaurant post-opening slowdowns or costly renovations are caused by plumbing clogs, inadequate exhaust provisions or inadequate electrical load calculations. Here is how we engineer around them:
           </p>
         </motion.div>
 
