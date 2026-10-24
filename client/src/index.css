@@ -466,10 +466,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dedicated Modal Feature List for Fluid Text Flow */
 .modal-feature-list {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.95rem;
   list-style: none;
   padding: 0;
 }

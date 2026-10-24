@@ -495,6 +495,10 @@ export default function Home() {
                         <span className="modal-feature-dot" />
                         <div className="modal-feature-text"><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices.</div>
                       </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Crockery, Cutlery & Packaging:</strong> Uniforms, operational supplies, and packaging advice / assistance.</div>
+                      </li>
                     </ul>
                   </>
                 )}
