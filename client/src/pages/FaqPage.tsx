@@ -26,17 +26,17 @@ export default function FaqPage() {
     {
       category: 'Civil Engineering',
       q: 'How does your Civil Engineering background specifically help restaurant owners?',
-      a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, poor lux levels and inadequate ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor brings valuable insights to allivate aforesaid unseen factors for a smoother operations '
+      a: 'Commercial kitchens are heavy industrial spaces operating inside commercial buildings. Over 70% of restaurant operational headaches stem from poor civil & MEP infrastructure — clotted grease traps, low water pressure, tripping breakers, poor lux levels and inadequate ventilation causing kitchen heat to spill into dining rooms. With 15+ years of background in civil engineering and infrastructure, Jigar Rajgor brings valuable insights to alleviate aforesaid unseen factors for a smoother operations'
     },
     {
       category: 'Equipment & CAPEX',
       q: 'Do you sell or supply commercial kitchen equipment directly?',
-      a: 'No, we remain strictly vendor-neutral to act in your best financial interest. We prepare the complete Kitchen Equipment Schedule & BOQ (Bill of Quantities) with detailed specifications. We then float tenders to India\'s renowed equipment manufacturers and fabricators.'
+      a: 'No, we remain strictly vendor-neutral to act in best financial interest of the client. We prepare the complete Kitchen Equipment Schedule & BOQ (Bill of Quantities) with detailed specifications. We then float tenders to renowed equipment manufacturers and fabricators.'
     },
     {
       category: 'Compliance & Licenses',
       q: 'How do you ensure FSSAI and statutory code compliance?',
-      a: 'We design kitchen layouts strictly aligned with FSSAI norms. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts are engineered to meet municipal health inspection standards smoothly.'
+      a: 'We design kitchen layouts strictly aligned with FSSAI norms. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coveredd floor edges, and grease interceptor integration. Our layouts are engineered to meet local authorites health inspection standards smoothly.'
     },
     {
       category: 'Geography & Reach',

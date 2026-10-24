@@ -197,7 +197,7 @@ export default function ProcessPage() {
                   </span>
                   <div className="eng-item-text">
                     <h4>Engineered Drain Slopes & Industrial Grease Traps</h4>
-                    <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors ensure municipal compliance and prevent foul odors.</p>
+                    <p>Floor gradients calculated to prevent stagnant pooling; multi-chamber grease interceptors ensure local compliance and prevent foul odors.</p>
                   </div>
                 </div>
                 <div className="eng-item">
@@ -209,7 +209,7 @@ export default function ProcessPage() {
                   </span>
                   <div className="eng-item-text">
                     <h4>Structural Safety & Code Compliance Advisory</h4>
-                    <p>Floor slab load capacity, core-cutting points, and structural safety reviewed with civil engineering precision to protect building integrity.</p>
+                    <p>structual bearing capacity, core-cutting points viability in accordance civil engineering precision to protect building integrity.</p>
                   </div>
                 </div>
                 <div className="eng-item">
@@ -219,7 +219,7 @@ export default function ProcessPage() {
                     </svg>
                   </span>
                   <div className="eng-item-text">
-                    <h4>3-Phase Electrical Load & Gas Bank Zoning</h4>
+                    <h4>Electrical Load Distributions & Gas Bank Zoning</h4>
                     <p>KW loads mapped per cooking station with isolated breaker panels to prevent costly power trips and protect equipment from burnout.</p>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ export default function ProcessPage() {
             <div className="eng-card eng-card-conventional">
               <span className="eng-badge eng-badge-gray">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                Conventional Interior Decorator Approach
+                Conventional Approach
               </span>
               <div className="eng-list">
                 <div className="eng-item">
@@ -270,7 +270,7 @@ export default function ProcessPage() {
                   </span>
                   <div className="eng-item-text">
                     <h4>Unchecked Core-Cutting & Structural Load Risks</h4>
-                    <p>Haphazard slab core-drilling and uncalculated equipment weight leading to structural cracks, water seepage, and landlord penalty notices.</p>
+                    <p>Haphazard slab core-drilling and uncalculated equipment weight leading to structural damage, water seepage, and Potential dilapidation defaults notices.</p>
                   </div>
                 </div>
                 <div className="eng-item">
@@ -282,8 +282,8 @@ export default function ProcessPage() {
                     </svg>
                   </span>
                   <div className="eng-item-text">
-                    <h4>Guesswork Power Calculations</h4>
-                    <p>Fryers, ovens, and chillers share overloaded phases, leading to frequent breaker tripping during peak dinner services.</p>
+                    <h4>Inappropriate Assumptions - Power Calculations</h4>
+                    <p>Inappropriate distributions of power of kitchen equipment leading to frequent breaker tripping during peak dinner services.</p>
                   </div>
                 </div>
                 <div className="eng-item">
@@ -295,8 +295,8 @@ export default function ProcessPage() {
                     </svg>
                   </span>
                   <div className="eng-item-text">
-                    <h4>Uncoordinated Scheduling & Delayed Handover</h4>
-                    <p>Trades overlap chaotically with no milestone tracking, causing compounding weeks of launch delays, mounting pre-opening rent, and lost revenue.</p>
+                    <h4>Non-coordinated Work Scheduling</h4>
+                    <p>Trades overlap chaotically with no milestone tracking and concurrent procurement activities , causing compounding weeks of launch delays, mounting pre-opening rent, and lost revenue.</p>
                   </div>
                 </div>
               </div>

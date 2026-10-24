@@ -70,7 +70,7 @@ export default function AboutPage() {
           </h1>
 
           <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', maxWidth: '780px', margin: '0 auto 3rem', lineHeight: 1.7 }}>
-            JR Consulting was founded on a simple realization: Most restaurant consultants have never poured concrete or routed high-CFM exhaust, while most civil engineers have never managed a chaotic Friday night kitchen rush. We sit at the rare intersection of both.
+            JR Consulting was founded on a simple realization: Most restaurant consultants have never poured concrete or water resoucres and enviroment, while most civil engineers have never managed a chaotic Friday night kitchen rush. We sit at the rare intersection of both.
           </p>
         </motion.div>
 
@@ -105,7 +105,7 @@ export default function AboutPage() {
               With over 15 years in civil engineering and infrastructure projects, Jigar developed extensive practical expertise in spatial planning, structural safety coordination, plumbing hydraulics, and commercial MEP systems from the ground up.
             </p>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, fontSize: '1.02rem' }}>
-              When he transitioned into restaurant ownership and operations over a decade ago, he recognized that truly exceptional hospitality projects happen when visionary architecture and back-of-house operational engineering work seamlessly together. While leading architects and interior designers craft unforgettable dining ambiances and guest journeys, commercial kitchens require specialized technical integration — balancing heavy electrical loads, precision exhaust ventilation, grease interceptors, and ergonomic service lines. Today, Jigar partners closely with architects and interior design firms across India, providing the technical back-of-house engineering and MEP blueprints that empower their creative designs to run flawlessly under real service pressure.
+              When he transitioned into restaurant ownership and operations over a decade ago, he recognized that truly exceptional hospitality projects happen when visionary architecture and back-of-house operational engineering work seamlessly together. While leading architects and interior designers craft unforgettable dining ambiances and guest journeys, commercial kitchens require specialized technical integration — balancing heavy electrical loads, precision exhaust ventilation, grease interceptors, and ergonomic service lines. Today, Jigar Rajgor associted with varieous architects and interior design , providing the technical back-of-house engineering and MEP blueprints that empower their creative designs to run flawlessly under real service pressure.
             </p>
           </SpotlightCard>
 
@@ -113,10 +113,10 @@ export default function AboutPage() {
             <p className="bento-tag">The Philosophy</p>
             <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', color: 'var(--color-text)' }}>Operations First.</h2>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1.5rem', fontSize: '1.02rem' }}>
-              We do not design kitchens simply to look impressive on 3D renders. We design them to withstand peak 100+ cover dinner rushes with reliable MEP load balancing, smooth ergonomic chef movement, and sanitary food safety pathways.
+              We do not design kitchens simply to look impressive on 3D renders. We design them to withstand peak 100+ cover diner rushes with reliable MEP load balancing, smooth ergonomic chef movement, and sanitary food safety pathways.
             </p>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, fontSize: '1.02rem' }}>
-              Every pipe slope, exhaust duct CFM, grease interceptor size, and gas bank manifold is engineered with precision before a single brick is laid.
+              Every pipe slope, exhaust duct CFM Calcs, grease interceptor size, and gas bank manifold/Gas Supply Route is engineered with precision before a single brick is laid.
             </p>
           </SpotlightCard>
         </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Plumbing & Grease Trap Planning',
-                desc: 'Industrial multi-chamber interceptors preventing pipe clogs, foul smells, and municipal non-compliance.'
+                desc: 'Industrial multi-chamber interceptors preventing pipe clogs, foul smells, and local authorites non-compliance.'
               },
               {
                 title: 'Power Distributions & Gas Bank Layout',
