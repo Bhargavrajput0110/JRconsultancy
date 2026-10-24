@@ -130,7 +130,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
             {[
               {
                 title: 'Civil & Architectural Space Planning',
@@ -141,20 +141,12 @@ export default function AboutPage() {
                 desc: 'Station-by-station ergonomic design ensuring cooks move with maximum speed and minimal cross-traffic.'
               },
               {
-                title: 'Heavy MEP & Exhaust Air-Balancing',
-                desc: 'Calculated CFM air balancing so dining rooms stay odor-free and kitchen staff operate in comfortable temperatures.'
-              },
-              {
                 title: 'Plumbing & Grease Trap Engineering',
                 desc: 'Industrial multi-chamber interceptors preventing pipe clogs, foul smells, and municipal non-compliance.'
               },
               {
                 title: '3-Phase Power & Gas Bank Layout',
                 desc: 'Dedicated electrical circuit mapping to prevent breaker tripping, balance phase loads, and protect heavy kitchen appliances from voltage burnout.'
-              },
-              {
-                title: 'FSSAI Schedule 4 Compliance',
-                desc: 'Separation of raw prep, cold storage, hot cooking line, and dishwashing to streamline health inspections and statutory hygiene compliance.'
               }
             ].map((cap, i) => (
               <div key={i} style={{ padding: '1.5rem', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '18px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
