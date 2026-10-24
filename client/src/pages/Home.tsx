@@ -124,7 +124,7 @@ export default function Home() {
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
           
           <motion.p custom={0} initial="hidden" animate="visible" variants={blurReveal} className="hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)', marginTop: '0.5rem' }}>
-            {isSeoPage ? `Expert Services in ${formattedLocation}` : 'Restaurant Set-up & Operations Specialist'}
+            {isSeoPage ? `Expert Services in ${formattedLocation}` : 'Your partner in setting up a Restaurant-Cafe-Eatery'}
           </motion.p>
           
           {isSeoPage ? (
