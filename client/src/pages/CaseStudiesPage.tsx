@@ -353,11 +353,11 @@ export default function CaseStudiesPage() {
       heading: 'Kitchen Engineering & Design',
       items: [
         'Ergonomic Commercial Kitchen CAD Layout & Flow Design',
-        'MEP Engineering (Plumbing, Exhaust, Electrical)',
-        'Stainless Steel Equipment BOQ & Specification Writing',
-        'Industrial Exhaust Hood CFM Calculation & Balancing',
-        'Grease Trap & Interceptor Sizing and Routing',
-        'Gas Manifold & LPG/PNG Piping Layout',
+        'MEP Engineering Coordination (Plumbing, Exhaust, Electrical)',
+        'Stainless Steel Equipment BOQ & Detailed Specification Writing',
+        'Industrial Exhaust Hood CFM Calculation & Air Balancing',
+        'Plumbing & Grease Trap Planning with Invert Fall Gradients',
+        'Power Distributions & Gas Bank Layout',
         'Cold Room & Walk-in Chiller Space Planning',
         'Dishwash Area & Drainage Channel Design',
       ]
@@ -377,7 +377,7 @@ export default function CaseStudiesPage() {
         'FOH & BOH Communication Systems Redesign',
         'Peak Hour Rush Management & Staffing Matrix',
         'POS System Evaluation & Workflow Integration',
-        'Supplier Renegotiation & Procurement Audit',
+        'Supplier Pricing Review & Procurement Advisory',
       ]
     },
     {
@@ -389,12 +389,12 @@ export default function CaseStudiesPage() {
       heading: 'Licensing & Compliance',
       items: [
         'FSSAI Basic / State / Central License Documentation',
-        'Schedule 4 Sanitary Zoning & Hygienic Design Sign-off',
+        'Sanitary Zoning & Hygienic Design Sign-off strictly aligned with FSSAI norms',
         'Fire NOC Kitchen Duct & Suppression System Guidance',
         'Municipal Health Department Inspection Preparation',
         'Eating House License Application Support',
-        'HACCP Standard Operating Procedure Drafting',
-        'Food Safety Audit & Mock Inspection',
+        'Document Management System in accordance with FSSAI norms',
+        'Food Safety Audit & Mock Inspection Support',
         'Pre-Licensing Kitchen Readiness Checklist',
       ]
     },
@@ -424,14 +424,14 @@ export default function CaseStudiesPage() {
       ),
       heading: 'Staffing & Training',
       items: [
-        'Manpower Planning & Organisational Chart Design',
+        'Manpower Recruitment Assistance & Organisational Chart',
         'FOH Staff Recruitment Brief & Interview Framework',
         'Kitchen Brigade Hierarchy & Role Definition',
         'BOH Standard Operating Procedure (SOP) Manuals',
         'Service Etiquette & Upselling Skills Training',
-        'Hygiene, Safety & FSSAI Food Handler Training',
-        'Soft Launch Dry Run Management & Feedback Loop',
-        'Post-Opening 30-Day Performance Review',
+        'Hygiene, Safety & Food Handler Training in accordance with FSSAI norms',
+        'Soft Launch Dry Run Advisory & Feedback Loop',
+        'Post-Opening 30-Day Operational Review & Performance Check',
       ]
     },
     {
@@ -442,14 +442,14 @@ export default function CaseStudiesPage() {
       ),
       heading: 'MEP & Civil Infrastructure',
       items: [
-        'Electrical Load Calculation & Phase Balancing for Heavy Equipment',
+        'Power Distributions & Electrical Load Calculations for Heavy Equipment',
         'High-Pressure Water Supply & Commercial Plumbing Schematics',
         'Kitchen Ventilation CFM & Make-Up Air Heat Balancing',
-        'Floor Drainage Gradients & Industrial Water-Proofing Design',
-        'Commercial Kitchen Anti-Slip Flooring & Wall Cladding Specs',
+        'Plumbing & Grease Trap Planning with Underground Fall Gradients',
+        'Structural Safety & Core-Cutting Review for Slab Integrity',
         'Ansul Fire Suppression System Layout & Verification',
-        'Acoustic Dampening & Noise Vibration Control',
-        'Civil Contractor On-Site Quality Audits & Defect Rectification',
+        'Commercial Kitchen Anti-Slip Flooring & Waterproofing Specs',
+        'Project Programme & Civil Milestone Synchronization',
       ]
     },
     {
@@ -467,7 +467,7 @@ export default function CaseStudiesPage() {
         'Central Commissary Kitchen Blueprint & Hub-and-Spoke Flow',
         'Standard Franchise Operations Manual (FOM) Drafting',
         'Multi-Outlet Brand Consistency & Mystery Audit Frameworks',
-        'Vendor Contracts, Credit Negotiation & Master Sourcing',
+        'Direct Vendor Tender Floatation to Renowned Manufacturers & Fabricators',
       ]
     },
   ]

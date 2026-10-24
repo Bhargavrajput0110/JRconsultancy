@@ -35,12 +35,13 @@ export default function ServicesPage() {
       subtitle: 'Set the structural foundation before committing capital.',
       desc: 'Signing a commercial lease without a civil engineering review often leads to surprise expenses in drainage rework, structural reinforcements, or failed fire approvals. We inspect spaces before you sign.',
       deliverables: [
-        'Physical site walkthrough & structural load-bearing audit',
-        'Floor gradient & underground municipal drainage connectivity inspection',
-        'HVAC duct shaft routing & ceiling clearance verification',
-        '3-Phase electrical grid capacity & transformer load analysis',
-        'Vastu principles alignment for commercial flow and entrance orientation',
-        'Granular CAPEX forecasting to avoid unexpected structural overruns'
+        'Demographic conditions & commercial site feasibility review',
+        'Physical site walkthrough & structural floor bearing capacity audit',
+        'Municipal drainage slope, invert levels (RLs) & connectivity inspection',
+        'Adequate ceiling clearance & HVAC duct shaft routing verification',
+        'Availability of adequate 3-phase electrical power & transformer load analysis',
+        'Basic Vastu consultation for commercial energy flow and entrance orientation',
+        'Granular CAPEX forecasting & budget analysis to avoid structural overruns'
       ]
     },
     {
@@ -51,10 +52,10 @@ export default function ServicesPage() {
       deliverables: [
         'Station-by-station 2D CAD architectural kitchen layouts',
         'Mechanical Exhaust Hood CFM calculations and fresh air air-balancing',
-        'Industrial grease interceptor sizing and underground pipe fall gradients',
-        'Stainless steel equipment BOQ (Bill of Quantities) with technical specs',
-        'Factory tender floatation saving 15–25% on direct equipment procurement',
-        'FSSAI Schedule 4 sanitary zoning with segregated food prep pathways'
+        'Plumbing & grease trap planning with underground fall gradients',
+        'Stainless steel equipment BOQ (Bill of Quantities) with detailed specifications',
+        'Factory tender floatation to renowned equipment manufacturers and fabricators',
+        'Sanitary zoning & hygienic kitchen layout strictly aligned with FSSAI norms'
       ]
     },
     {
@@ -66,7 +67,7 @@ export default function ServicesPage() {
         'FOH hospitality protocols and upselling training programs',
         'BOH station mise-en-place checklists and line prep guides',
         'Food and other cost analysis advisory, portion control, and wastage audits',
-        'Complete FSSAI compliance binder setup and food hygiene audit logs',
+        'Document management system & hygiene audits in accordance with FSSAI norms',
         'POS software configuration, KDS workflow, and inventory management',
         'Core kitchen leadership recruitment and trial tasting evaluations'
       ]
@@ -77,12 +78,12 @@ export default function ServicesPage() {
       subtitle: 'Opening day is only the beginning of profitability.',
       desc: 'Whether you are launching a flagship venue or turning around a struggling restaurant, we stress-test operations under real pressure and optimize speed, table turns, and food cost margins.',
       deliverables: [
-        'Dry run execution and invited-guest soft launch stress tests',
+        'Soft launch dry run advice, execution management & stress tests',
         'Opening week on-site operational supervision and expediting control',
         'Table turnover speed analysis to maximize peak hour seat yield',
         'Food cost and ingredient supplier renegotiation audits',
         'Customer feedback review and rapid menu fine-tuning',
-        'Ongoing monthly operational advisory and hygiene checks'
+        'Post-launch operational reviews and maintaining FSSAI standards'
       ]
     },
     {
