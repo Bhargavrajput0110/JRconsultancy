@@ -144,7 +144,7 @@ export default function Home() {
             {isSeoPage ? metaDescription : 'Your Restaurant. Thoughtfully Planned.'}
           </motion.p>
           <motion.p custom={5} initial="hidden" animate="visible" variants={blurReveal} className="hero-sub-desc" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
-            15 Years in Civil Engineering | 10+ Years in Restaurant Industry
+            15 Years in Civil Engineering Experience and running | 10+ Years in Restaurant Industry operations
           </motion.p>
           <motion.div 
             custom={5} initial="hidden" animate="visible" variants={blurReveal}
