@@ -274,110 +274,52 @@ export default function Home() {
           Every detail.<br/><span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>Designed to work.</span>
         </motion.h2>
 
-        <div className="bento-grid">
+        <div className="services-bento-grid">
           {/* Service 1 */}
-          <motion.div layoutId="service-1" onClick={() => setSelectedService(1)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} style={{ cursor: 'pointer' }}>
+          <motion.div layoutId="service-1" onClick={() => setSelectedService(1)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-third" style={{ cursor: 'pointer' }}>
             <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
               <p className="bento-tag">01 / Planning</p>
               <h3>Set the foundations.</h3>
-              <p style={{ color: 'var(--color-text-muted)' }}>Tap to see our planning process &rarr;</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see our planning process &rarr;</p>
             </SpotlightCard>
           </motion.div>
 
           {/* Service 2 */}
-          <motion.div layoutId="service-2" onClick={() => setSelectedService(2)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} style={{ cursor: 'pointer' }}>
+          <motion.div layoutId="service-2" onClick={() => setSelectedService(2)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-third" style={{ cursor: 'pointer' }}>
             <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
               <p className="bento-tag">02 / Design & Procurement</p>
               <h3>Shape the experience.</h3>
-              <p style={{ color: 'var(--color-text-muted)' }}>Tap to see design expertise &rarr;</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see design expertise &rarr;</p>
             </SpotlightCard>
           </motion.div>
 
           {/* Service 3 */}
-          <motion.div layoutId="service-3" onClick={() => setSelectedService(3)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="bento-tall" style={{ cursor: 'pointer' }}>
+          <motion.div layoutId="service-3" onClick={() => setSelectedService(3)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-third" style={{ cursor: 'pointer' }}>
             <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
               <p className="bento-tag">03 / People & Operations</p>
               <h3>The people.<br/>The process.</h3>
-              <p style={{ marginBottom: '2rem', fontSize: '1rem', color: 'var(--color-text-muted)' }}>Tap to explore operational systems &rarr;</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to explore operational systems &rarr;</p>
             </SpotlightCard>
           </motion.div>
 
           {/* Service 4 */}
-          <motion.div layoutId="service-4" onClick={() => setSelectedService(4)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="bento-wide" style={{ cursor: 'pointer' }}>
+          <motion.div layoutId="service-4" onClick={() => setSelectedService(4)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-half" style={{ cursor: 'pointer' }}>
             <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
               <p className="bento-tag">04 / Launch & Support</p>
               <h3>Opening day is only the beginning.</h3>
-              <p style={{ marginTop: '1rem', color: 'var(--color-text-muted)' }}>Tap to see post-launch support details &rarr;</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see post-launch support details &rarr;</p>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Service 5 - Add on insight */}
+          <motion.div layoutId="service-5" onClick={() => setSelectedService(5)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-half" style={{ cursor: 'pointer' }}>
+            <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
+              <p className="bento-tag">05 / Add on insight</p>
+              <h3>Strategic civil audits & MEP insights.</h3>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see civil audits, ventilation & FSSAI blueprints &rarr;</p>
             </SpotlightCard>
           </motion.div>
         </div>
-
-        {/* Complimentary Insights Value-Add Strip */}
-        <motion.div
-          className="complimentary-badge-banner"
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={springUp}
-          style={{
-            marginTop: '2rem',
-            background: 'linear-gradient(135deg, rgba(20, 32, 24, 0.7) 0%, rgba(11, 18, 13, 0.85) 100%)',
-            border: '1px solid rgba(196, 154, 108, 0.28)',
-            borderRadius: '24px',
-            padding: 'clamp(1.25rem, 3.5vw, 1.75rem) clamp(1rem, 3.5vw, 2.25rem)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1.25rem',
-            boxShadow: '0 12px 30px rgba(0,0,0,0.4)'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', flex: '1 1 280px' }}>
-            <div style={{
-              background: 'rgba(196, 154, 108, 0.15)',
-              border: '1px solid rgba(196, 154, 108, 0.4)',
-              color: 'var(--color-accent, #c49a6c)',
-              borderRadius: '12px',
-              padding: '6px 14px',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '1px'
-            }}>
-              ✦ Complimentary Inclusions
-            </div>
-            <div>
-              <h4 style={{ margin: 0, fontSize: '1.15rem', color: '#fff', fontFamily: 'var(--font-heading)' }}>
-                Every Scope Includes Complimentary Strategic Insights & Civil Audits
-              </h4>
-              <p style={{ margin: '0.25rem 0 0 0', color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                Pre-lease MEP audits, CFM hood air balancing, and FSSAI Schedule 4 sanitary blueprints bundled as complimentary additions.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            to="/services#complimentary-insights"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              color: 'var(--color-accent, #c49a6c)',
-              textDecoration: 'none',
-              fontSize: '0.92rem',
-              fontWeight: 600,
-              padding: '0.75rem 1.5rem',
-              minHeight: '44px',
-              borderRadius: '20px',
-              border: '1px solid rgba(196, 154, 108, 0.4)',
-              background: 'rgba(196, 154, 108, 0.1)',
-              transition: 'all 0.2s ease',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            <span>Explore Free Inclusions</span>
-            <span>&rarr;</span>
-          </Link>
-        </motion.div>
 
         {/* Expandable Service Modals */}
         <AnimatePresence>
@@ -554,6 +496,32 @@ export default function Home() {
                         <div className="modal-feature-text"><strong>Menu Tweaks:</strong> Adjusting dishes based on early customer feedback.</div>
                       </li>
                     </ul>
+                  </>
+                )}
+
+                {selectedService === 5 && (
+                  <>
+                    <p className="bento-tag">05 / Add on insight</p>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Strategic civil audits & MEP insights.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We conduct deep technical inspections and airflow balancing to prevent costly structural reworks, utility waste, and statutory non-compliance.</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1.5rem' }}>
+                      <div>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Civil & Mechanical Audits</h4>
+                        <ul className="modal-feature-list">
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Pre-Lease MEP & Civil Audit:</strong> Slab load capacity, ceiling clearance, and drainage connectivity checks.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>CFM Hood & Air Balancing:</strong> Fresh air intake and exhaust velocity calculations to eliminate hot air pockets and odors.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Underground Plumbing Slopes:</strong> Fall gradient verification and commercial grease interceptor sizing.</div></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Compliance & Operations</h4>
+                        <ul className="modal-feature-list">
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>FSSAI Schedule 4 Zoning:</strong> Strict dirty-to-clean flow separation to prevent cross-contamination.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Vendor Tender & Price Benchmark:</strong> Direct factory BOQ validation, SS 304 gauge audits, and fair price negotiation.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Station Bottleneck Analysis:</strong> Chef movement simulation to eliminate ticket delay points during peak rushes.</div></li>
+                        </ul>
+                      </div>
+                    </div>
                   </>
                 )}
               </motion.div>

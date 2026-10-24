@@ -84,6 +84,20 @@ export default function ServicesPage() {
         'Customer feedback review and rapid menu fine-tuning',
         'Ongoing monthly operational advisory and hygiene checks'
       ]
+    },
+    {
+      num: '05',
+      title: 'Add on insight: Strategic Civil & MEP Audits',
+      subtitle: 'Value-driven technical feasibility and statutory engineering.',
+      desc: 'Essential structural and operational audits that safeguard your investment. We perform rigorous pre-lease inspections, ventilation calculations, and sanitary zoning blueprints.',
+      deliverables: [
+        'Pre-lease civil walkthrough, structural slab load-bearing & drainage audit',
+        'Exhaust hood CFM velocity & fresh air intake balancing calculations',
+        'Direct vendor tender benchmark & SS 304 equipment BOQ specification audits',
+        'FSSAI Schedule 4 sanitary zoning blueprint with segregated prep zones',
+        'Station workload simulation & ergonomic bottleneck analysis',
+        'Grease trap sizing & municipal drainage fall gradient compliance'
+      ]
     }
   ]
 

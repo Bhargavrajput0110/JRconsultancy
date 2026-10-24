@@ -68,6 +68,21 @@ const Services = () => {
                 </ul>
               </div>
             </div>
+
+            <div className="service-card">
+              <div className="service-icon"><i className="ph ph-chart-line-up"></i></div>
+              <div className="service-content">
+                <span className="service-tag">05 / ADD ON INSIGHT</span>
+                <h3>Strategic civil audits & MEP insights.</h3>
+                <ul>
+                  <li>Pre-lease MEP & civil feasibility audit</li>
+                  <li>Exhaust hood CFM & fresh air balancing</li>
+                  <li>Vendor tender & price benchmarking</li>
+                  <li>FSSAI Schedule 4 sanitary zoning blueprint</li>
+                  <li>Ergonomic station bottleneck analysis</li>
+                </ul>
+              </div>
+            </div>
           </div>
         {/* Complimentary Add-On Insights Strip */}
         <div className="complimentary-insights-block" style={{ marginTop: '5rem', borderTop: '1px solid rgba(196, 154, 108, 0.25)', paddingTop: '4rem' }}>
