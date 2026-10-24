@@ -13,20 +13,20 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
         <div className="footer-brand">
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.2rem' }}>
             <div style={{
-              height: '46px',
-              width: '46px',
+              height: '52px',
+              width: '52px',
               background: '#ffffff',
-              borderRadius: '12px',
-              padding: '2px',
+              borderRadius: '14px',
+              padding: '5px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '1.5px solid rgba(196, 154, 108, 0.45)',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
+              border: '1.5px solid rgba(196, 154, 108, 0.65)',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
               overflow: 'hidden',
               flexShrink: 0
             }}>
-              <img src="/jr-logo.jpg" alt="JR Consulting Logo" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+              <img src="/jr-logo-mark.png" alt="JR Consulting Logo" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
             </div>
             <div>
               <h2 style={{ fontSize: '1.4rem', margin: 0, color: 'var(--color-text)', fontFamily: 'var(--font-heading)' }}>JR Consulting</h2>

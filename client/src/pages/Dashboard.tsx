@@ -313,7 +313,7 @@ export default function Dashboard() {
       {/* Mobile Topbar */}
       <div className="crm-mobile-topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src="/jr-logo.jpg" alt="JR Logo" style={{ height: '36px', width: '36px', borderRadius: '8px', objectFit: 'contain' }} />
+          <img src="/jr-logo-mark.png" alt="JR Logo" style={{ height: '36px', width: '36px', borderRadius: '8px', objectFit: 'contain', background: '#fff', padding: '2px' }} />
           <div>
             <h2 style={{ fontSize: '1.1rem', margin: 0, fontFamily: 'var(--font-heading)', color: '#fff' }}>JR CRM</h2>
             <span style={{ fontSize: '0.72rem', color: 'var(--color-accent, #c49a6c)' }}>{activeTab}</span>
@@ -378,7 +378,7 @@ export default function Dashboard() {
             onClick={() => setMobileMenuOpen(false)}
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
           >
-            <img src="/jr-logo.jpg" alt="JR Logo" style={{ height: '40px', width: '40px', objectFit: 'contain', borderRadius: '10px', marginRight: '0.85rem', border: '1px solid rgba(196, 154, 108, 0.3)' }} />
+            <img src="/jr-logo-mark.png" alt="JR Logo" style={{ height: '40px', width: '40px', objectFit: 'contain', borderRadius: '10px', marginRight: '0.85rem', border: '1px solid rgba(196, 154, 108, 0.3)', background: '#fff', padding: '2px' }} />
             <div>
               <h2 style={{ fontSize: '1.2rem', color: '#fff', margin: 0, fontFamily: 'var(--font-heading)', letterSpacing: '0.5px' }}>JR CRM</h2>
               <span style={{ fontSize: '0.7rem', color: 'var(--color-accent, #c49a6c)', letterSpacing: '1px', textTransform: 'uppercase' }}>Executive Suite</span>

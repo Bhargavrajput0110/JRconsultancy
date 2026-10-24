@@ -223,7 +223,7 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
               boxShadow: '0 8px 24px rgba(0,0,0,0.5)'
             }}>
               <img
-                src="/jr-logo.jpg"
+                src="/jr-logo-mark.png"
                 alt="JR Consulting"
                 style={{
                   width: '100%',

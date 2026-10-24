@@ -74,11 +74,11 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
       >
         <Link to="/" className="nav-logo hover-target" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <div style={{
-            height: '58px',
-            width: '58px',
+            height: '62px',
+            width: '62px',
             background: '#ffffff',
             borderRadius: '16px',
-            padding: '2px',
+            padding: '4px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -88,19 +88,18 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
             flexShrink: 0
           }}>
             <img 
-              src="/jr-logo.jpg" 
+              src="/jr-logo-mark.png" 
               alt="JR Consulting Logo" 
               style={{ 
                 height: '100%', 
                 width: '100%', 
-                objectFit: 'contain', 
-                transform: 'scale(1.22)',
-                transformOrigin: 'center'
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.08))'
               }} 
             />
           </div>
           <div className="nav-brand-text" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.12rem', letterSpacing: '0.8px', color: '#fff', lineHeight: 1.15 }}>JR CONSULTING</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem', letterSpacing: '0.8px', color: '#fff', lineHeight: 1.15 }}>JR CONSULTING</span>
             <span style={{ fontSize: '0.72rem', letterSpacing: '1.6px', textTransform: 'uppercase', color: 'var(--color-accent)', fontWeight: 600, marginTop: '2px' }}>Restaurant Set-up</span>
           </div>
         </Link>
@@ -116,11 +115,11 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
         <div className="nav-ios-container hover-target">
           <Link to="/" className="nav-logo hover-target nav-logo-mobile" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <div style={{
-              height: '44px',
-              width: '44px',
+              height: '46px',
+              width: '46px',
               background: '#ffffff',
               borderRadius: '12px',
-              padding: '3px',
+              padding: '4px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -129,7 +128,7 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
               overflow: 'hidden',
               flexShrink: 0
             }}>
-              <img src="/jr-logo.jpg" alt="JR Consulting Logo" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+              <img src="/jr-logo-mark.png" alt="JR Consulting Logo" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand-text" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
               <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', letterSpacing: '0.8px', color: '#fff', lineHeight: 1.15 }}>JR CONSULTING</span>
