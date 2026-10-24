@@ -110,24 +110,60 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
                 <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
-                <h4>Pre-Lease MEP & Civil Audit</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
-                  Slab load-bearing checks, exhaust shaft heights, and plumbing fall verification before you commit to a commercial lease.
-                </p>
+                <h4>Seating Capacity & Interior Review</h4>
               </div>
             </div>
 
             <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
               <div className="service-content">
                 <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
-                <h4>Vendor Tender & Price Benchmark</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
-                  Factory-direct procurement tender floatation with strict SS 304 gauge audits, bypassing agent commissions and fabricator markups.
-                </p>
+                <h4>Project Management & Budgeting Insights</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>Design Amendments, Reviews & Comments</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>Civil & Structural Advice</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>Operational / Set-up Review & Turnaround</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>Staff Training + Motivational Support</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>FSSAI Guidelines & Gap Analysis</h4>
+              </div>
+            </div>
+
+            <div className="service-card" style={{ border: '1px solid rgba(196, 154, 108, 0.3)' }}>
+              <div className="service-content">
+                <span className="service-tag" style={{ color: 'var(--color-accent, #c49a6c)' }}>✦ ADD-ON INSIGHT</span>
+                <h4>Co-ordination with All Other Consultants</h4>
               </div>
             </div>
           </div>

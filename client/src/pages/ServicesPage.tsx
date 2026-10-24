@@ -10,7 +10,8 @@ import {
   FileText, 
   CheckCircle2, 
   Gift, 
-  ArrowRight 
+  ArrowRight,
+  Users
 } from 'lucide-react'
 import SmoothScroll from '../components/SmoothScroll'
 import Header from '../components/Header'
@@ -86,47 +87,105 @@ export default function ServicesPage() {
     },
     {
       num: '05',
-      title: 'Add-on Insights: Technical Audits & Simulations',
+      title: 'Add-on Insights: Advisory & Reviews',
       subtitle: 'Value-driven technical feasibility and operational safeguards.',
-      desc: 'Essential structural and operational audits that safeguard your investment. We perform rigorous pre-lease civil inspections, direct vendor quote benchmarking, line-flow bottleneck simulations, and pre-opening mock stress tests.',
+      desc: 'Specialized advisory services and reviews across seating capacity, project management, budgeting, civil advice, staff training, and operational turnarounds.',
       deliverables: [
-        'Pre-lease civil walkthrough, structural slab load-bearing & drainage audit',
-        'Direct vendor tender benchmark & SS 304 equipment BOQ specification audits',
-        'Station workload simulation & ergonomic line bottleneck analysis',
-        'Pre-opening mock service dry run and kitchen stress-testing',
-        'Grease trap sizing & municipal drainage fall gradient compliance'
+        'Seating Capacity & Interior Review',
+        'Project Management Insights & Project Budgeting Insights',
+        'Design Amendments, Reviews & Comments',
+        'Cost Effectiveness Review & Direct Vendor Tender Benchmarks',
+        'Civil & Structural Advice and Pre-Lease MEP Audits',
+        'Operational / Set-up Review and Turnaround Process',
+        'Co-ordination with All Other Consultants',
+        'Staff Training & Motivational Support (incl. Service Sequence & Menu Knowledge)',
+        'FSSAI Guidelines Compliance Review',
+        'Identifying Service & Product Gaps'
       ]
     }
   ]
 
   const addOnInsights = [
     {
-      icon: <Compass size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'Site Due Diligence',
-      title: 'Pre-Lease Civil & MEP Load Audit',
-      pairedWith: 'Pillar 01: Site Selection & Planning',
-      desc: 'Before executing any commercial agreement, we inspect the physical space: floor slab load capacity, ceiling clearance for exhaust ducts, 3-phase power supply, and municipal sewer pipe fall angles.'
-    },
-    {
-      icon: <TrendingUp size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'CAPEX Protection',
-      title: 'Direct Vendor Tender & Price Benchmark',
-      pairedWith: 'Pillar 02: Procurement & Fabrications',
-      desc: 'Independent validation of equipment BOQ specifications. We audit true stainless steel gauges (SS 304 vs SS 202) and float tenders directly to top fabricators to bypass agent commissions.'
+      icon: <Users size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Layout & Interior',
+      title: 'Seating Capacity & Interior Review'
     },
     {
       icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'Operational Speed',
-      title: 'Station Workload & Bottleneck Analysis',
-      pairedWith: 'Pillar 03: People & Operational Systems',
-      desc: 'Ergonomic line simulation analyzing chef steps, hot line reach radiuses, and ticket congestion points during 80+ cover peaks. Re-organizes mise-en-place wells for sub-8 minute plating times.'
+      category: 'Project Execution',
+      title: 'Project Management Insights'
+    },
+    {
+      icon: <TrendingUp size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Financial Planning',
+      title: 'Project Budgeting Insights'
+    },
+    {
+      icon: <CheckCircle2 size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Design Engineering',
+      title: 'Design Amendments, Reviews & Comments'
+    },
+    {
+      icon: <TrendingUp size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Cost Optimization',
+      title: 'Cost Effectiveness Review'
+    },
+    {
+      icon: <Compass size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Structural Engineering',
+      title: 'Civil & Structural Advice'
+    },
+    {
+      icon: <Compass size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Site Due Diligence',
+      title: 'Pre-Lease Civil & MEP Load Audit'
+    },
+    {
+      icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Operations',
+      title: 'Operational / Set-up Review'
     },
     {
       icon: <Gift size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'Launch Strategy',
-      title: 'Pre-Opening Dry Run & Stress-Test Playbook',
-      pairedWith: 'Pillar 04: Launch & Support',
-      desc: 'A comprehensive mock service framework simulating simultaneous ticket rushes, KDS-to-FOH communication, and emergency POS overrides before paying patrons ever enter.'
+      category: 'Business Revival',
+      title: 'Turnaround Process'
+    },
+    {
+      icon: <Users size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Project Co-ordination',
+      title: 'Co-ordination with All Other Consultants'
+    },
+    {
+      icon: <Users size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Human Resources & Service',
+      title: 'Staff Training & Motivational Support',
+      subtitle: 'Including Service Sequence & Menu Knowledge'
+    },
+    {
+      icon: <ShieldCheck size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Statutory Health',
+      title: 'FSSAI Guidelines'
+    },
+    {
+      icon: <CheckCircle2 size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Quality Audit',
+      title: 'Identifying Service & Product Gaps'
+    },
+    {
+      icon: <TrendingUp size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Procurement Protection',
+      title: 'Direct Vendor Tender & Price Benchmark'
+    },
+    {
+      icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Operational Speed',
+      title: 'Station Workload & Bottleneck Analysis'
+    },
+    {
+      icon: <Gift size={22} color="var(--color-accent, #c49a6c)" />,
+      category: 'Launch Strategy',
+      title: 'Pre-Opening Dry Run & Stress-Test Playbook'
     }
   ]
 
@@ -292,25 +351,25 @@ export default function ServicesPage() {
           {/* Cards Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '1.75rem'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+            gap: '1.25rem'
           }}>
             {addOnInsights.map((insight, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                transition={{ duration: 0.4, delay: (idx % 6) * 0.05 }}
               >
                 <SpotlightCard 
-                  className="bento-card" 
+                  className="bento-card hover-scale-slight" 
                   style={{ 
                     height: '100%', 
-                    padding: 'clamp(1.5rem, 4vw, 2.2rem)', 
-                    borderRadius: '24px', 
+                    padding: 'clamp(1.35rem, 3vw, 1.75rem)', 
+                    borderRadius: '20px', 
                     display: 'flex', 
-                    flexDirection: 'column',
+                    flexDirection: 'column', 
                     justifyContent: 'space-between',
                     border: '1px solid rgba(196, 154, 108, 0.22)'
                   }}
@@ -318,16 +377,16 @@ export default function ServicesPage() {
                   <div>
                     {/* Top Pill & Tag */}
                     <div style={{ 
-                       display: 'flex', 
+                      display: 'flex', 
                       justifyContent: 'space-between', 
                       alignItems: 'center', 
-                      marginBottom: '1.5rem',
+                      marginBottom: '1rem',
                       gap: '10px'
                     }}>
                       <div style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '14px',
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '12px',
                         background: 'rgba(196, 154, 108, 0.12)',
                         border: '1px solid rgba(196, 154, 108, 0.3)',
                         display: 'flex',
@@ -344,48 +403,51 @@ export default function ServicesPage() {
                         gap: '6px',
                         background: 'rgba(196, 154, 108, 0.12)',
                         border: '1px solid rgba(196, 154, 108, 0.35)',
-                        borderRadius: '16px',
-                        padding: '4px 12px',
-                        fontSize: '0.74rem',
+                        borderRadius: '14px',
+                        padding: '3px 10px',
+                        fontSize: '0.72rem',
                         fontWeight: 700,
                         letterSpacing: '0.5px',
                         color: 'var(--color-accent, #c49a6c)',
                         textTransform: 'uppercase'
                       }}>
-                        <CheckCircle2 size={13} />
+                        <CheckCircle2 size={12} />
                         <span>Add-on Insight</span>
                       </div>
                     </div>
 
                     <div style={{
-                      fontSize: '0.76rem',
+                      fontSize: '0.74rem',
                       color: 'var(--color-accent, #c49a6c)',
                       fontWeight: 600,
-                      letterSpacing: '1px',
+                      letterSpacing: '0.8px',
                       textTransform: 'uppercase',
-                      marginBottom: '0.5rem'
+                      marginBottom: '0.45rem'
                     }}>
-                      {insight.pairedWith}
+                      {insight.category}
                     </div>
 
                     <h3 style={{
-                      fontSize: '1.45rem',
+                      fontSize: '1.2rem',
                       fontFamily: 'var(--font-heading)',
                       color: 'var(--color-text)',
-                      marginBottom: '1rem',
-                      lineHeight: 1.3
+                      lineHeight: 1.35,
+                      margin: 0
                     }}>
                       {insight.title}
                     </h3>
 
-                    <p style={{
-                      color: 'var(--color-text-muted)',
-                      fontSize: '0.94rem',
-                      lineHeight: 1.65,
-                      marginBottom: 0
-                    }}>
-                      {insight.desc}
-                    </p>
+                    {insight.subtitle && (
+                      <p style={{
+                        color: 'var(--color-text-muted)',
+                        fontSize: '0.85rem',
+                        lineHeight: 1.45,
+                        marginTop: '0.5rem',
+                        marginBottom: 0
+                      }}>
+                        {insight.subtitle}
+                      </p>
+                    )}
                   </div>
                 </SpotlightCard>
               </motion.div>

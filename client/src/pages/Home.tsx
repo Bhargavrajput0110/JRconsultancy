@@ -502,22 +502,35 @@ export default function Home() {
                 {selectedService === 5 && (
                   <>
                     <p className="bento-tag">05 / Add on insight</p>
-                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Strategic civil audits & operational insights.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We conduct deep technical site inspections and line-flow simulations to prevent costly structural reworks and peak-hour service delays.</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1.5rem' }}>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Add-on Services & Advisory.</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Civil & Site Audits</h4>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Design & Civil Reviews</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Pre-Lease MEP & Civil Audit:</strong> Slab load capacity, ceiling clearance, and drainage connectivity checks.</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Underground Plumbing Slopes:</strong> Fall gradient verification and commercial grease interceptor sizing.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Seating Capacity & Interior Review</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Civil & Structural Advice</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Design Amendments, Reviews & Comments</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Pre-Lease Civil & MEP Load Audit</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Co-ordination with All Other Consultants</div></li>
                         </ul>
                       </div>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Operations & Benchmarking</h4>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Project & Cost Control</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Vendor Tender & Price Benchmark:</strong> Direct factory BOQ validation, SS 304 gauge audits, and fair price negotiation.</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Station Bottleneck Analysis:</strong> Chef movement simulation to eliminate ticket delay points during peak rushes.</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Pre-Opening Dry Run:</strong> Kitchen stress-testing with simulated ticket rushes before paying guests enter.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Project Management Insights</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Project Budgeting Insights</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Cost Effectiveness Review</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Direct Vendor Tender & Price Benchmark</div></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Operations & Training</h4>
+                        <ul className="modal-feature-list">
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Operational / Set-up Review</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Turnaround Process</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Staff Training + Motivational Support (including Service Sequence & Menu Knowledge)</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">FSSAI Guidelines</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Identifying Service & Product Gaps</div></li>
                         </ul>
                       </div>
                     </div>
