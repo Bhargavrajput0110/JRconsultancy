@@ -258,7 +258,7 @@ export default function Home() {
                 <li>Kitchen workflow expertise</li>
                 <li>Operational efficiency</li>
                 <li>New build & renovation</li>
-                <li>Equipment placement</li>
+                <li>Equipment placement & ventilation planning</li>
               </ul>
             </SpotlightCard>
           </motion.div>
