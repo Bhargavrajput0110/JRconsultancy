@@ -141,11 +141,11 @@ export default function AboutPage() {
                 desc: 'Station-by-station ergonomic design ensuring cooks move with maximum speed and minimal cross-traffic.'
               },
               {
-                title: 'Plumbing & Grease Trap Engineering',
+                title: 'Plumbing & Grease Trap Planning',
                 desc: 'Industrial multi-chamber interceptors preventing pipe clogs, foul smells, and municipal non-compliance.'
               },
               {
-                title: '3-Phase Power & Gas Bank Layout',
+                title: 'Power Distributions & Gas Bank Layout',
                 desc: 'Dedicated electrical circuit mapping to prevent breaker tripping, balance phase loads, and protect heavy kitchen appliances from voltage burnout.'
               }
             ].map((cap, i) => (
