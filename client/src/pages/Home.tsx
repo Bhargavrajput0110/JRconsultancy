@@ -489,6 +489,10 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
+                        <div className="modal-feature-text"><strong>Kitchen Equipment:</strong> Equipment selection and detailed design review.</div>
+                      </li>
+                      <li className="modal-feature-item">
+                        <span className="modal-feature-dot" />
                         <div className="modal-feature-text"><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices.</div>
                       </li>
                     </ul>
