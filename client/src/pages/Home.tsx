@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
@@ -65,6 +65,23 @@ export default function Home() {
   const footerRef = useRef(null)
   const isFooterInView = useInView(footerRef, { margin: "0px 0px -100px 0px" })
 
+  // Lock body scroll and pause Lenis smooth scroll while service modal is open
+  useEffect(() => {
+    if (selectedService !== null) {
+      document.body.style.overflow = 'hidden'
+      const lenis = (window as any).lenis
+      if (lenis) lenis.stop()
+    } else {
+      document.body.style.overflow = ''
+      const lenis = (window as any).lenis
+      if (lenis) lenis.start()
+    }
+    return () => {
+      document.body.style.overflow = ''
+      const lenis = (window as any).lenis
+      if (lenis) lenis.start()
+    }
+  }, [selectedService])
 
   return (
     <SmoothScroll>
@@ -328,6 +345,7 @@ export default function Home() {
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }}
+              data-lenis-prevent="true"
               style={{ 
                 position: 'fixed', 
                 top: 0, 
@@ -346,20 +364,29 @@ export default function Home() {
               onClick={() => setSelectedService(null)}
             >
               <motion.div 
-                layoutId={`service-${selectedService}`}
+                data-lenis-prevent="true"
+                className="modal-scrollable"
+                initial={{ scale: 0.94, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.94, opacity: 0, y: 15 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 style={{ 
                   background: 'rgba(11, 18, 13, 0.98)', 
                   border: '1px solid rgba(196, 154, 108, 0.35)', 
                   borderRadius: 'clamp(20px, 4vw, 32px)', 
                   padding: 'clamp(1.5rem, 5vw, 3.5rem)', 
-                  maxWidth: '780px', 
+                  paddingBottom: 'clamp(2.5rem, 6vw, 4rem)',
+                  maxWidth: '820px', 
                   width: '100%', 
-                  maxHeight: '90vh',
+                  maxHeight: '85vh',
                   overflowY: 'auto',
+                  overscrollBehavior: 'contain',
                   WebkitOverflowScrolling: 'touch',
                   position: 'relative', 
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.85)' 
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.85)',
+                  touchAction: 'pan-y'
                 }}
+                onWheel={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
@@ -507,10 +534,10 @@ export default function Home() {
                       <div>
                         <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Design & Civil Reviews</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Seating Capacity & Interior Review</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Civil & Structural Advice</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Design Amendments, Reviews & Comments</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Pre-Lease Civil & MEP Load Audit</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Seating Capacity & Interior Review</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Design Amendments, Reviews & Comments</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Co-ordination with All Other Consultants</div></li>
                         </ul>
                       </div>

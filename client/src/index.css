@@ -508,7 +508,34 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.55rem;
 }
 
-/* Dedicated Modal Feature List for Fluid Text Flow */
+/* Dedicated Modal Scrolling & Feature List */
+.modal-scrollable {
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) rgba(255, 255, 255, 0.05);
+}
+
+.modal-scrollable::-webkit-scrollbar {
+  width: 7px;
+}
+
+.modal-scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #dfb27e;
+}
+
 .modal-feature-list {
   margin-top: 1.25rem;
   display: flex;
