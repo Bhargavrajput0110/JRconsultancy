@@ -404,27 +404,10 @@ export default function ServicesPage() {
                       color: 'var(--color-text-muted)',
                       fontSize: '0.94rem',
                       lineHeight: 1.65,
-                      marginBottom: '1.75rem'
+                      marginBottom: 0
                     }}>
                       {insight.desc}
                     </p>
-                  </div>
-
-                  {/* Bottom Impact Box */}
-                  <div style={{
-                    background: 'rgba(196, 154, 108, 0.07)',
-                    border: '1px solid rgba(196, 154, 108, 0.2)',
-                    borderRadius: '14px',
-                    padding: '0.9rem 1.15rem',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '10px'
-                  }}>
-                    <Sparkles size={16} color="var(--color-accent, #c49a6c)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <div style={{ fontSize: '0.84rem', color: '#e5e7eb', lineHeight: 1.5 }}>
-                      <strong style={{ color: 'var(--color-accent, #c49a6c)' }}>Value Impact: </strong>
-                      {insight.impact}
-                    </div>
                   </div>
                 </SpotlightCard>
               </motion.div>

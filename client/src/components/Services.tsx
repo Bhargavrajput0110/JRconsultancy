@@ -115,12 +115,9 @@ const Services = () => {
               <div className="service-content">
                 <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Pre-Lease MEP & Civil Audit</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
                   Slab load-bearing checks, exhaust shaft heights, and plumbing fall verification before you commit to a commercial lease.
                 </p>
-                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
-                  Prevents ₹1.5L–₹3L in unexpected rework.
-                </span>
               </div>
             </div>
 
@@ -128,12 +125,9 @@ const Services = () => {
               <div className="service-content">
                 <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Hood CFM & HVAC Air Balancing</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
                   Scientific fresh air makeup and exhaust velocity calculation preventing kitchen hot pockets and smoke rollback into dining areas.
                 </p>
-                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
-                  Saves 15%–22% on power bills.
-                </span>
               </div>
             </div>
 
@@ -141,12 +135,9 @@ const Services = () => {
               <div className="service-content">
                 <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>Vendor Tender & Price Benchmark</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
                   Factory-direct procurement tender floatation with strict SS 304 gauge audits, bypassing agent commissions and fabricator markups.
                 </p>
-                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
-                  Saves 15%–25% on equipment CAPEX.
-                </span>
               </div>
             </div>
 
@@ -154,12 +145,9 @@ const Services = () => {
               <div className="service-content">
                 <span className="service-tag" style={{ color: '#4ade80' }}>✓ COMPLIMENTARY INCLUSION</span>
                 <h4>FSSAI Sanitary Zoning Blueprint</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0' }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.8rem 0 0 0' }}>
                   Strict dirty-to-clean flow zoning and grease interceptor positioning mapped precisely to municipal food safety standards.
                 </p>
-                <span style={{ fontSize: '0.82rem', color: 'var(--color-accent, #c49a6c)', fontWeight: 600 }}>
-                  Municipal compliance alignment.
-                </span>
               </div>
             </div>
           </div>
