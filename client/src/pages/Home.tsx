@@ -704,14 +704,13 @@ export default function Home() {
               <div className="eng-item">
                 <span className="eng-item-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
-                    <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
-                    <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
                   </svg>
                 </span>
                 <div className="eng-item-text">
-                  <h4>Calculated Exhaust Hood CFM & Fresh Air Air-Balancing</h4>
-                  <p>Dedicated air handling keeps the kitchen under negative pressure so heat, grease, and smoke never spill into the dining room.</p>
+                  <h4>Structural Safety & Code Compliance Advisory</h4>
+                  <p>Floor slab load capacity, core-cutting points, and structural safety reviewed with civil engineering precision to protect building integrity.</p>
                 </div>
               </div>
               <div className="eng-item">
@@ -728,13 +727,15 @@ export default function Home() {
               <div className="eng-item">
                 <span className="eng-item-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
                   </svg>
                 </span>
                 <div className="eng-item-text">
-                  <h4>FSSAI Schedule 4 Sanitary Zoning Alignment</h4>
-                  <p>Non-cross-contamination workflows separating raw receiving, cold chain, hot line, and dishwash for swift municipal approval.</p>
+                  <h4>Project Programme & Scheduling</h4>
+                  <p>Critical-path timeline synchronizing civil milestones, MEP rough-ins, and kitchen delivery to eliminate contractor downtime and rent leakage.</p>
                 </div>
               </div>
             </div>
@@ -775,8 +776,8 @@ export default function Home() {
                   </svg>
                 </span>
                 <div className="eng-item-text">
-                  <h4>Underpowered Generic Ducting</h4>
-                  <p>Kitchen ambient temperatures skyrocket over 45°C, causing chef fatigue, high staff turnover, and greasy film on dining furniture.</p>
+                  <h4>Unchecked Core-Cutting & Structural Load Risks</h4>
+                  <p>Haphazard slab core-drilling and uncalculated equipment weight leading to structural cracks, water seepage, and landlord penalty notices.</p>
                 </div>
               </div>
               <div className="eng-item">
@@ -801,8 +802,8 @@ export default function Home() {
                   </svg>
                 </span>
                 <div className="eng-item-text">
-                  <h4>Disorganized Kitchen Station Flow</h4>
-                  <p>Cooks collide in narrow corridors, prep stations lack proximity to refrigeration, and health inspectors reject license paperwork.</p>
+                  <h4>Uncoordinated Scheduling & Delayed Handover</h4>
+                  <p>Trades overlap chaotically with no milestone tracking, causing compounding weeks of launch delays, mounting pre-opening rent, and lost revenue.</p>
                 </div>
               </div>
             </div>
