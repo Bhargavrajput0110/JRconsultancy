@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet-async'
 import { 
   Sparkles, 
   ShieldCheck, 
-  Zap, 
   Compass, 
   TrendingUp, 
   FileText, 
@@ -87,68 +86,47 @@ export default function ServicesPage() {
     },
     {
       num: '05',
-      title: 'Add on insight: Strategic Civil & MEP Audits',
-      subtitle: 'Value-driven technical feasibility and statutory engineering.',
-      desc: 'Essential structural and operational audits that safeguard your investment. We perform rigorous pre-lease inspections, ventilation calculations, and sanitary zoning blueprints.',
+      title: 'Add-on Insights: Technical Audits & Simulations',
+      subtitle: 'Value-driven technical feasibility and operational safeguards.',
+      desc: 'Essential structural and operational audits that safeguard your investment. We perform rigorous pre-lease civil inspections, direct vendor quote benchmarking, line-flow bottleneck simulations, and pre-opening mock stress tests.',
       deliverables: [
         'Pre-lease civil walkthrough, structural slab load-bearing & drainage audit',
-        'Exhaust hood CFM velocity & fresh air intake balancing calculations',
         'Direct vendor tender benchmark & SS 304 equipment BOQ specification audits',
-        'FSSAI Schedule 4 sanitary zoning blueprint with segregated prep zones',
-        'Station workload simulation & ergonomic bottleneck analysis',
+        'Station workload simulation & ergonomic line bottleneck analysis',
+        'Pre-opening mock service dry run and kitchen stress-testing',
         'Grease trap sizing & municipal drainage fall gradient compliance'
       ]
     }
   ]
 
-  const complimentaryInsights = [
+  const addOnInsights = [
     {
       icon: <Compass size={22} color="var(--color-accent, #c49a6c)" />,
       badge: 'Site Due Diligence',
       title: 'Pre-Lease Civil & MEP Load Audit',
       pairedWith: 'Pillar 01: Site Selection & Planning',
-      desc: 'Before executing any commercial agreement, we inspect the physical space: floor slab load capacity, ceiling clearance for exhaust ducts, 3-phase power supply, and municipal sewer pipe fall angles.',
-      impact: 'Prevents ₹1.5L–₹3L in unexpected landlord repair, core-cutting, and structural rework.'
-    },
-    {
-      icon: <Zap size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'Energy Optimization',
-      title: 'Exhaust Hood CFM & Air-Balancing Model',
-      pairedWith: 'Pillar 02: Kitchen MEP Engineering',
-      desc: 'Scientific mathematical modeling of exhaust hood capture velocity and makeup fresh air intake ratios. Eliminates hot air pockets, smoke rollback, and kitchen smell transfer to dining areas.',
-      impact: 'Saves 15%–22% on ongoing commercial kitchen electricity & HVAC cooling utility bills.'
+      desc: 'Before executing any commercial agreement, we inspect the physical space: floor slab load capacity, ceiling clearance for exhaust ducts, 3-phase power supply, and municipal sewer pipe fall angles.'
     },
     {
       icon: <TrendingUp size={22} color="var(--color-accent, #c49a6c)" />,
       badge: 'CAPEX Protection',
       title: 'Direct Vendor Tender & Price Benchmark',
       pairedWith: 'Pillar 02: Procurement & Fabrications',
-      desc: 'Independent validation of equipment BOQ specifications. We audit true stainless steel gauges (SS 304 vs SS 202) and float tenders directly to top fabricators to bypass agent commissions.',
-      impact: 'Reduces total kitchen stainless steel and heavy equipment CAPEX by 15%–25%.'
-    },
-    {
-      icon: <ShieldCheck size={22} color="var(--color-accent, #c49a6c)" />,
-      badge: 'Statutory Health',
-      title: 'FSSAI Schedule 4 Sanitary Zoning Blueprint',
-      pairedWith: 'Pillar 02 & 03: Kitchen Layout & SOPs',
-      desc: 'Strict demarcation of dirty receiving, wet prep, hot line, and plating zones. Complete with grease interceptor sizing and wash station locations to satisfy municipal health inspector guidelines.',
-      impact: 'Designed to satisfy municipal health guidelines and licensing inspections without costly rework notices.'
+      desc: 'Independent validation of equipment BOQ specifications. We audit true stainless steel gauges (SS 304 vs SS 202) and float tenders directly to top fabricators to bypass agent commissions.'
     },
     {
       icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,
       badge: 'Operational Speed',
       title: 'Station Workload & Bottleneck Analysis',
       pairedWith: 'Pillar 03: People & Operational Systems',
-      desc: 'Ergonomic line simulation analyzing chef steps, hot line reach radiuses, and ticket congestion points during 80+ cover peaks. Re-organizes mise-en-place wells for sub-8 minute plating times.',
-      impact: 'Increases peak-hour seat turnaround yield by 20%–30% with fewer staff fatigue errors.'
+      desc: 'Ergonomic line simulation analyzing chef steps, hot line reach radiuses, and ticket congestion points during 80+ cover peaks. Re-organizes mise-en-place wells for sub-8 minute plating times.'
     },
     {
       icon: <Gift size={22} color="var(--color-accent, #c49a6c)" />,
       badge: 'Launch Strategy',
       title: 'Pre-Opening Dry Run & Stress-Test Playbook',
       pairedWith: 'Pillar 04: Launch & Support',
-      desc: 'A comprehensive mock service framework simulating simultaneous ticket rushes, KDS-to-FOH communication, and emergency POS overrides before paying patrons ever enter.',
-      impact: 'Prevents opening-week chaos, prolonged table wait times, and damaging early reviews.'
+      desc: 'A comprehensive mock service framework simulating simultaneous ticket rushes, KDS-to-FOH communication, and emergency POS overrides before paying patrons ever enter.'
     }
   ]
 
@@ -256,8 +234,8 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* ── Complimentary Add-On Insights Section ── */}
-        <section id="complimentary-insights" style={{ marginBottom: '6rem' }}>
+        {/* ── Add-On Insights Section ── */}
+        <section id="add-on-insights" style={{ marginBottom: '6rem' }}>
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -283,7 +261,7 @@ export default function ServicesPage() {
                 letterSpacing: '1px',
                 textTransform: 'uppercase'
               }}>
-                Complimentary Value-Add Insights
+                Add-on Insights
               </span>
             </div>
 
@@ -294,7 +272,7 @@ export default function ServicesPage() {
               marginBottom: '1.2rem',
               color: 'var(--color-text)'
             }}>
-              Complimentary Strategic Insights.<br />
+              Strategic Add-on Insights.<br />
               <span style={{ color: 'var(--color-accent, #c49a6c)', fontWeight: 'normal' }}>
                 Included with every consulting engagement.
               </span>
@@ -307,7 +285,7 @@ export default function ServicesPage() {
               margin: '0 auto',
               lineHeight: 1.7
             }}>
-              We believe great hospitality ventures shouldn't be nickeled-and-dimed for essential engineering advice. Every JR Consulting project automatically comes bundled with these proprietary strategic audits and blueprints as <strong style={{ color: '#fff' }}>complimentary inclusions</strong>.
+              We believe great hospitality ventures deserve rigorous technical clarity. Every JR Consulting project automatically comes bundled with these proprietary strategic audits and blueprints as <strong style={{ color: '#fff' }}>add-on insights</strong>.
             </p>
           </motion.div>
 
@@ -317,7 +295,7 @@ export default function ServicesPage() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '1.75rem'
           }}>
-            {complimentaryInsights.map((insight, idx) => (
+            {addOnInsights.map((insight, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 25 }}
@@ -340,7 +318,7 @@ export default function ServicesPage() {
                   <div>
                     {/* Top Pill & Tag */}
                     <div style={{ 
-                      display: 'flex', 
+                       display: 'flex', 
                       justifyContent: 'space-between', 
                       alignItems: 'center', 
                       marginBottom: '1.5rem',
@@ -364,18 +342,18 @@ export default function ServicesPage() {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '6px',
-                        background: 'rgba(34, 197, 94, 0.12)',
-                        border: '1px solid rgba(34, 197, 94, 0.32)',
+                        background: 'rgba(196, 154, 108, 0.12)',
+                        border: '1px solid rgba(196, 154, 108, 0.35)',
                         borderRadius: '16px',
                         padding: '4px 12px',
                         fontSize: '0.74rem',
                         fontWeight: 700,
                         letterSpacing: '0.5px',
-                        color: '#4ade80',
+                        color: 'var(--color-accent, #c49a6c)',
                         textTransform: 'uppercase'
                       }}>
                         <CheckCircle2 size={13} />
-                        <span>Complimentary</span>
+                        <span>Add-on Insight</span>
                       </div>
                     </div>
 

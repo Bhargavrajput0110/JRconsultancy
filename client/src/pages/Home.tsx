@@ -315,8 +315,8 @@ export default function Home() {
           <motion.div layoutId="service-5" onClick={() => setSelectedService(5)} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="service-card-half" style={{ cursor: 'pointer' }}>
             <SpotlightCard className="bento-card hover-scale-slight" style={{ height: '100%' }}>
               <p className="bento-tag">05 / Add on insight</p>
-              <h3>Strategic civil audits & MEP insights.</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see civil audits, ventilation & FSSAI blueprints &rarr;</p>
+              <h3>Strategic civil audits & operational insights.</h3>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: 'auto', paddingTop: '1rem' }}>Tap to see civil audits, vendor benchmarking & line flow insights &rarr;</p>
             </SpotlightCard>
           </motion.div>
         </div>
@@ -502,23 +502,22 @@ export default function Home() {
                 {selectedService === 5 && (
                   <>
                     <p className="bento-tag">05 / Add on insight</p>
-                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Strategic civil audits & MEP insights.</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We conduct deep technical inspections and airflow balancing to prevent costly structural reworks, utility waste, and statutory non-compliance.</p>
+                    <h3 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', marginBottom: '1.25rem', lineHeight: 1.25 }}>Strategic civil audits & operational insights.</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginBottom: '1.75rem', lineHeight: 1.6 }}>Example: We conduct deep technical site inspections and line-flow simulations to prevent costly structural reworks and peak-hour service delays.</p>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1.5rem' }}>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Civil & Mechanical Audits</h4>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Civil & Site Audits</h4>
                         <ul className="modal-feature-list">
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Pre-Lease MEP & Civil Audit:</strong> Slab load capacity, ceiling clearance, and drainage connectivity checks.</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>CFM Hood & Air Balancing:</strong> Fresh air intake and exhaust velocity calculations to eliminate hot air pockets and odors.</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Underground Plumbing Slopes:</strong> Fall gradient verification and commercial grease interceptor sizing.</div></li>
                         </ul>
                       </div>
                       <div>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Compliance & Operations</h4>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.1rem' }}>Operations & Benchmarking</h4>
                         <ul className="modal-feature-list">
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>FSSAI Schedule 4 Zoning:</strong> Strict dirty-to-clean flow separation to prevent cross-contamination.</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Vendor Tender & Price Benchmark:</strong> Direct factory BOQ validation, SS 304 gauge audits, and fair price negotiation.</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Station Bottleneck Analysis:</strong> Chef movement simulation to eliminate ticket delay points during peak rushes.</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text"><strong>Pre-Opening Dry Run:</strong> Kitchen stress-testing with simulated ticket rushes before paying guests enter.</div></li>
                         </ul>
                       </div>
                     </div>

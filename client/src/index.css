@@ -1997,11 +1997,11 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6 !important;
   }
 
-  /* Complimentary insights cards on mobile */
-  #complimentary-insights {
+  /* Add-on insights cards on mobile */
+  #add-on-insights {
     margin-bottom: 3.5rem !important;
   }
-  #complimentary-insights h2 {
+  #add-on-insights h2 {
     font-size: 1.85rem !important;
   }
 
@@ -2044,7 +2044,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto !important;
   }
 
-  /* Complimentary badge banner on phone */
+  /* Add-on badge banner on phone */
+  .addon-badge-banner,
   .complimentary-badge-banner {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -2052,6 +2053,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem 1.25rem !important;
     gap: 1.25rem !important;
   }
+  .addon-badge-banner a,
   .complimentary-badge-banner a {
     width: 100% !important;
     justify-content: center !important;
