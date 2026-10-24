@@ -1008,7 +1008,7 @@ export default function Home() {
           {[
             {
               q: 'At what phase of our restaurant project should we bring in JR Consulting?',
-              a: 'The earlier, the better — ideally before signing your commercial lease. We evaluate physical site constraints such as structural floor loads, municipal drainage slope, ceiling clearance for exhaust ducts, and the availability of 3-phase electrical power. Catching lease red-flags early prevents expensive structural compromises later.'
+              a: 'The earlier, the better — ideally before signing your commercial lease. We evaluate physical site constraints such as demographic conditons ,  structural floor bearing capacity , municipal drainage slope and RLs , Adequate ceiling clearance for exhaust ducts, and the availability of adequate electrical power. Catching lease red-flags early prevents expensive structural compromises later and provides ultimate efficency satisfication .'
             },
             {
               q: 'How does your Civil Engineering background specifically help restaurant owners?',
