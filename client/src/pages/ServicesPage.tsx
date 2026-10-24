@@ -140,7 +140,7 @@ export default function ServicesPage() {
     {
       icon: <Compass size={22} color="var(--color-accent, #c49a6c)" />,
       category: 'Site Due Diligence',
-      title: 'Pre-Lease Civil & MEP Load Audit'
+      title: 'Pre-Lease Civil & MEP Structural Audit'
     },
     {
       icon: <FileText size={22} color="var(--color-accent, #c49a6c)" />,

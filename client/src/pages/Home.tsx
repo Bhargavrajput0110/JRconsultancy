@@ -424,7 +424,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Layout Review:</strong> Civil engineering checks for load-bearing walls and drainage.</div>
+                        <div className="modal-feature-text"><strong>Layout Review:</strong> Civil engineering checks for bearing capacity of structure and drainage.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -446,7 +446,7 @@ export default function Home() {
                     <ul className="modal-feature-list">
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Menu Design Assistance:</strong> Menu engineering advisory, recipe standardization, and prep-efficient kitchen execution.</div>
+                        <div className="modal-feature-text"><strong>Menu Design Assistance:</strong> Menu engineering advisory, recipe standardization assistance, and prep-efficient kitchen execution.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -462,7 +462,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices.</div>
+                        <div className="modal-feature-text"><strong>Procurement:</strong> Sourcing heavy equipment from trusted vendor networks at fair prices through fair processes.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -535,7 +535,7 @@ export default function Home() {
                         <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.85rem', fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Design & Civil Reviews</h4>
                         <ul className="modal-feature-list">
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Civil & Structural Advice</div></li>
-                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Pre-Lease Civil & MEP Load Audit</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Pre-Lease Civil & MEP Structural Audit</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Seating Capacity & Interior Review</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Design Amendments, Reviews & Comments</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Co-ordination with All Other Consultants</div></li>
@@ -597,7 +597,7 @@ export default function Home() {
             {
               step: '02',
               title: 'Site & Plan Review',
-              desc: 'Using civil engineering expertise, we assess your space — structural loads, drainage, MEP feasibility, and code compliance.',
+              desc: 'Using civil engineering expertise, we assess your space — structural bearing capacity, drainage layout, MEP feasibility, and code compliance.',
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="18" height="18" x="3" y="3" rx="2"/>
@@ -622,7 +622,7 @@ export default function Home() {
             {
               step: '04',
               title: 'Launch & Support',
-              desc: 'We advice soft launches manage, staff training, FSSAI compliance setup, and stay on as your operational partner post-opening.',
+              desc: 'We assist soft launches manage staff training, FSSAI compliance setup, and stay on as your operational partner post-opening.',
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
