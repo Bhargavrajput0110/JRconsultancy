@@ -31,7 +31,7 @@ export default function FaqPage() {
     {
       category: 'Equipment & CAPEX',
       q: 'Do you sell or supply commercial kitchen equipment directly?',
-      a: 'No, we remain strictly vendor-neutral to act in your best financial interest. We prepare the complete Kitchen Equipment Schedule & BOQ (Bill of Quantities) with detailed stainless steel grades (SS304), thickness, and electrical/gas specifications. We then float tenders to India\'s top equipment manufacturers and fabricators, negotiating factory-direct pricing that typically saves our clients 15–25% on CAPEX.'
+      a: 'No, we remain strictly vendor-neutral to act in your best financial interest. We prepare the complete Kitchen Equipment Schedule & BOQ (Bill of Quantities) with detailed specifications. We then float tenders to India\'s renowed equipment manufacturers and fabricators.'
     },
     {
       category: 'Compliance & Licenses',
