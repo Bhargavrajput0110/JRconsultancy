@@ -459,7 +459,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Vastu Consultation:</strong> Basic energy flow and layout planning.</div>
+                        <div className="modal-feature-text"><strong>Basic Vastu Consultation:</strong> Energy flow and layout planning.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -884,7 +884,7 @@ export default function Home() {
               <div style={{ maxWidth: '600px', width: '100%' }}>
                 <p className="bento-tag" style={{ fontSize: '0.85rem', marginBottom: '0.8rem' }}>New Build & MEP</p>
                 <h3 className="portfolio-card-title">Luna Bistro</h3>
-                <p className="portfolio-card-desc">End-to-end consulting covering site selection, Vastu consultation, and complete commercial kitchen space planning for maximum efficiency.</p>
+                <p className="portfolio-card-desc">End-to-end consulting covering site selection, Basic Vastu consultation, and complete commercial kitchen space planning for maximum efficiency.</p>
                 <ul className="bento-list portfolio-card-list">
                   <li>Civil & Architectural MEP Sign-off</li>
                   <li>Commercial Exhaust & Grease Trap Setup</li>
