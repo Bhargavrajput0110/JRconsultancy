@@ -36,7 +36,7 @@ export default function FaqPage() {
     {
       category: 'Compliance & Licenses',
       q: 'How do you ensure FSSAI and statutory code compliance?',
-      a: 'We design kitchen layouts strictly aligned with FSSAI Schedule 4 sanitary zoning regulations. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts are engineered to meet municipal health inspection standards smoothly.'
+      a: 'We design kitchen layouts strictly aligned with FSSAI norms. This includes physical separation of raw and cooked food pathways, designated handwash basins, proper insect-kill zones, food-grade coved floor edges, and grease interceptor integration. Our layouts are engineered to meet municipal health inspection standards smoothly.'
     },
     {
       category: 'Geography & Reach',
