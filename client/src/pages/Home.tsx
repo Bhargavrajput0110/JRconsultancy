@@ -463,7 +463,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Budgeting:</strong> Granular CAPEX forecasting to prevent overspending.</div>
+                        <div className="modal-feature-text"><strong>Budget Analysis and Reviews:</strong> Granular CAPEX forecasting to prevent overspending.</div>
                       </li>
                     </ul>
                   </>
