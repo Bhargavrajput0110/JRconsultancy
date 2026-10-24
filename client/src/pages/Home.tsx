@@ -516,6 +516,7 @@ export default function Home() {
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Job responsibilities & role clarity</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">General service training</div></li>
                           <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">Kitchen staff training, cleaning & hygiene requirements</div></li>
+                          <li className="modal-feature-item"><span className="modal-feature-dot" /><div className="modal-feature-text">FSSAI compliance review</div></li>
                         </ul>
                       </div>
                       <div>
