@@ -1024,7 +1024,7 @@ export default function Home() {
             },
             {
               q: 'Which locations and restaurant formats do you service?',
-              a: 'We are headquartered in Vadodara, India, and actively undertake turnkey restaurant setup and kitchen engineering projects Pan-India. We serve clients across all states and major hubs, working with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
+              a: 'We are headquartered in Vadodara, Gujarat, India, and actively undertakes all consulting works inregards to restaurant setup and kitchen engineering projects Pan-India. We serve clients across all states and major hubs, working with fine dining restaurants, casual cafes, cloud kitchen clusters, bakeries, bars, and commercial catering hubs.'
             }
           ].map((item, index) => {
             const isOpen = openFaq === index
