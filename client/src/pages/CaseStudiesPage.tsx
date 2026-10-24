@@ -6,6 +6,34 @@ import SmoothScroll from '../components/SmoothScroll'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import SpotlightCard from '../components/SpotlightCard'
+import {
+  CookingPot,
+  Coffee,
+  UtensilsCrossed,
+  Sun,
+  Flame,
+  Leaf,
+  CupSoda,
+  Croissant,
+  Zap,
+  Pizza,
+  Fish,
+  Cloud,
+  Sparkles,
+  Building2,
+  Beer,
+  Truck,
+  ConciergeBell,
+  Soup,
+  IceCream,
+  Store,
+  Waves,
+  RotateCw,
+  Salad,
+  BookOpen,
+  Martini,
+  Utensils
+} from 'lucide-react'
 import '../index.css'
 
 export default function CaseStudiesPage() {
@@ -31,13 +59,13 @@ export default function CaseStudiesPage() {
     visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 20 } }
   }
 
-  // Comprehensive Dummy List of All Possible Restaurant & Café Formats in Consulting Scope
+  // Comprehensive List of All Possible Restaurant & Café Formats in Consulting Scope
   const restaurantAndCafeTypes = [
     {
       id: 'traditional-indian',
       name: 'Traditional Regional Cuisines',
       subtext: 'Gujarati Thali, Kathiyawadi, Rajasthani & Awadhi Dining',
-      icon: '🍛',
+      icon: CookingPot,
       category: 'Regional Indian',
       description: 'High-volume regional Indian thali setups requiring centralized steam kettle boilers, brass utensil scullery bays, continuous thali assembly conveyors, and heavy ghee-separating drainage traps.'
     },
@@ -45,7 +73,7 @@ export default function CaseStudiesPage() {
       id: 'restro-cafe',
       name: 'Restro-Café & Modern Bistro',
       subtext: 'European All-Day Dining, Bakeries & Artisanal Small Plates',
-      icon: '☕',
+      icon: Coffee,
       category: 'Cafes & Bistros',
       description: 'Aesthetic social dining combining an inviting front-of-house with a compact, low-heat electric induction cookline, high-speed combi-ovens, and acoustic zoning.'
     },
@@ -53,7 +81,7 @@ export default function CaseStudiesPage() {
       id: 'multi-cuisine',
       name: 'Multi-Cuisine Family Restaurants',
       subtext: 'North Indian, Pan-Asian Wok & Continental Dining Venues',
-      icon: '🥘',
+      icon: UtensilsCrossed,
       category: 'Full-Service Dining',
       description: 'Zoned kitchen engineering preventing cross-contamination between Indian curry, Chinese high-pressure wok, and Continental grill lines with dual-duct ESP electrostatic smoke filtration.'
     },
@@ -61,7 +89,7 @@ export default function CaseStudiesPage() {
       id: 'south-indian',
       name: 'South Indian Restaurants & Tiffin Centers',
       subtext: 'Authentic Udupi, Chettinad, Dosa Bars & Quick Tiffin Hubs',
-      icon: '🥥',
+      icon: Sun,
       category: 'Regional Indian',
       description: 'High-throughput Udupi kitchens with climate-controlled batter fermentation rooms, motorized stone wet-grinders, 6-foot continuous gas dosa tawas, and rapid 3-minute service cadence.'
     },
@@ -69,7 +97,7 @@ export default function CaseStudiesPage() {
       id: 'north-indian-mughlai',
       name: 'North Indian, Mughlai & Tandoor Houses',
       subtext: 'Clay Tandoors, Dum Biryani, Kebab Grills & Handi Specialties',
-      icon: '🍢',
+      icon: Flame,
       category: 'Regional Indian',
       description: 'Clay oven tandoor banks requiring 4,500+ CFM dedicated high-velocity heat exhaust, high-flame Bhatti gas manifolds with safety slam shutoffs, and cold-chain meat marination stations.'
     },
@@ -77,7 +105,7 @@ export default function CaseStudiesPage() {
       id: 'pure-veg-family',
       name: 'Pure Vegetarian Family Dining',
       subtext: 'Pure Vegetarian Fine Dining, Jain-Friendly & Multi-Generation Venues',
-      icon: '🥗',
+      icon: Leaf,
       category: 'Full-Service Dining',
       description: 'Strict vegetarian segregation, dedicated Jain food preparation stations, high-capacity table arrangements, and rapid Sunday family rush expediting passes.'
     },
@@ -85,7 +113,7 @@ export default function CaseStudiesPage() {
       id: 'artisan-coffee-bar',
       name: 'Specialty Coffee Bars & Roasteries',
       subtext: 'Third-Wave Espresso Bars, Pour-Over Counters & In-House Roasters',
-      icon: '🫘',
+      icon: CupSoda,
       category: 'Cafes & Bistros',
       description: 'Commercial barista counter MEP with dual-loop reverse osmosis water treatment, 3-phase surge-protected power, direct under-counter knock-box drainage, and acoustic isolation.'
     },
@@ -93,7 +121,7 @@ export default function CaseStudiesPage() {
       id: 'bakery-patisserie',
       name: 'Artisan Bakery & Patisserie',
       subtext: 'French Pastries, Viennoiserie, Sourdough Bread & Custom Cake Studios',
-      icon: '🥐',
+      icon: Croissant,
       category: 'Cafes & Bistros',
       description: 'Humidity-controlled pastry dough sheeting rooms (18°C), deck baking ovens with independent steam injection, proofing chambers, and temperature-zoned refrigerated showcases.'
     },
@@ -101,7 +129,7 @@ export default function CaseStudiesPage() {
       id: 'qsr-fast-food',
       name: 'Quick Service Restaurants (QSR)',
       subtext: 'Burger Joints, Fried Chicken Chains, Wrap & Roll Counters',
-      icon: '🍔',
+      icon: Zap,
       category: 'Fast Casual & QSR',
       description: 'Engineered for sub-90-second ticket times with automated fryers with built-in oil filtration, burger assembly chutes, KDS bump bars, and self-ordering kiosk integration.'
     },
@@ -109,7 +137,7 @@ export default function CaseStudiesPage() {
       id: 'artisanal-pizzeria',
       name: 'Artisanal Pizzerias & Italian Trattorias',
       subtext: 'Neapolitan Wood-Fired Pizza, Hand-Tossed Slices & Fresh Pasta Bars',
-      icon: '🍕',
+      icon: Pizza,
       category: 'Fast Casual & QSR',
       description: 'High-temperature stone/wood-fired oven installation (450°C) with dedicated triple-wall flue chimney draft, refrigerated marble pizza prep lines, and dough fermentation retarders.'
     },
@@ -117,7 +145,7 @@ export default function CaseStudiesPage() {
       id: 'pan-asian-sushi',
       name: 'Pan-Asian, Sushi Bars & Dim Sum Houses',
       subtext: 'Thai, Chinese, Dim Sum Steamers, Teppanyaki & Japanese Robata',
-      icon: '🥢',
+      icon: Fish,
       category: 'Global Speciality',
       description: 'High-pressure turbo wok burners with direct water knee-valves, dedicated bamboo steamer stations, refrigerated sushi counter displays, and specialized grease traps.'
     },
@@ -125,7 +153,7 @@ export default function CaseStudiesPage() {
       id: 'cloud-kitchen-hub',
       name: 'Cloud Kitchens & Dark Kitchen Hubs',
       subtext: 'Multi-Brand Delivery Clusters, Ghost Kitchens & Virtual Outlets',
-      icon: '🛵',
+      icon: Cloud,
       category: 'Production & Delivery',
       description: 'Modular shared kitchen pods, consolidated walk-in chillers, unified packaging counters with heated staging lamps, and isolated courier pickup handoff bays.'
     },
@@ -133,7 +161,7 @@ export default function CaseStudiesPage() {
       id: 'fine-dining-lounge',
       name: 'Fine Dining & Luxury Lounges',
       subtext: 'Chef-Driven Tasting Menus, Sommelier Cellars & Supper Clubs',
-      icon: '🍷',
+      icon: Sparkles,
       category: 'Full-Service Dining',
       description: 'Bespoke finishing passes with precision heat lamps, dual-zone wine cellars maintaining 14°C, whisper-quiet ventilation, and luxury acoustic spatial planning.'
     },
@@ -141,7 +169,7 @@ export default function CaseStudiesPage() {
       id: 'rooftop-restro-bar',
       name: 'Rooftop & Open-Air Restro-Bars',
       subtext: 'Sky Lounges, Penthouse Terraces & Sunset Cocktail Venues',
-      icon: '🌆',
+      icon: Building2,
       category: 'Nightlife & Bars',
       description: 'Weather-resistant stainless equipment enclosures, high-wind exhaust duct anchoring, service dumbwaiter integration from BOH ground kitchens, and perimeter fire-pit safety.'
     },
@@ -149,7 +177,7 @@ export default function CaseStudiesPage() {
       id: 'microbrewery-taproom',
       name: 'Microbreweries & Craft Taprooms',
       subtext: 'On-Premise Brew Houses, Fermentation Tank Yards & Beer Gardens',
-      icon: '🍺',
+      icon: Beer,
       category: 'Nightlife & Bars',
       description: 'Brew-kettle steam and chiller MEP, glycol cooling line distribution, heavy structural slab load engineering for fermentation tanks, and excise department compliant zoning.'
     },
@@ -157,7 +185,7 @@ export default function CaseStudiesPage() {
       id: 'highway-dhaba',
       name: 'Highway Dhabas & Family Highway Stops',
       subtext: 'Expansive Highway Dining, Open Tandoor & High-Turnover Pit Stops',
-      icon: '🚜',
+      icon: Truck,
       category: 'Regional Indian',
       description: 'Expansive parking-adjacent footprint planning, fast-turnover kitchen lines, robust bulk prep areas, industrial water storage, and heavy-duty LPG manifold installations.'
     },
@@ -165,7 +193,7 @@ export default function CaseStudiesPage() {
       id: 'buffet-banquet',
       name: 'Buffets, Banquets & Commercial Catering',
       subtext: 'Unlimited Food Spread Halls, Wedding Venues & Institutional F&B',
-      icon: '🍲',
+      icon: ConciergeBell,
       category: 'Full-Service Dining',
       description: 'Massive capacity combi-ovens, mobile heated banquet trolleys, walk-in cold rooms for 2,000+ covers, dishwash carousel tunnels, and loading dock logistics.'
     },
@@ -173,7 +201,7 @@ export default function CaseStudiesPage() {
       id: 'tea-lounge-chai',
       name: 'Tea Lounges & Modern Chai Bars',
       subtext: 'Boutique Chai Kiosks, High-Tea Lounges & Artisanal Brew Concepts',
-      icon: '🫖',
+      icon: Soup,
       category: 'Cafes & Bistros',
       description: 'Rapid-boil induction tea brewing banks, automated milk dispensing and chilling, compact snack warmers, and high-velocity counter service layouts.'
     },
@@ -181,7 +209,7 @@ export default function CaseStudiesPage() {
       id: 'dessert-ice-cream',
       name: 'Ice Cream Parlours & Dessert Bars',
       subtext: 'Artisan Gelaterias, Nitrogen Ice Cream & Waffle / Crepe Lounges',
-      icon: '🍨',
+      icon: IceCream,
       category: 'Fast Casual & QSR',
       description: 'High-power batch freezers, blast freezing cabinets (-40°C), continuous soft-serve machines, dipping cabinets, and dry topping display integration.'
     },
@@ -189,7 +217,7 @@ export default function CaseStudiesPage() {
       id: 'food-court-kiosk',
       name: 'Food Court & Mall Kiosks',
       subtext: 'Compact 150-300 sq.ft. High-Density Commercial Kitchen Pods',
-      icon: '🏪',
+      icon: Store,
       category: 'Fast Casual & QSR',
       description: 'Micro-footprint space planning maximizing every inch, ventless cooking hood technology, plug-and-play plumbing, and strict mall fire & MEP compliance.'
     },
@@ -197,7 +225,7 @@ export default function CaseStudiesPage() {
       id: 'coastal-seafood',
       name: 'Coastal & Seafood Specialty Dining',
       subtext: 'Malabar, Mangalorean, Goan & Konkan Fresh Catch Venues',
-      icon: '🦐',
+      icon: Waves,
       category: 'Regional Indian',
       description: 'Dedicated odor-isolated fish cleaning sculleries, deep-freeze walk-in refrigeration maintaining -18°C, specialized seafood display counters, and live cooking ranges.'
     },
@@ -205,7 +233,7 @@ export default function CaseStudiesPage() {
       id: 'shawarma-rolls',
       name: 'Shawarma, Rolls & Kebab Takeaways',
       subtext: 'Vertical Broiler Stations, Middle Eastern Wraps & Quick Grills',
-      icon: '🌯',
+      icon: RotateCw,
       category: 'Fast Casual & QSR',
       description: 'Front-facing vertical gas rotisseries with dedicated glass sneeze-guards, localized exhaust hood capture, rapid flatbread warming grills, and cold condiment wells.'
     },
@@ -213,7 +241,7 @@ export default function CaseStudiesPage() {
       id: 'mexican-taqueria',
       name: 'Mexican & Tex-Mex Taquerias',
       subtext: 'Taco Bars, Burrito Assembly Lines & Nacho Cantinas',
-      icon: '🌮',
+      icon: Flame,
       category: 'Global Speciality',
       description: 'Flat-top chrome planchas, heated chip warmers, cold salsa bar wells, cheese melting salamanders, and fast-casual assembly ergonomics.'
     },
@@ -221,7 +249,7 @@ export default function CaseStudiesPage() {
       id: 'healthy-vegan-cafe',
       name: 'Healthy, Salad & Vegan Cafes',
       subtext: 'Organic Grain Bowls, Cold-Pressed Juiceries & Superfood Dining',
-      icon: '🥑',
+      icon: Salad,
       category: 'Cafes & Bistros',
       description: 'Cold-room temperature controlled prep bays for fresh produce, commercial hydraulic juice presses, blast chillers, and segregated allergen-safe workflows.'
     },
@@ -229,7 +257,7 @@ export default function CaseStudiesPage() {
       id: 'book-work-cafe',
       name: 'Co-Working Cafes & Book Lounges',
       subtext: 'Laptop-Friendly Workspaces, Library Lounges & Quiet Dining Spots',
-      icon: '📚',
+      icon: BookOpen,
       category: 'Cafes & Bistros',
       description: 'Low-decibel quiet kitchen operations, extensive power-drop spatial planning, ergonomic long-dwell seating, and quiet barista counter operations.'
     },
@@ -237,7 +265,7 @@ export default function CaseStudiesPage() {
       id: 'cocktail-gastro-pub',
       name: 'Cocktail Lounges & Gastro-Pubs',
       subtext: 'Craft Cocktail Wells, Tapas Bars & High-Energy Nightspots',
-      icon: '🍸',
+      icon: Martini,
       category: 'Nightlife & Bars',
       description: 'Commercial speed-rail cocktail wells with integrated ice bins and glass rinsers, keg walk-in coolers with beer line refrigeration, and acoustic wall dampening.'
     }
@@ -519,7 +547,25 @@ export default function CaseStudiesPage() {
                   aria-expanded={isDropdownOpen}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textAlign: 'left' }}>
-                    <span style={{ fontSize: '1.4rem' }}>{currentType?.icon || '🍽️'}</span>
+                    {(() => {
+                      const IconComp = currentType?.icon || Utensils
+                      return (
+                        <span style={{
+                          width: '42px',
+                          height: '42px',
+                          borderRadius: '12px',
+                          background: 'rgba(196, 154, 108, 0.15)',
+                          border: '1px solid rgba(196, 154, 108, 0.35)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--color-accent)',
+                          flexShrink: 0
+                        }}>
+                          <IconComp size={22} strokeWidth={2} />
+                        </span>
+                      )
+                    })()}
                     <div>
                       <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-accent)', fontWeight: 600 }}>
                         {currentType?.category} Format
@@ -581,6 +627,7 @@ export default function CaseStudiesPage() {
                     </div>
                     {restaurantAndCafeTypes.map(type => {
                       const isActive = selectedType === type.id
+                      const IconComp = type.icon || Utensils
 
                       return (
                         <div
@@ -608,8 +655,21 @@ export default function CaseStudiesPage() {
                             if (!isActive) e.currentTarget.style.background = 'transparent'
                           }}
                         >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                            <span style={{ fontSize: '1.25rem' }}>{type.icon}</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                            <span style={{
+                              width: '34px',
+                              height: '34px',
+                              borderRadius: '10px',
+                              background: isActive ? 'rgba(196, 154, 108, 0.28)' : 'rgba(196, 154, 108, 0.12)',
+                              border: isActive ? '1px solid rgba(196, 154, 108, 0.5)' : '1px solid rgba(196, 154, 108, 0.25)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              color: 'var(--color-accent)',
+                              flexShrink: 0
+                            }}>
+                              <IconComp size={18} strokeWidth={2} />
+                            </span>
                             <div>
                               <div style={{ fontWeight: isActive ? 700 : 600, color: isActive ? 'var(--color-accent)' : '#fff', fontSize: '0.92rem' }}>
                                 {type.name}
@@ -651,8 +711,26 @@ export default function CaseStudiesPage() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                    <span style={{ fontSize: '1.35rem' }}>{currentType.icon}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    {(() => {
+                      const IconComp = currentType.icon || Utensils
+                      return (
+                        <span style={{
+                          width: '38px',
+                          height: '38px',
+                          borderRadius: '10px',
+                          background: 'rgba(196, 154, 108, 0.18)',
+                          border: '1px solid rgba(196, 154, 108, 0.35)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--color-accent)',
+                          flexShrink: 0
+                        }}>
+                          <IconComp size={20} strokeWidth={2} />
+                        </span>
+                      )
+                    })()}
                     <span style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', fontFamily: 'var(--font-heading)' }}>
                       {currentType.name}
                     </span>
