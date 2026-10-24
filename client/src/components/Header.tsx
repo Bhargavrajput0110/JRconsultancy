@@ -82,8 +82,8 @@ export default function Header({ isFooterInView = false }: HeaderProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 8px 25px rgba(0,0,0,0.4), 0 0 20px rgba(196, 154, 108, 0.35)',
-            border: '2px solid rgba(196, 154, 108, 0.75)',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.4), 0 0 28px rgba(196, 154, 108, 0.65), 0 0 10px rgba(196, 154, 108, 0.55)',
+            border: '2px solid rgba(196, 154, 108, 0.85)',
             overflow: 'hidden',
             flexShrink: 0
           }}>
