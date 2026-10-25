@@ -398,24 +398,7 @@ export default function CaseStudiesPage() {
         'Pre-Licensing Kitchen Readiness Checklist',
       ]
     },
-    {
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/>
-        </svg>
-      ),
-      heading: 'Menu & Concept Development',
-      items: [
-        'Full Menu Engineering & Menu Psychology Design',
-        'Recipe Costing & Contribution Margin Analysis',
-        'Stars & Plow Horses Sales Mix Profitability Study',
-        'Ingredient Cross-Utilization & Waste Reduction Plan',
-        'Multi-Cuisine to Focused Menu Concept Restructure',
-        'Beverage Programme & Bar Menu Planning',
-        'Seasonal & Rotating Menu Planning Framework',
-        'Tasting Session Management & Calibration Support',
-      ]
-    },
+
     {
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
