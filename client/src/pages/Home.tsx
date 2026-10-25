@@ -587,7 +587,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews and maintain FSSAI standards.</div>
+                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews and maintaineance FSSAI standards.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -998,7 +998,7 @@ export default function Home() {
               className="section-heading"
               style={{ margin: 0 }}
             >
-              Real Restaurant Owners.<br/>
+              Real Restaurant associated.<br/>
               <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
                 Watch their unfiltered reviews.
               </span>
@@ -1388,10 +1388,61 @@ export default function Home() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: 'clamp(0.75rem, 3vw, 2rem)'
+              padding: 'clamp(0.75rem, 3vw, 2rem)',
+              cursor: 'pointer'
             }}
             onClick={() => setSelectedVideo(null)}
           >
+            {/* Prominent Floating Exit Button in Top-Right */}
+            <button
+              onClick={() => setSelectedVideo(null)}
+              style={{
+                position: 'fixed',
+                top: 'clamp(1rem, 2.5vw, 2rem)',
+                right: 'clamp(1rem, 2.5vw, 2.5rem)',
+                zIndex: 100001,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(20, 32, 24, 0.95)',
+                border: '1.5px solid rgba(196, 154, 108, 0.7)',
+                borderRadius: '30px',
+                padding: '10px 20px',
+                color: '#fff',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 25px rgba(196, 154, 108, 0.35)',
+                transition: 'all 0.25s ease'
+              }}
+              aria-label="Exit video review"
+            >
+              <X size={20} color="var(--color-accent, #c49a6c)" strokeWidth={2.5} />
+              <span style={{ color: 'var(--color-accent, #c49a6c)' }}>Exit / Close (Esc)</span>
+            </button>
+
+            {/* Click Outside to Exit Helper Text */}
+            <div style={{
+              position: 'fixed',
+              bottom: 'clamp(1rem, 2.5vw, 1.8rem)',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              color: 'rgba(255, 255, 255, 0.75)',
+              fontSize: '0.82rem',
+              letterSpacing: '0.4px',
+              background: 'rgba(10, 16, 12, 0.85)',
+              backdropFilter: 'blur(10px)',
+              padding: '7px 18px',
+              borderRadius: '20px',
+              border: '1px solid rgba(196, 154, 108, 0.3)',
+              pointerEvents: 'none',
+              zIndex: 100001,
+              whiteSpace: 'nowrap'
+            }}>
+              Tap anywhere outside the video or press <strong style={{ color: 'var(--color-accent)' }}>Esc</strong> to exit
+            </div>
+
             <motion.div
               initial={{ scale: 0.92, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -1408,7 +1459,8 @@ export default function Home() {
                 boxShadow: '0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(196, 154, 108, 0.25)',
                 display: 'flex',
                 flexDirection: 'column',
-                position: 'relative'
+                position: 'relative',
+                cursor: 'default'
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -1436,22 +1488,24 @@ export default function Home() {
                 <button
                   onClick={() => setSelectedVideo(null)}
                   style={{
-                    width: '38px',
-                    height: '38px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.18)',
+                    background: 'rgba(196, 154, 108, 0.2)',
+                    border: '1.5px solid rgba(196, 154, 108, 0.6)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#fff',
+                    color: 'var(--color-accent, #c49a6c)',
                     cursor: 'pointer',
                     transition: 'all 0.2s',
-                    flexShrink: 0
+                    flexShrink: 0,
+                    boxShadow: '0 0 15px rgba(196, 154, 108, 0.3)'
                   }}
-                  aria-label="Close video player"
+                  aria-label="Exit video"
+                  title="Close / Exit"
                 >
-                  <X size={18} />
+                  <X size={20} strokeWidth={2.5} />
                 </button>
               </div>
 
