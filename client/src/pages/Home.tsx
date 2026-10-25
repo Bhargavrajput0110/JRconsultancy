@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import SmoothScroll from '../components/SmoothScroll'
 import SpotlightCard from '../components/SpotlightCard'
 import HorizontalScroll from '../components/HorizontalScroll'
-import { ShieldCheck } from 'lucide-react'
+import { ShieldCheck, Play, X, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../index.css'
@@ -14,6 +14,51 @@ export default function Home() {
   const { slug } = useParams()
   const [selectedService, setSelectedService] = useState<number | null>(null)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+  const videoScrollRef = useRef<HTMLDivElement>(null)
+
+  const clientVideos = [
+    {
+      id: 1,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
+      title: 'Turnkey Commercial Kitchen Setup',
+      subtitle: 'Civil MEP coordination & layout execution review',
+      tag: 'Verified Client'
+    },
+    {
+      id: 2,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
+      title: 'Restaurant Operations & Flow Planning',
+      subtitle: 'Grease interceptor & exhaust ventilation balancing',
+      tag: 'Verified Client'
+    },
+    {
+      id: 3,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
+      title: 'Ergonomic Station Flow & Chef Movement',
+      subtitle: 'Bottleneck elimination & peak dinner rush efficiency',
+      tag: 'Verified Client'
+    },
+    {
+      id: 4,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
+      title: 'Equipment BOQ & Factory Tender Floatation',
+      subtitle: 'Vendor-neutral equipment specifications & procurement',
+      tag: 'Verified Client'
+    },
+    {
+      id: 5,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
+      title: 'Opening Week Supervision & FSSAI Standards',
+      subtitle: 'Pre-launch operational dry runs & inspection clearance',
+      tag: 'Verified Client'
+    }
+  ]
   
   let serviceParam = 'restaurant-consultant'
   let locationParam = ''
@@ -65,9 +110,9 @@ export default function Home() {
   const footerRef = useRef(null)
   const isFooterInView = useInView(footerRef, { margin: "0px 0px -100px 0px" })
 
-  // Lock body scroll and pause Lenis smooth scroll while service modal is open
+  // Lock body scroll and pause Lenis smooth scroll while service modal or video modal is open
   useEffect(() => {
-    if (selectedService !== null) {
+    if (selectedService !== null || selectedVideo !== null) {
       document.body.style.overflow = 'hidden'
       const lenis = (window as any).lenis
       if (lenis) lenis.stop()
@@ -81,7 +126,33 @@ export default function Home() {
       const lenis = (window as any).lenis
       if (lenis) lenis.start()
     }
-  }, [selectedService])
+  }, [selectedService, selectedVideo])
+
+  // Handle Escape and Arrow keys for video modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedVideo === null) return
+      if (e.key === 'Escape') {
+        setSelectedVideo(null)
+      } else if (e.key === 'ArrowRight') {
+        setSelectedVideo((prev) => (prev !== null ? (prev + 1) % clientVideos.length : null))
+      } else if (e.key === 'ArrowLeft') {
+        setSelectedVideo((prev) => (prev !== null ? (prev - 1 + clientVideos.length) % clientVideos.length : null))
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedVideo, clientVideos.length])
+
+  const scrollVideos = (direction: 'left' | 'right') => {
+    if (videoScrollRef.current) {
+      const scrollAmount = 340
+      videoScrollRef.current.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <SmoothScroll>
@@ -918,70 +989,247 @@ export default function Home() {
       </section>
 
       {/* Testimonials & Video Reviews */}
-      <section id="testimonials" className="bento-section" style={{ marginTop: '4rem', paddingBottom: '8rem' }}>
-        <motion.h2 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
-          className="section-heading"
+      <section id="testimonials" className="bento-section" style={{ marginTop: '4rem', paddingBottom: '8rem', scrollMarginTop: '110px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
+          <div>
+            <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Client Stories</p>
+            <motion.h2 
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
+              className="section-heading"
+              style={{ margin: 0 }}
+            >
+              Real Restaurant Owners.<br/>
+              <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
+                Watch their unfiltered reviews.
+              </span>
+            </motion.h2>
+          </div>
+
+          {/* Reel Nav Controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginRight: '0.5rem' }}>
+              5 Video Reviews
+            </span>
+            <button
+              onClick={() => scrollVideos('left')}
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                background: 'rgba(20, 32, 24, 0.85)',
+                border: '1px solid rgba(196, 154, 108, 0.35)',
+                color: 'var(--color-text)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.25s'
+              }}
+              aria-label="Scroll testimonials left"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => scrollVideos('right')}
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                background: 'rgba(20, 32, 24, 0.85)',
+                border: '1px solid rgba(196, 154, 108, 0.35)',
+                color: 'var(--color-text)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.25s'
+              }}
+              aria-label="Scroll testimonials right"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* 5 Video Cards Horizontal Reel */}
+        <div 
+          ref={videoScrollRef}
+          className="video-testimonials-scroll"
+          style={{
+            display: 'flex',
+            gap: '1.5rem',
+            overflowX: 'auto',
+            paddingBottom: '1.5rem',
+            paddingTop: '0.5rem',
+            scrollSnapType: 'x mandatory'
+          }}
         >
-          Client Stories.<br/><span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>Hear it from them.</span>
-        </motion.h2>
+          {clientVideos.map((video, idx) => (
+            <motion.div
+              key={video.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={springUp}
+              onClick={() => setSelectedVideo(idx)}
+              className="client-video-card"
+              style={{
+                flex: '0 0 clamp(270px, 30vw, 330px)',
+                height: 'clamp(460px, 60vh, 520px)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                position: 'relative',
+                cursor: 'pointer',
+                border: '1px solid rgba(196, 154, 108, 0.28)',
+                background: '#0a0f0c',
+                boxShadow: '0 15px 35px rgba(0,0,0,0.45)',
+                transition: 'transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                scrollSnapAlign: 'start'
+              }}
+            >
+              {/* Background Poster Image */}
+              <div 
+                className="video-poster-img"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: `url(${video.poster})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  transition: 'transform 0.5s ease'
+                }}
+              />
 
-        <div className="bento-grid">
-          {/* Video Testimonial - Tall Card */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp} className="bento-tall">
-            <SpotlightCard className="bento-card" style={{ height: '100%', padding: 0, overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'flex-end' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to top, rgba(5, 8, 6, 0.97), rgba(9, 14, 10, 0.4), transparent), url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80") center/cover' }}></div>
-              
-              {/* Play Button Overlay */}
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(253, 251, 247, 0.15)', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(196, 154, 108, 0.4)', cursor: 'pointer', transition: 'transform 0.3s' }} className="hover-scale">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent)"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              {/* Gradient Scrim */}
+              <div 
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(5,8,6,0.5) 0%, rgba(5,8,6,0.05) 50%, rgba(5,8,6,0.45) 100%)',
+                  zIndex: 1
+                }}
+              />
+
+              {/* Top Card Bar */}
+              <div style={{ position: 'relative', zIndex: 2, padding: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{
+                  background: 'rgba(10, 16, 12, 0.8)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(196, 154, 108, 0.4)',
+                  borderRadius: '20px',
+                  padding: '4px 12px',
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.5px',
+                  color: 'var(--color-accent, #c49a6c)',
+                  textTransform: 'uppercase',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
+                  {video.tag}
+                </span>
+
+                <span style={{
+                  background: 'rgba(10, 16, 12, 0.75)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '20px',
+                  padding: '3px 10px',
+                  fontSize: '0.72rem',
+                  color: '#fff',
+                  fontWeight: 600
+                }}>
+                  Video 0{idx + 1}
+                </span>
               </div>
 
-              <div style={{ position: 'relative', padding: '3rem', zIndex: 10 }}>
-                <p className="bento-tag">Video Testimonial</p>
-                <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '0.5rem' }}>"They completely turned around our kitchen efficiency."</h3>
-                <p style={{ color: 'var(--color-accent)', fontWeight: 600 }}>Rahul Mehta</p>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Owner, The Gilded Spoon</p>
+              {/* Central Glowing Play Button */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <div 
+                  className="video-play-btn"
+                  style={{
+                    width: '66px',
+                    height: '66px',
+                    borderRadius: '50%',
+                    background: 'rgba(196, 154, 108, 0.28)',
+                    backdropFilter: 'blur(12px)',
+                    border: '2px solid rgba(196, 154, 108, 0.85)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    boxShadow: '0 0 30px rgba(196, 154, 108, 0.45)',
+                    transition: 'transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease'
+                  }}
+                >
+                  <Play size={24} fill="#c49a6c" color="#c49a6c" style={{ marginLeft: '3px' }} />
+                </div>
+                <span style={{
+                  fontSize: '0.74rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.5px',
+                  color: '#fff',
+                  textShadow: '0 2px 4px rgba(0,0,0,0.85)',
+                  background: 'rgba(5, 8, 6, 0.65)',
+                  backdropFilter: 'blur(6px)',
+                  padding: '3px 10px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(196, 154, 108, 0.25)'
+                }}>
+                  Watch Video Review
+                </span>
               </div>
-            </SpotlightCard>
-          </motion.div>
+            </motion.div>
+          ))}
+        </div>
 
-          {/* Text Testimonial 1 */}
+        {/* Written Review Highlights Grid */}
+        <div style={{ marginTop: '3.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
-            <SpotlightCard className="bento-card">
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem', color: 'var(--color-accent)' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <SpotlightCard className="bento-card" style={{ height: '100%' }}>
+              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.25rem', color: 'var(--color-accent)' }}>
+                {[...Array(5)].map((_, s) => (
+                  <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                ))}
               </div>
-              <p style={{ color: 'var(--color-text)', fontSize: '1.25rem', lineHeight: 1.6, marginBottom: '2rem', fontStyle: 'italic' }}>
+              <p style={{ color: 'var(--color-text)', fontSize: '1.18rem', lineHeight: 1.6, marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 "Jigar's background in civil engineering sets him apart from any other restaurant consultant. He foresaw MEP and structural issues that saved us lakhs in the build-out phase."
               </p>
               <div style={{ marginTop: 'auto' }}>
-                <p style={{ color: 'var(--color-accent)', fontWeight: 600 }}>Vikram Singh</p>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Founder, Aria Trattoria</p>
+                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0 }}>Vikram Singh</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.88rem', margin: '2px 0 0' }}>Founder, Aria Trattoria</p>
               </div>
             </SpotlightCard>
           </motion.div>
 
-          {/* Text Testimonial 2 */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
-            <SpotlightCard className="bento-card">
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem', color: 'var(--color-accent)' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <SpotlightCard className="bento-card" style={{ height: '100%' }}>
+              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.25rem', color: 'var(--color-accent)' }}>
+                {[...Array(5)].map((_, s) => (
+                  <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                ))}
               </div>
-              <p style={{ color: 'var(--color-text)', fontSize: '1.25rem', lineHeight: 1.6, marginBottom: '2rem', fontStyle: 'italic' }}>
+              <p style={{ color: 'var(--color-text)', fontSize: '1.18rem', lineHeight: 1.6, marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 "The FSSAI compliance and operational systems JR Consulting put in place meant our opening week was flawless. We were completely prepared for the volume."
               </p>
               <div style={{ marginTop: 'auto' }}>
-                <p style={{ color: 'var(--color-accent)', fontWeight: 600 }}>Priya Sharma</p>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Operations Manager, Luna Bistro</p>
+                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0 }}>Priya Sharma</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.88rem', margin: '2px 0 0' }}>Operations Manager, Luna Bistro</p>
               </div>
             </SpotlightCard>
           </motion.div>
@@ -1124,6 +1372,165 @@ export default function Home() {
 
       <Footer ref={footerRef} />
 
+      {/* ── Client Video Review Modal ── */}
+      <AnimatePresence>
+        {selectedVideo !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99999,
+              background: 'rgba(4, 7, 5, 0.94)',
+              backdropFilter: 'blur(16px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 'clamp(0.75rem, 3vw, 2rem)'
+            }}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              style={{
+                width: '100%',
+                maxWidth: '480px',
+                maxHeight: '94vh',
+                background: '#090e0b',
+                border: '1px solid rgba(196, 154, 108, 0.45)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(196, 154, 108, 0.25)',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Top Header */}
+              <div style={{
+                padding: '1rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderBottom: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)'
+              }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                      Client Video Review ({selectedVideo + 1} of {clientVideos.length})
+                    </span>
+                  </div>
+                  <h4 style={{ margin: '3px 0 0', color: '#fff', fontSize: '0.98rem', fontFamily: 'var(--font-heading)' }}>
+                    {clientVideos[selectedVideo].title}
+                  </h4>
+                </div>
+
+                <button
+                  onClick={() => setSelectedVideo(null)}
+                  style={{
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    flexShrink: 0
+                  }}
+                  aria-label="Close video player"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Video Player Box */}
+              <div style={{ position: 'relative', width: '100%', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <video
+                  key={clientVideos[selectedVideo].url}
+                  src={clientVideos[selectedVideo].url}
+                  poster={clientVideos[selectedVideo].poster}
+                  controls
+                  autoPlay
+                  playsInline
+                  style={{
+                    width: '100%',
+                    maxHeight: '68vh',
+                    objectFit: 'contain',
+                    background: '#000',
+                    display: 'block'
+                  }}
+                />
+              </div>
+
+              {/* Modal Bottom Controls */}
+              <div style={{
+                padding: '0.85rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderTop: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)',
+                gap: '0.5rem'
+              }}>
+                <button
+                  onClick={() => setSelectedVideo((prev) => (prev !== null ? (prev - 1 + clientVideos.length) % clientVideos.length : null))}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 14px',
+                    borderRadius: '20px',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(196, 154, 108, 0.3)',
+                    color: 'var(--color-text)',
+                    fontSize: '0.82rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <ChevronLeft size={16} />
+                  <span>Prev</span>
+                </button>
+
+                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
+                  {clientVideos[selectedVideo].subtitle}
+                </span>
+
+                <button
+                  onClick={() => setSelectedVideo((prev) => (prev !== null ? (prev + 1) % clientVideos.length : null))}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 14px',
+                    borderRadius: '20px',
+                    background: 'rgba(196, 154, 108, 0.18)',
+                    border: '1px solid rgba(196, 154, 108, 0.5)',
+                    color: 'var(--color-accent)',
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    fontWeight: 600
+                  }}
+                >
+                  <span>Next</span>
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </SmoothScroll>
   )
