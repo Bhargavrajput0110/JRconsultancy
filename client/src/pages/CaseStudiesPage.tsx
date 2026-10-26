@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import SmoothScroll from '../components/SmoothScroll'
@@ -32,7 +32,12 @@ import {
   Salad,
   BookOpen,
   Martini,
-  Utensils
+  Utensils,
+  Play,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Star
 } from 'lucide-react'
 import '../index.css'
 
@@ -40,9 +45,88 @@ export default function CaseStudiesPage() {
   const [filter, setFilter] = useState('all')
   const [selectedType, setSelectedType] = useState('traditional-indian')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+  const videoScrollRef = useRef<HTMLDivElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const footerRef = useRef<HTMLElement>(null)
   const isFooterInView = useInView(footerRef, { margin: "0px 0px -100px 0px" })
+
+  const scrollVideos = (direction: 'left' | 'right') => {
+    if (videoScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350
+      videoScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }
+
+  // Lock body scroll and pause Lenis smooth scroll while video modal is open
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedVideo(null)
+      }
+    }
+
+    if (selectedVideo !== null) {
+      window.addEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'hidden'
+      const lenis = (window as any).lenis
+      if (lenis) lenis.stop()
+    } else {
+      document.body.style.overflow = ''
+      const lenis = (window as any).lenis
+      if (lenis) lenis.start()
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+      const lenis = (window as any).lenis
+      if (lenis) lenis.start()
+    }
+  }, [selectedVideo])
+
+  const clientVideos = [
+    {
+      id: 1,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
+      title: '22nd Parallel | Spatial Flow & Brand Identity',
+      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere',
+      tag: '22nd Parallel'
+    },
+    {
+      id: 2,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
+      title: 'Architect Hem Doshi | Fire & Gin at Alembic',
+      subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning',
+      tag: 'Kaha Studio'
+    },
+    {
+      id: 3,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
+      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
+      subtitle: '"No design is good enough without good execution" — Alembic Project',
+      tag: 'Design Partner'
+    },
+    {
+      id: 4,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
+      title: 'Architect Kennil Doshi | Operational Circulation & Timelines',
+      subtitle: 'Back-of-house workflow, finish standards & milestone adherence',
+      tag: 'Kaha Studio'
+    },
+    {
+      id: 5,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
+      title: '22nd Parallel | 10+ Years of Operational Trust',
+      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces',
+      tag: '10+ Yr Client'
+    }
+  ]
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -702,7 +786,288 @@ export default function CaseStudiesPage() {
           ))}
         </div>
 
+        {/* ── Client Video Reviews & Testimonials Section ── */}
+        <section id="video-testimonials" style={{ marginBottom: '6rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div>
+              <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Client Stories</p>
+              <motion.h2 
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
+                className="section-heading"
+                style={{ margin: 0, textAlign: 'left' }}
+              >
+                Real Restaurant associated.<br/>
+                <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
+                  Watch their unfiltered reviews.
+                </span>
+              </motion.h2>
+            </div>
 
+            {/* Reel Nav Controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginRight: '0.5rem' }}>
+                5 Video Reviews
+              </span>
+              <button
+                onClick={() => scrollVideos('left')}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  background: 'rgba(20, 32, 24, 0.85)',
+                  border: '1px solid rgba(196, 154, 108, 0.35)',
+                  color: 'var(--color-text)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s'
+                }}
+                aria-label="Scroll testimonials left"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => scrollVideos('right')}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  background: 'rgba(20, 32, 24, 0.85)',
+                  border: '1px solid rgba(196, 154, 108, 0.35)',
+                  color: 'var(--color-text)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s'
+                }}
+                aria-label="Scroll testimonials right"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* 5 Video Cards Horizontal Reel */}
+          <div 
+            ref={videoScrollRef}
+            className="video-testimonials-scroll"
+            style={{
+              display: 'flex',
+              gap: '1.5rem',
+              overflowX: 'auto',
+              paddingBottom: '1.5rem',
+              paddingTop: '0.5rem',
+              scrollSnapType: 'x mandatory'
+            }}
+          >
+            {clientVideos.map((video, idx) => (
+              <motion.div
+                key={video.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={springUp}
+                onClick={() => setSelectedVideo(idx)}
+                className="client-video-card"
+                style={{
+                  flex: '0 0 clamp(270px, 30vw, 330px)',
+                  height: 'clamp(460px, 60vh, 520px)',
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  cursor: 'pointer',
+                  border: '1px solid rgba(196, 154, 108, 0.28)',
+                  background: '#0a0f0c',
+                  boxShadow: '0 15px 35px rgba(0,0,0,0.45)',
+                  transition: 'transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  scrollSnapAlign: 'start'
+                }}
+              >
+                {/* Background Poster Image */}
+                <div 
+                  className="video-poster-img"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `url(${video.poster})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    transition: 'transform 0.5s ease'
+                  }}
+                />
+
+                {/* Gradient Scrim */}
+                <div 
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(5,8,6,0.5) 0%, rgba(5,8,6,0.05) 50%, rgba(5,8,6,0.45) 100%)',
+                    zIndex: 1
+                  }}
+                />
+
+                {/* Top Card Bar */}
+                <div style={{ position: 'relative', zIndex: 2, padding: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{
+                    background: 'rgba(10, 16, 12, 0.8)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(196, 154, 108, 0.4)',
+                    borderRadius: '20px',
+                    padding: '4px 12px',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.5px',
+                    color: 'var(--color-accent, #c49a6c)',
+                    textTransform: 'uppercase',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
+                    {video.tag}
+                  </span>
+
+                  <span style={{
+                    background: 'rgba(10, 16, 12, 0.75)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '20px',
+                    padding: '3px 10px',
+                    fontSize: '0.72rem',
+                    color: '#fff',
+                    fontWeight: 600
+                  }}>
+                    Video 0{idx + 1}
+                  </span>
+                </div>
+
+                {/* Central Glowing Play Button */}
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 2,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}>
+                  <div 
+                    className="video-play-btn"
+                    style={{
+                      width: '66px',
+                      height: '66px',
+                      borderRadius: '50%',
+                      background: 'rgba(196, 154, 108, 0.28)',
+                      backdropFilter: 'blur(12px)',
+                      border: '2px solid rgba(196, 154, 108, 0.85)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      boxShadow: '0 0 30px rgba(196, 154, 108, 0.45)',
+                      transition: 'transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease'
+                    }}
+                  >
+                    <Play size={24} fill="#c49a6c" color="#c49a6c" style={{ marginLeft: '3px' }} />
+                  </div>
+                  <span style={{
+                    fontSize: '0.74rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.5px',
+                    color: '#fff',
+                    textShadow: '0 2px 4px rgba(0,0,0,0.85)',
+                    background: 'rgba(5, 8, 6, 0.65)',
+                    backdropFilter: 'blur(6px)',
+                    padding: '3px 10px',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(196, 154, 108, 0.25)'
+                  }}>
+                    Watch Video Review
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Written Review Highlights Grid — Verbatim from Video Reviews */}
+          <div style={{ marginTop: '3.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            {/* Review 1 — Kaha Studio / Architects Hem & Kennil Doshi */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
+              <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                    Alembic Project
+                  </span>
+                </div>
+                <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  "No design is good enough without good execution, and that's where Jigar bhai comes in. As architects, we focus on planning and aesthetics. What he brings to the table is how the commercial kitchen works, cuisine station requirements, and how staff circulate around the space. In a project like Fire &amp; Gin at Alembic, combining design with his operational engineering made all the difference."
+                </p>
+                <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                  <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Ar. Hem Doshi &amp; Ar. Kennil Doshi</p>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>Co-Founders, Kaha Studio (Architectural Design Partners)</p>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+
+            {/* Review 2 — 22nd Parallel Founding Partner */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
+              <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                    10+ Yr Association
+                  </span>
+                </div>
+                <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  "I've known Jigar bhai for over 10 years now, and 22nd Parallel is richer for having had him come on board. Two things that really stand out about him: his unique ability to balance utility and aesthetics, and his deep understanding of cost control in compact restaurant spaces. His engineering and operational guidance has been truly invaluable across our brand."
+                </p>
+                <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                  <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Founding Partner &amp; Leadership</p>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>22nd Parallel (Authentic South Indian Fine Dining)</p>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+
+            {/* Review 3 — 22nd Parallel Brand & Operations */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
+              <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                    Brand &amp; Atmosphere
+                  </span>
+                </div>
+                <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  "Jigar sir's major contribution across 22nd Parallel has been conceptualizing our dining partitions, spatial layout, and bringing our branding murals to life-size on our walls. He has been a trusted sounding board when it comes to restaurant aesthetics, spatial flow, and guest experience."
+                </p>
+                <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                  <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Brand &amp; Operations Team</p>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>22nd Parallel Restaurant Group</p>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Client Logos Strip */}
         <div className="clients-section" style={{ borderBottom: '1px solid rgba(196, 154, 108, 0.15)', marginBottom: '6rem' }}>
@@ -734,6 +1099,229 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Client Video Modal Player ── */}
+      <AnimatePresence>
+        {selectedVideo !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedVideo(null)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              background: 'rgba(5, 8, 6, 0.94)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              zIndex: 99999,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 'clamp(0.75rem, 3vw, 2rem)',
+              cursor: 'pointer'
+            }}
+          >
+            {/* Highly Visible Floating Exit Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                setSelectedVideo(null)
+              }}
+              style={{
+                position: 'fixed',
+                top: 'clamp(1rem, 3vw, 2rem)',
+                right: 'clamp(1rem, 3vw, 2.5rem)',
+                zIndex: 100002,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 18px',
+                borderRadius: '30px',
+                background: 'rgba(15, 23, 17, 0.95)',
+                border: '1.5px solid rgba(196, 154, 108, 0.85)',
+                color: '#fff',
+                fontSize: '0.9rem',
+                fontWeight: 700,
+                letterSpacing: '0.5px',
+                cursor: 'pointer',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 25px rgba(196, 154, 108, 0.35)',
+                transition: 'all 0.25s ease'
+              }}
+              aria-label="Exit video review"
+            >
+              <X size={20} color="var(--color-accent, #c49a6c)" strokeWidth={2.5} />
+              <span style={{ color: 'var(--color-accent, #c49a6c)' }}>Exit / Close (Esc)</span>
+            </button>
+
+            {/* Click Outside to Exit Helper Text */}
+            <div style={{
+              position: 'fixed',
+              bottom: 'clamp(1rem, 2.5vw, 1.8rem)',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              color: 'rgba(255, 255, 255, 0.75)',
+              fontSize: '0.82rem',
+              letterSpacing: '0.4px',
+              background: 'rgba(10, 16, 12, 0.85)',
+              backdropFilter: 'blur(10px)',
+              padding: '7px 18px',
+              borderRadius: '20px',
+              border: '1px solid rgba(196, 154, 108, 0.3)',
+              pointerEvents: 'none',
+              zIndex: 100001,
+              whiteSpace: 'nowrap'
+            }}>
+              Tap anywhere outside the video or press <strong style={{ color: 'var(--color-accent)' }}>Esc</strong> to exit
+            </div>
+
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              style={{
+                width: '100%',
+                maxWidth: '480px',
+                maxHeight: '94vh',
+                background: '#090e0b',
+                border: '1px solid rgba(196, 154, 108, 0.45)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(196, 154, 108, 0.25)',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                cursor: 'default'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Top Header */}
+              <div style={{
+                padding: '1rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderBottom: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)'
+              }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                      Client Video Review ({selectedVideo + 1} of {clientVideos.length})
+                    </span>
+                  </div>
+                  <h4 style={{ margin: '3px 0 0', color: '#fff', fontSize: '0.98rem', fontFamily: 'var(--font-heading)' }}>
+                    {clientVideos[selectedVideo].title}
+                  </h4>
+                </div>
+
+                <button
+                  onClick={() => setSelectedVideo(null)}
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    background: 'rgba(196, 154, 108, 0.2)',
+                    border: '1.5px solid rgba(196, 154, 108, 0.6)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--color-accent, #c49a6c)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    flexShrink: 0,
+                    boxShadow: '0 0 15px rgba(196, 154, 108, 0.3)'
+                  }}
+                  aria-label="Exit video"
+                  title="Close / Exit"
+                >
+                  <X size={20} strokeWidth={2.5} />
+                </button>
+              </div>
+
+              {/* Video Player Box */}
+              <div style={{ position: 'relative', width: '100%', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <video
+                  key={clientVideos[selectedVideo].url}
+                  src={clientVideos[selectedVideo].url}
+                  poster={clientVideos[selectedVideo].poster}
+                  controls
+                  autoPlay
+                  playsInline
+                  style={{
+                    width: '100%',
+                    maxHeight: '68vh',
+                    objectFit: 'contain',
+                    background: '#000',
+                    display: 'block'
+                  }}
+                />
+              </div>
+
+              {/* Modal Bottom Controls */}
+              <div style={{
+                padding: '0.85rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderTop: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)',
+                gap: '0.5rem'
+              }}>
+                <button
+                  onClick={() => setSelectedVideo((prev) => (prev !== null ? (prev - 1 + clientVideos.length) % clientVideos.length : null))}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 14px',
+                    borderRadius: '20px',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(196, 154, 108, 0.3)',
+                    color: 'var(--color-text)',
+                    fontSize: '0.82rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <ChevronLeft size={16} />
+                  <span>Prev</span>
+                </button>
+
+                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
+                  {clientVideos[selectedVideo].subtitle}
+                </span>
+
+                <button
+                  onClick={() => setSelectedVideo((prev) => (prev !== null ? (prev + 1) % clientVideos.length : null))}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 14px',
+                    borderRadius: '20px',
+                    background: 'rgba(196, 154, 108, 0.18)',
+                    border: '1px solid rgba(196, 154, 108, 0.5)',
+                    color: 'var(--color-accent)',
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    fontWeight: 600
+                  }}
+                >
+                  <span>Next</span>
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer ref={footerRef} />
     </SmoothScroll>

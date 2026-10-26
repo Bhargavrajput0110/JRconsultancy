@@ -22,41 +22,41 @@ export default function Home() {
       id: 1,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
-      title: 'Turnkey Commercial Kitchen Setup',
-      subtitle: 'Civil MEP coordination & layout execution review',
-      tag: 'Verified Client'
+      title: '22nd Parallel | Spatial Flow & Brand Identity',
+      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere',
+      tag: '22nd Parallel'
     },
     {
       id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
-      title: 'Restaurant Operations & Flow Planning',
-      subtitle: 'Grease interceptor & exhaust ventilation balancing',
-      tag: 'Verified Client'
+      title: 'Architect Hem Doshi | Fire & Gin at Alembic',
+      subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning',
+      tag: 'Kaha Studio'
     },
     {
       id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
-      title: 'Ergonomic Station Flow & Chef Movement',
-      subtitle: 'Bottleneck elimination & peak dinner rush efficiency',
-      tag: 'Verified Client'
+      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
+      subtitle: '"No design is good enough without good execution" — Alembic Project',
+      tag: 'Design Partner'
     },
     {
       id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
-      title: 'Equipment BOQ & Factory Tender Floatation',
-      subtitle: 'Vendor-neutral equipment specifications & procurement',
-      tag: 'Verified Client'
+      title: 'Architect Kennil Doshi | Operational Circulation & Timelines',
+      subtitle: 'Back-of-house workflow, finish standards & milestone adherence',
+      tag: 'Kaha Studio'
     },
     {
       id: 5,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
-      title: 'Opening Week Supervision & FSSAI Standards',
-      subtitle: 'Pre-launch operational dry runs & inspection clearance',
-      tag: 'Verified Client'
+      title: '22nd Parallel | 10+ Years of Operational Trust',
+      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces',
+      tag: '10+ Yr Client'
     }
   ]
   
@@ -1198,38 +1198,73 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Written Review Highlights Grid */}
+        {/* Written Review Highlights Grid — Verbatim from Video Reviews */}
         <div style={{ marginTop: '3.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+          {/* Review 1 — Kaha Studio / Architects Hem & Kennil Doshi */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
-            <SpotlightCard className="bento-card" style={{ height: '100%' }}>
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.25rem', color: 'var(--color-accent)' }}>
-                {[...Array(5)].map((_, s) => (
-                  <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
-                ))}
+            <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                  ))}
+                </div>
+                <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                  Alembic Project
+                </span>
               </div>
-              <p style={{ color: 'var(--color-text)', fontSize: '1.18rem', lineHeight: 1.6, marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                "Jigar's background in civil engineering sets him apart from any other restaurant consultant. He foresaw MEP and structural issues that saved us lakhs in the build-out phase."
+              <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                "No design is good enough without good execution, and that's where Jigar bhai comes in. As architects, we focus on planning and aesthetics. What he brings to the table is how the commercial kitchen works, cuisine station requirements, and how staff circulate around the space. In a project like Fire &amp; Gin at Alembic, combining design with his operational engineering made all the difference."
               </p>
-              <div style={{ marginTop: 'auto' }}>
-                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0 }}>Vikram Singh</p>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.88rem', margin: '2px 0 0' }}>Founder, Aria Trattoria</p>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Ar. Hem Doshi &amp; Ar. Kennil Doshi</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>Co-Founders, Kaha Studio (Architectural Design Partners)</p>
               </div>
             </SpotlightCard>
           </motion.div>
 
+          {/* Review 2 — 22nd Parallel Founding Partner */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
-            <SpotlightCard className="bento-card" style={{ height: '100%' }}>
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '1.25rem', color: 'var(--color-accent)' }}>
-                {[...Array(5)].map((_, s) => (
-                  <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
-                ))}
+            <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                  ))}
+                </div>
+                <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                  10+ Yr Association
+                </span>
               </div>
-              <p style={{ color: 'var(--color-text)', fontSize: '1.18rem', lineHeight: 1.6, marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                "The FSSAI compliance and operational systems JR Consulting put in place meant our opening week was flawless. We were completely prepared for the volume."
+              <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                "I've known Jigar bhai for over 10 years now, and 22nd Parallel is richer for having had him come on board. Two things that really stand out about him: his unique ability to balance utility and aesthetics, and his deep understanding of cost control in compact restaurant spaces. His engineering and operational guidance has been truly invaluable across our brand."
               </p>
-              <div style={{ marginTop: 'auto' }}>
-                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0 }}>Priya Sharma</p>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.88rem', margin: '2px 0 0' }}>Operations Manager, Luna Bistro</p>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Founding Partner &amp; Leadership</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>22nd Parallel (Authentic South Indian Fine Dining)</p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Review 3 — 22nd Parallel Brand & Operations */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={springUp}>
+            <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', gap: '4px', color: 'var(--color-accent)' }}>
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={18} fill="#c49a6c" color="#c49a6c" />
+                  ))}
+                </div>
+                <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--color-accent)', background: 'rgba(196,154,108,0.12)', padding: '3px 10px', borderRadius: '12px', fontWeight: 700 }}>
+                  Brand &amp; Atmosphere
+                </span>
+              </div>
+              <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                "Jigar sir's major contribution across 22nd Parallel has been conceptualizing our dining partitions, spatial layout, and bringing our branding murals to life-size on our walls. He has been a trusted sounding board when it comes to restaurant aesthetics, spatial flow, and guest experience."
+              </p>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
+                <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Brand &amp; Operations Team</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', margin: '3px 0 0' }}>22nd Parallel Restaurant Group</p>
               </div>
             </SpotlightCard>
           </motion.div>
