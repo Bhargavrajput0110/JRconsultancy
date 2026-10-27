@@ -14,6 +14,7 @@ export default function Home() {
   const [selectedService, setSelectedService] = useState<number | null>(null)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+  const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false)
   const videoScrollRef = useRef<HTMLDivElement>(null)
 
   const clientVideos = [
@@ -109,9 +110,9 @@ export default function Home() {
   const footerRef = useRef(null)
   const isFooterInView = useInView(footerRef, { margin: "0px 0px -100px 0px" })
 
-  // Lock body scroll and pause Lenis smooth scroll while service modal or video modal is open
+  // Lock body scroll and pause Lenis smooth scroll while service modal, video modal, or walkthrough modal is open
   useEffect(() => {
-    if (selectedService !== null || selectedVideo !== null) {
+    if (selectedService !== null || selectedVideo !== null || isWalkthroughOpen) {
       document.body.style.overflow = 'hidden'
       const lenis = (window as any).lenis
       if (lenis) lenis.stop()
@@ -125,23 +126,27 @@ export default function Home() {
       const lenis = (window as any).lenis
       if (lenis) lenis.start()
     }
-  }, [selectedService, selectedVideo])
+  }, [selectedService, selectedVideo, isWalkthroughOpen])
 
-  // Handle Escape and Arrow keys for video modal
+  // Handle Escape and Arrow keys for video modal & walkthrough modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedVideo === null) return
       if (e.key === 'Escape') {
-        setSelectedVideo(null)
-      } else if (e.key === 'ArrowRight') {
-        setSelectedVideo((prev) => (prev !== null ? (prev + 1) % clientVideos.length : null))
-      } else if (e.key === 'ArrowLeft') {
-        setSelectedVideo((prev) => (prev !== null ? (prev - 1 + clientVideos.length) % clientVideos.length : null))
+        if (isWalkthroughOpen) setIsWalkthroughOpen(false)
+        if (selectedVideo !== null) setSelectedVideo(null)
+        return
+      }
+      if (selectedVideo !== null) {
+        if (e.key === 'ArrowRight') {
+          setSelectedVideo((prev) => (prev !== null ? (prev + 1) % clientVideos.length : null))
+        } else if (e.key === 'ArrowLeft') {
+          setSelectedVideo((prev) => (prev !== null ? (prev - 1 + clientVideos.length) % clientVideos.length : null))
+        }
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedVideo, clientVideos.length])
+  }, [selectedVideo, clientVideos.length, isWalkthroughOpen])
 
   const scrollVideos = (direction: 'left' | 'right') => {
     if (videoScrollRef.current) {
@@ -189,14 +194,15 @@ export default function Home() {
             loop
             muted
             playsInline
+            poster="https://res.cloudinary.com/dlxiy6aiq/video/upload/so_2,q_auto,f_auto/v1793119767/11-1_agybu5.jpg"
             style={{ 
               width: '100%', 
               height: '100%', 
               objectFit: 'cover', 
-              opacity: 0.18, 
-              filter: 'grayscale(100%) brightness(0.3) contrast(1.15)' 
+              opacity: 0.32, 
+              filter: 'brightness(0.65) contrast(1.15) saturate(1.1)' 
             }}
-            src="/hero-bg-v2.mp4"
+            src="https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793119767/11-1_agybu5.mp4"
           />
           <div style={{ 
             position: 'absolute', 
@@ -204,7 +210,7 @@ export default function Home() {
             left: 0, 
             width: '100%', 
             height: '100%', 
-            background: 'linear-gradient(to bottom, rgba(6, 13, 8, 0.45) 0%, rgba(6, 13, 8, 0.8) 100%)' 
+            background: 'linear-gradient(to bottom, rgba(6, 13, 8, 0.4) 0%, rgba(6, 13, 8, 0.78) 100%)' 
           }} />
         </div>
 
@@ -235,7 +241,7 @@ export default function Home() {
           </motion.p>
           <motion.div 
             custom={5} initial="hidden" animate="visible" variants={blurReveal}
-            style={{ display: 'flex', gap: '1.5rem', marginTop: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}
+            style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}
           >
             <Link to="/start" className="hover-target" style={{
               background: 'var(--color-accent)',
@@ -254,6 +260,41 @@ export default function Home() {
               Start Project
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </Link>
+
+            <button
+              onClick={() => setIsWalkthroughOpen(true)}
+              className="hover-target"
+              style={{
+                background: 'rgba(196, 154, 108, 0.16)',
+                backdropFilter: 'blur(10px)',
+                border: '1.5px solid rgba(196, 154, 108, 0.6)',
+                color: 'var(--color-accent)',
+                padding: '1rem 1.8rem',
+                borderRadius: '30px',
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.25)',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.65rem',
+                cursor: 'pointer'
+              }}
+            >
+              <div style={{
+                width: '24px',
+                height: '24px',
+                borderRadius: '50%',
+                background: 'var(--color-accent)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#060d08'
+              }}>
+                <Play size={12} fill="#060d08" strokeWidth={0} style={{ marginLeft: '2px' }} />
+              </div>
+              Watch Venue Tour
+            </button>
 
             <a href="https://wa.me/919909558212" target="_blank" rel="noreferrer" className="hover-target" style={{
               background: 'rgba(255, 255, 255, 0.1)',
@@ -749,6 +790,28 @@ export default function Home() {
           ].map((name, i) => (
             <div key={i} className="client-logo-pill">{name}</div>
           ))}
+        </div>
+        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+          <button
+            onClick={() => setIsWalkthroughOpen(true)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'rgba(196, 154, 108, 0.08)',
+              border: '1px solid rgba(196, 154, 108, 0.3)',
+              color: 'var(--color-accent)',
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '6px 18px',
+              borderRadius: '20px',
+              transition: 'all 0.25s ease'
+            }}
+          >
+            <Play size={13} fill="var(--color-accent)" strokeWidth={0} />
+            <span>Watch Live Walkthrough of these Venues &rarr;</span>
+          </button>
         </div>
       </motion.section>
 
@@ -1538,6 +1601,150 @@ export default function Home() {
                   <span>Next</span>
                   <ChevronRight size={16} />
                 </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Real Project Walkthrough Modal */}
+        {isWalkthroughOpen && (
+          <motion.div
+            key="walkthrough-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsWalkthroughOpen(false)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 9999,
+              background: 'rgba(5, 8, 6, 0.9)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 'clamp(1rem, 3vw, 2.5rem)',
+              cursor: 'pointer'
+            }}
+          >
+            <motion.div
+              key="walkthrough-modal-card"
+              initial={{ scale: 0.9, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 30 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 260 }}
+              style={{
+                width: '100%',
+                maxWidth: '480px',
+                maxHeight: '94vh',
+                background: '#090e0b',
+                border: '1px solid rgba(196, 154, 108, 0.45)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(196, 154, 108, 0.25)',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                cursor: 'default'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Top Header */}
+              <div style={{
+                padding: '1rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderBottom: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)'
+              }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                      Live Project Walkthrough (37s)
+                    </span>
+                  </div>
+                  <h4 style={{ margin: '3px 0 0', color: '#fff', fontSize: '0.98rem', fontFamily: 'var(--font-heading)' }}>
+                    Firangi Gujarati &amp; 22nd Parallel
+                  </h4>
+                </div>
+
+                <button
+                  onClick={() => setIsWalkthroughOpen(false)}
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    background: 'rgba(196, 154, 108, 0.2)',
+                    border: '1.5px solid rgba(196, 154, 108, 0.6)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--color-accent, #c49a6c)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    flexShrink: 0,
+                    boxShadow: '0 0 15px rgba(196, 154, 108, 0.3)'
+                  }}
+                  aria-label="Exit video"
+                  title="Close / Exit"
+                >
+                  <X size={20} strokeWidth={2.5} />
+                </button>
+              </div>
+
+              {/* Video Player Box */}
+              <div style={{ position: 'relative', width: '100%', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <video
+                  src="https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793119767/11-1_agybu5.mp4"
+                  poster="https://res.cloudinary.com/dlxiy6aiq/video/upload/so_2,q_auto,f_auto/v1793119767/11-1_agybu5.jpg"
+                  controls
+                  autoPlay
+                  playsInline
+                  style={{
+                    width: '100%',
+                    maxHeight: '68vh',
+                    objectFit: 'contain',
+                    background: '#000',
+                    display: 'block'
+                  }}
+                />
+              </div>
+
+              {/* Modal Bottom Controls / Info */}
+              <div style={{
+                padding: '0.85rem 1.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderTop: '1px solid rgba(196, 154, 108, 0.2)',
+                background: 'rgba(10, 16, 12, 0.95)',
+                gap: '0.75rem'
+              }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
+                  Vadodara • Alembic &amp; Karelibaug / Manjalpur
+                </span>
+
+                <Link
+                  to="/start"
+                  onClick={() => setIsWalkthroughOpen(false)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 16px',
+                    borderRadius: '20px',
+                    background: 'var(--color-accent)',
+                    color: '#060d08',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    textDecoration: 'none'
+                  }}
+                >
+                  Start Project &rarr;
+                </Link>
               </div>
             </motion.div>
           </motion.div>
