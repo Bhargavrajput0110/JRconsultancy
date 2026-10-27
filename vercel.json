@@ -1,0 +1,30 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "client": {
+      "root": "client",
+      "framework": "vite",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "server",
+          "format": "url",
+          "env": "SERVER_URL"
+        }
+      ]
+    },
+    "server": {
+      "root": "server",
+      "framework": "express",
+      "entrypoint": "index.js"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "client"
+      }
+    }
+  ]
+}

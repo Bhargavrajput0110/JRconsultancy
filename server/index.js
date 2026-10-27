@@ -62,6 +62,9 @@ function verifyToken(token) {
 app.get('/', (req, res) => {
   res.json({ message: 'JR Consulting Executive CRM API running' });
 });
+app.get('/api', (req, res) => {
+  res.json({ message: 'JR Consulting Executive CRM API running' });
+});
 
 // Admin Login
 app.post('/api/admin/login', (req, res) => {
@@ -134,7 +137,11 @@ app.post('/api/admin/logout', (req, res) => {
   return res.json({ success: true, message: 'Successfully logged out.' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+export default app;
 
