@@ -24,11 +24,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background-color: #060d08;
+  background-color: #050906;
   background-image: 
-    radial-gradient(ellipse 75% 50% at 85% 10%, rgba(24, 65, 33, 0.4) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 40% at 15% 90%, rgba(14, 38, 20, 0.3) 0%, transparent 60%),
-    linear-gradient(to top right, #050a06 0%, #07120a 35%, #0c2112 70%, #163d1e 100%);
+    radial-gradient(ellipse 75% 50% at 85% 10%, rgba(24, 65, 33, 0.15) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 40% at 15% 90%, rgba(14, 38, 20, 0.15) 0%, transparent 60%),
+    linear-gradient(to top right, #040805 0%, #060d08 40%, #08140b 75%, #0c1e11 100%);
   background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-body);

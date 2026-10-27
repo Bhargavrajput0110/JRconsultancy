@@ -186,8 +186,9 @@ export default function Home() {
           height: '100%', 
           zIndex: 0, 
           pointerEvents: 'none',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 96%)',
-          maskImage: 'linear-gradient(to bottom, black 55%, transparent 96%)'
+          backgroundColor: '#050806',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)',
+          maskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)'
         }}>
           <video
             autoPlay
@@ -199,8 +200,8 @@ export default function Home() {
               width: '100%', 
               height: '100%', 
               objectFit: 'cover', 
-              opacity: 0.32, 
-              filter: 'brightness(0.65) contrast(1.15) saturate(1.1)' 
+              opacity: 0.65, 
+              filter: 'brightness(0.85) contrast(1.08)' 
             }}
             src="https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793119767/11-1_agybu5.mp4"
           />
@@ -210,33 +211,33 @@ export default function Home() {
             left: 0, 
             width: '100%', 
             height: '100%', 
-            background: 'linear-gradient(to bottom, rgba(6, 13, 8, 0.4) 0%, rgba(6, 13, 8, 0.78) 100%)' 
+            background: 'linear-gradient(to bottom, rgba(4, 7, 5, 0.22) 0%, rgba(4, 7, 5, 0.42) 55%, rgba(4, 7, 5, 0.85) 100%)' 
           }} />
         </div>
 
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
           
-          <motion.p custom={0} initial="hidden" animate="visible" variants={blurReveal} className="hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)', marginTop: '0.5rem' }}>
+          <motion.p custom={0} initial="hidden" animate="visible" variants={blurReveal} className="hero-subtitle" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.85)', marginTop: '0.5rem' }}>
             {isSeoPage ? `Expert Services in ${formattedLocation}` : 'Your partner in setting up a Restaurant-Cafe-Eatery'}
           </motion.p>
           
           {isSeoPage ? (
-            <h1 className="hero-title" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(3rem, 6vw, 5.5rem)', textShadow: '0 4px 10px rgba(0,0,0,0.6)' }}>
+            <h1 className="hero-title" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(3rem, 6vw, 5.5rem)', textShadow: '0 4px 18px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.85)' }}>
               <motion.span custom={1} initial="hidden" animate="visible" variants={blurReveal} style={{ display: 'block' }}>The Premier</motion.span>
               <motion.span custom={2} initial="hidden" animate="visible" variants={blurReveal} style={{ display: 'block', fontStyle: 'normal', fontWeight: 600, color: 'var(--color-accent)' }}>{formattedService}</motion.span>
               <motion.span custom={3} initial="hidden" animate="visible" variants={blurReveal} style={{ display: 'block' }}>in {formattedLocation}.</motion.span>
             </h1>
           ) : (
-            <h1 className="hero-title" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, textShadow: '0 4px 10px rgba(0,0,0,0.6)' }}>
+            <h1 className="hero-title" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, textShadow: '0 4px 18px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.85)' }}>
               <motion.span custom={1} initial="hidden" animate="visible" variants={blurReveal} style={{ display: 'block' }}>From vision</motion.span>
               <motion.span custom={2} initial="hidden" animate="visible" variants={blurReveal} style={{ display: 'block', fontStyle: 'normal', fontWeight: 600 }}>to first service.</motion.span>
             </h1>
           )}
 
-          <motion.p custom={4} initial="hidden" animate="visible" variants={blurReveal} className="hero-desc" style={{ textTransform: isSeoPage ? 'none' : 'uppercase', textShadow: '0 2px 5px rgba(0,0,0,0.5)' }}>
+          <motion.p custom={4} initial="hidden" animate="visible" variants={blurReveal} className="hero-desc" style={{ textTransform: isSeoPage ? 'none' : 'uppercase', textShadow: '0 2px 10px rgba(0,0,0,0.85)' }}>
             {isSeoPage ? metaDescription : 'Your Restaurant. Thoughtfully Planned.'}
           </motion.p>
-          <motion.p custom={5} initial="hidden" animate="visible" variants={blurReveal} className="hero-sub-desc" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
+          <motion.p custom={5} initial="hidden" animate="visible" variants={blurReveal} className="hero-sub-desc" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.85)' }}>
             15 Years in Civil Engineering Experience and running | 10+ Years in Restaurant Industry operations
           </motion.p>
           <motion.div 
