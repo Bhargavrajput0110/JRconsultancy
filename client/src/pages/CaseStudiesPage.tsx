@@ -42,7 +42,6 @@ import {
 import '../index.css'
 
 export default function CaseStudiesPage() {
-  const [filter, setFilter] = useState('all')
   const [selectedType, setSelectedType] = useState('traditional-indian')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
@@ -355,59 +354,7 @@ export default function CaseStudiesPage() {
     }
   ]
 
-  // Actual Portfolio Showcase Projects (Authentic Client Transformations Only - No Fake Projects)
-  const projects = [
-    {
-      id: 'gilded-spoon',
-      title: 'The Gilded Spoon',
-      category: 'fine-dining',
-      categoryLabel: 'Fine Dining Turnkey',
-      tag: 'Featured Project',
-      stats: '120 Seats | Bare Shell to Opening | 18% CAPEX Savings',
-      desc: 'Complete end-to-end setup transforming a raw concrete shell into an award-winning venue with bespoke linear kitchen flow, SS304 fabrication, and complete FSSAI licensing.',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80',
-      highlights: ['Menu Engineering & 14-Vendor Supply Chain', 'Kitchen CAD Flow reducing ticket time by 4 mins', 'Staff Hygiene SOPs & First-Time FSSAI Pass']
-    },
-    {
-      id: 'aria-trattoria',
-      title: 'Aria Trattoria',
-      category: 'turnaround',
-      categoryLabel: 'Operational Turnaround',
-      tag: 'Speed & Turnover',
-      stats: '+15% Table Turns | 12% Lower Labor Cost',
-      desc: 'Comprehensive operational efficiency review and kitchen expediting redesign that eliminated Friday night dinner rush bottlenecks and increased table turnover by 15%.',
-      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80',
-      highlights: ['Time-motion analysis of expo line & plating station', 'Handheld server POS rollout eliminating double-entry', 'Floor coverage matrix restructuring']
-    },
-    {
-      id: 'luna-bistro',
-      title: 'Luna Bistro',
-      category: 'new-build',
-      categoryLabel: 'New Build & MEP',
-      tag: 'Civil Engineering',
-      stats: 'Full MEP Sign-off | Industrial Grease Traps',
-      desc: 'End-to-end commercial kitchen planning from civil shell inspection to duct ventilation balancing, industrial grease interceptor routing, and trial menu calibration.',
-      image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80',
-      highlights: ['Civil & architectural MEP sign-off', 'Commercial exhaust & fresh air CFM balancing', 'Trial operations and trial service stress test']
-    },
-    {
-      id: 'neo-bistro',
-      title: 'Neo Bistro',
-      category: 'turnaround',
-      categoryLabel: 'Menu & Margin Audit',
-      tag: 'Profit Optimization',
-      stats: '12% Food Cost Reduction | Elevated Brand',
-      desc: 'Total menu overhaul using eye-tracking principles and ingredient cross-utilization to reduce food waste and elevate contribution margins across 45 menu items.',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80',
-      highlights: ['Stars vs plow-horses sales mix analysis', 'Ingredient crossover to eliminate perishable spoilage', 'Kitchen prep line re-allocation']
-    }
-  ]
-
   const currentType = restaurantAndCafeTypes.find(t => t.id === selectedType) || restaurantAndCafeTypes[0]
-
-  const filteredProjects = filter === 'all'
-    ? projects
-    : projects.filter(p => p.category === filter)
 
 
 
@@ -688,103 +635,7 @@ export default function CaseStudiesPage() {
             )}
           </div>
 
-          {/* ── Client Transformations Portfolio Section Filter ── */}
-          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '1rem' }}>
-              Featured Client Projects
-            </h2>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
-              {[
-                { id: 'all', label: 'All Projects' },
-                { id: 'fine-dining', label: 'Fine Dining' },
-                { id: 'turnaround', label: 'Operational Turnaround' },
-                { id: 'new-build', label: 'New Build & MEP' }
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setFilter(tab.id)}
-                  style={{
-                    padding: '0.55rem 1.3rem',
-                    borderRadius: '30px',
-                    border: filter === tab.id ? '1px solid var(--color-accent)' : '1px solid rgba(196, 154, 108, 0.25)',
-                    background: filter === tab.id ? 'var(--color-accent)' : 'rgba(253, 251, 247, 0.04)',
-                    color: filter === tab.id ? 'var(--color-primary-dark)' : 'var(--color-text)',
-                    fontWeight: filter === tab.id ? 700 : 500,
-                    fontSize: '0.88rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
         </motion.div>
-
-        {/* Projects Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2.5rem', marginBottom: '7rem' }}>
-          {filteredProjects.map((proj, i) => (
-            <motion.div
-              key={proj.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <Link to={`/project/${proj.id}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                <SpotlightCard
-                  className="bento-card"
-                  style={{
-                    height: '100%',
-                    padding: '2.5rem',
-                    borderRadius: '28px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    backgroundImage: `linear-gradient(rgba(9, 14, 10, 0.92), rgba(5, 8, 6, 0.98)), url(${proj.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span className="bento-tag" style={{ margin: 0 }}>{proj.tag}</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600 }}>{proj.categoryLabel}</span>
-                  </div>
-
-                  <h2 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '0.6rem' }}>
-                    {proj.title}
-                  </h2>
-
-                  <div style={{ fontSize: '0.85rem', color: 'var(--color-accent)', fontWeight: 600, marginBottom: '1.2rem', letterSpacing: '0.5px' }}>
-                    {proj.stats}
-                  </div>
-
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1.8rem' }}>
-                    {proj.desc}
-                  </p>
-
-                  <div style={{ borderTop: '1px solid rgba(196, 154, 108, 0.15)', paddingTop: '1.2rem', marginBottom: '2rem' }}>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                      {proj.highlights.map((h, hIdx) => (
-                        <li key={hIdx} style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'flex-start', gap: '0.5rem', lineHeight: 1.5 }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '0.2rem' }}>
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-accent)', fontWeight: 600, fontSize: '0.95rem' }}>
-                    <span>View Full Transformation</span>
-                    <span>&rarr;</span>
-                  </div>
-                </SpotlightCard>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
 
         {/* ── Client Video Reviews & Testimonials Section ── */}
         <section id="video-testimonials" style={{ marginBottom: '6rem' }}>

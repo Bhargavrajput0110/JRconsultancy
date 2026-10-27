@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import SmoothScroll from '../components/SmoothScroll'
 import SpotlightCard from '../components/SpotlightCard'
-import HorizontalScroll from '../components/HorizontalScroll'
 import { ShieldCheck, Play, X, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -912,85 +911,8 @@ export default function Home() {
 
 
 
-      {/* Portfolio & Client Work - Horizontal Scroll */}
-      <section id="portfolio" style={{ marginTop: 'clamp(4rem, 8vw, 8rem)', borderTop: '1px solid rgba(196, 154, 108, 0.2)' }}>
-        <div className="portfolio-section-header">
-          <motion.h2 
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
-            className="section-heading" style={{ marginBottom: 0, textAlign: 'left' }}
-          >
-            Proven Results.<br/><span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>Client Transformations.</span>
-          </motion.h2>
-          <div className="portfolio-mobile-hint">
-            <span>←</span> Swipe to explore transformations <span>→</span>
-          </div>
-        </div>
-
-        <HorizontalScroll>
-          {/* Featured Transformation 1 */}
-          <Link to="/project/gilded-spoon" className="hover-target portfolio-card-link" style={{ textDecoration: 'none', display: 'block' }}>
-            <SpotlightCard className="bento-card portfolio-card" style={{ background: 'linear-gradient(rgba(9, 14, 10, 0.92), rgba(5, 8, 6, 0.97)), url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80") center/cover' }}>
-              <div style={{ maxWidth: '600px', width: '100%' }}>
-                <p className="bento-tag" style={{ fontSize: '0.85rem', marginBottom: '0.8rem' }}>Featured Transformation</p>
-                <h3 className="portfolio-card-title">The Gilded Spoon</h3>
-                <p className="portfolio-card-desc">Complete end-to-end setup for a 120-seater fine dining establishment, transforming a bare shell into an award-winning venue.</p>
-                <ul className="bento-list portfolio-card-list">
-                  <li>Menu Design & Procurement</li>
-                  <li>Kitchen Layout & Workflow Optimization</li>
-                  <li>Staff Training & FSSAI Compliance</li>
-                </ul>
-                <div className="portfolio-card-cta">
-                  <span>View Transformation</span>
-                  <span className="cta-arrow">→</span>
-                </div>
-              </div>
-            </SpotlightCard>
-          </Link>
-
-          {/* Transformation 2 */}
-          <Link to="/project/aria-trattoria" className="hover-target portfolio-card-link" style={{ textDecoration: 'none', display: 'block' }}>
-            <SpotlightCard className="bento-card portfolio-card" style={{ background: 'linear-gradient(rgba(9, 14, 10, 0.92), rgba(5, 8, 6, 0.97)), url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80") center/cover' }}>
-              <div style={{ maxWidth: '600px', width: '100%' }}>
-                <p className="bento-tag" style={{ fontSize: '0.85rem', marginBottom: '0.8rem' }}>Operational Turnaround</p>
-                <h3 className="portfolio-card-title">Aria Trattoria</h3>
-                <p className="portfolio-card-desc">Comprehensive operational efficiency review and workflow redesign that increased table turnover by 15% during peak weekend hours.</p>
-                <ul className="bento-list portfolio-card-list">
-                  <li>Table Turnover Speed Audit</li>
-                  <li>FOH / BOH Communication Systems</li>
-                  <li>Cost & Waste Reduction Blueprint</li>
-                </ul>
-                <div className="portfolio-card-cta">
-                  <span>View Transformation</span>
-                  <span className="cta-arrow">→</span>
-                </div>
-              </div>
-            </SpotlightCard>
-          </Link>
-
-          {/* Transformation 3 */}
-          <Link to="/project/luna-bistro" className="hover-target portfolio-card-link" style={{ textDecoration: 'none', display: 'block' }}>
-            <SpotlightCard className="bento-card portfolio-card" style={{ background: 'linear-gradient(rgba(9, 14, 10, 0.92), rgba(5, 8, 6, 0.97)), url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80") center/cover' }}>
-              <div style={{ maxWidth: '600px', width: '100%' }}>
-                <p className="bento-tag" style={{ fontSize: '0.85rem', marginBottom: '0.8rem' }}>New Build & MEP</p>
-                <h3 className="portfolio-card-title">Luna Bistro</h3>
-                <p className="portfolio-card-desc">End-to-end consulting covering site selection, Basic Vastu consultation, and complete commercial kitchen space planning for maximum efficiency.</p>
-                <ul className="bento-list portfolio-card-list">
-                  <li>Civil & Architectural MEP Sign-off</li>
-                  <li>Commercial Exhaust & Grease Trap Setup</li>
-                  <li>Trial Operations & Menu Calibration</li>
-                </ul>
-                <div className="portfolio-card-cta">
-                  <span>View Transformation</span>
-                  <span className="cta-arrow">→</span>
-                </div>
-              </div>
-            </SpotlightCard>
-          </Link>
-        </HorizontalScroll>
-      </section>
-
       {/* Testimonials & Video Reviews */}
-      <section id="testimonials" className="bento-section" style={{ marginTop: '4rem', paddingBottom: '8rem', scrollMarginTop: '110px' }}>
+      <section id="portfolio" className="bento-section" style={{ marginTop: '4rem', paddingBottom: '8rem', scrollMarginTop: '110px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
           <div>
             <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Client Stories</p>
