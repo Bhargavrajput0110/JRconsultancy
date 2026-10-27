@@ -98,7 +98,7 @@ export default function CaseStudiesPage() {
       id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
-      title: 'Architect Hem Doshi | Fire & Gin at Alembic',
+      title: 'Architect Hem Doshi | Firangi Gujarati at Alembic',
       subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning',
       tag: 'Kaha Studio'
     },
@@ -422,7 +422,7 @@ export default function CaseStudiesPage() {
     <SmoothScroll>
       <Helmet>
         <title>Client Transformations & Proven Results | JR Consulting</title>
-        <meta name="description" content="Explore JR Consulting's client transformations: The Gilded Spoon, Aria Trattoria, Luna Bistro, and Neo Bistro. Results-driven restaurant consulting across India." />
+        <meta name="description" content="Explore JR Consulting's client transformations including 22nd Parallel (Karelibaug &amp; Manjalpur) and Firangi Gujarati (Alembic, Vadodara). Results-driven restaurant consulting across India." />
         <link rel="canonical" href="https://www.jrconsulting.in/portfolio" />
         <meta property="og:title" content="Client Transformations & Proven Results | JR Consulting" />
         <meta property="og:description" content="Explore real projects showing measurable restaurant turnarounds and turnkey setups." />
@@ -1012,7 +1012,7 @@ export default function CaseStudiesPage() {
                   </span>
                 </div>
                 <p style={{ color: 'var(--color-text)', fontSize: '1.08rem', lineHeight: 1.65, marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                  "No design is good enough without good execution, and that's where Jigar bhai comes in. As architects, we focus on planning and aesthetics. What he brings to the table is how the commercial kitchen works, cuisine station requirements, and how staff circulate around the space. In a project like Fire &amp; Gin at Alembic, combining design with his operational engineering made all the difference."
+                  "No design is good enough without good execution, and that's where Jigar bhai comes in. As architects, we focus on planning and aesthetics. What he brings to the table is how the commercial kitchen works, cuisine station requirements, and how staff circulate around the space. In a project like Firangi Gujarati at Alembic, combining design with his operational engineering made all the difference."
                 </p>
                 <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(196, 154, 108, 0.15)' }}>
                   <p style={{ color: 'var(--color-accent)', fontWeight: 600, margin: 0, fontSize: '1rem' }}>Ar. Hem Doshi &amp; Ar. Kennil Doshi</p>
@@ -1074,8 +1074,9 @@ export default function CaseStudiesPage() {
           <p className="clients-label">Trusted by restaurant owners across India</p>
           <div className="clients-logos">
             {[
-              'The Gilded Spoon', 'Aria Trattoria', 'Luna Bistro', 'Neo Bistro',
-              'Café Noir', 'The Amber Room', 'Spice Route', 'Garden Table'
+              '22nd Parallel- Karelibaug, Vadodara',
+              '22nd Parallel- Manjalpur, Vadodara',
+              'Firangi Gujarati- Alembic, Vadodara'
             ].map((name, i) => (
               <div key={i} className="client-logo-pill">{name}</div>
             ))}
