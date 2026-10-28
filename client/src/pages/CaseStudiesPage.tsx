@@ -87,6 +87,14 @@ export default function CaseStudiesPage() {
   const clientVideos = [
     {
       id: 1,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
+      title: '22nd Parallel | 10+ Years of Operational Trust',
+      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces',
+      tag: '⭐ Featured Story'
+    },
+    {
+      id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
       title: '22nd Parallel | Spatial Flow & Brand Identity',
@@ -94,7 +102,7 @@ export default function CaseStudiesPage() {
       tag: '22nd Parallel'
     },
     {
-      id: 2,
+      id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
       title: 'Architect Hem Doshi | Firangi Gujarati at Alembic',
@@ -102,7 +110,7 @@ export default function CaseStudiesPage() {
       tag: 'Kaha Studio'
     },
     {
-      id: 3,
+      id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
       title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
@@ -110,20 +118,12 @@ export default function CaseStudiesPage() {
       tag: 'Design Partner'
     },
     {
-      id: 4,
+      id: 5,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
       title: 'Architect Kennil Doshi | Operational Circulation & Timelines',
       subtitle: 'Back-of-house workflow, finish standards & milestone adherence',
       tag: 'Kaha Studio'
-    },
-    {
-      id: 5,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
-      title: '22nd Parallel | 10+ Years of Operational Trust',
-      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces',
-      tag: '10+ Yr Client'
     }
   ]
 
