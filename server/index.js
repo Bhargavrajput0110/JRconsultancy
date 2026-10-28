@@ -22,15 +22,15 @@ const supabaseKey = process.env.SUPABASE_ANON_KEY || '';
 // Configured Admin Accounts
 const ADMIN_ACCOUNTS = [
   {
-    email: (process.env.ADMIN_EMAIL || 'admin@jrconsulting.in').toLowerCase().trim(),
-    password: process.env.ADMIN_PASSWORD || 'JRadmin@2026!',
-    name: 'Julian Rajput',
+    email: (process.env.ADMIN_EMAIL || 'contact@jrconsulting.in').toLowerCase().trim(),
+    password: process.env.ADMIN_PASSWORD || '2026',
+    name: 'Jigar Rajgor',
     role: 'Principal Consultant & Founder'
   },
   {
-    email: 'julian@jrconsulting.in',
-    password: process.env.ADMIN_PASSWORD || 'JRadmin@2026!',
-    name: 'Julian Rajput',
+    email: 'jrajgor@jrconsulting.in',
+    password: process.env.ADMIN_PASSWORD || '2026',
+    name: 'Jigar Rajgor',
     role: 'Principal Consultant & Founder'
   }
 ];

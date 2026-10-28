@@ -28,6 +28,24 @@ export default function StartProject() {
     e.preventDefault()
     setSubmitted(true)
 
+    const newLead = {
+      name: formData.name,
+      company: formData.projectType || 'Restaurant Inquiry',
+      project: `${formData.projectType}${formData.location ? ` • ${formData.location}` : ''}`,
+      contact: formData.phone,
+      email: formData.email,
+      status: 'Website Lead',
+      value: 'Discovery Scope',
+      notes: formData.details
+    }
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('jr_crm_clients') || '[]')
+      localStorage.setItem('jr_crm_clients', JSON.stringify([newLead, ...existing]))
+    } catch {
+      // ignore
+    }
+
     const message = `*New Project Inquiry — JR Consulting*%0A%0A` +
       `*Name:* ${encodeURIComponent(formData.name)}%0A` +
       `*Phone:* ${encodeURIComponent(formData.phone)}%0A` +
