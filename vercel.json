@@ -13,15 +13,52 @@
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api",
       "destination": {
         "service": "server"
       }
     },
     {
-      "source": "/(.*)",
+      "source": "/api/:path*",
+      "destination": {
+        "service": "server"
+      }
+    },
+    {
+      "source": "/assets/:path*",
       "destination": {
         "service": "client"
+      }
+    },
+    {
+      "source": "/jr-logo-mark.png",
+      "destination": {
+        "service": "client"
+      }
+    },
+    {
+      "source": "/jr-logo.jpg",
+      "destination": {
+        "service": "client"
+      }
+    },
+    {
+      "source": "/robots.txt",
+      "destination": {
+        "service": "client"
+      }
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": {
+        "service": "client"
+      }
+    },
+    {
+      "source": "/:path*",
+      "destination": {
+        "service": "client",
+        "path": "/index.html"
       }
     }
   ]
