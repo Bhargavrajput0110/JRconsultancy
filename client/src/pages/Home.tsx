@@ -20,38 +20,38 @@ export default function Home() {
   const clientVideos = [
     {
       id: 1,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
+      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
+      subtitle: '"No design is good enough without good execution" — Alembic Project'
+    },
+    {
+      id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg',
       title: 'Restaurant Client Review | Turnkey Setup & Operational Success',
       subtitle: 'Real feedback on kitchen execution, civil coordination & operational launch'
     },
     {
-      id: 2,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
-      title: '22nd Parallel | 10+ Years of Operational Trust',
-      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces'
-    },
-    {
       id: 3,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
-      title: '22nd Parallel | Spatial Flow & Brand Identity',
-      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere'
-    },
-    {
-      id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
       title: 'Architect Hem Doshi | Firangi Gujarati at Alembic',
       subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning'
     },
     {
+      id: 4,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
+      title: '22nd Parallel | 10+ Years of Operational Trust',
+      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces'
+    },
+    {
       id: 5,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
-      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
-      subtitle: '"No design is good enough without good execution" — Alembic Project'
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
+      title: '22nd Parallel | Spatial Flow & Brand Identity',
+      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere'
     },
     {
       id: 6,
