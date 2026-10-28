@@ -3,15 +3,7 @@
   "services": {
     "client": {
       "root": "client",
-      "framework": "vite",
-      "bindings": [
-        {
-          "type": "service",
-          "service": "server",
-          "format": "url",
-          "env": "SERVER_URL"
-        }
-      ]
+      "framework": "vite"
     },
     "server": {
       "root": "server",
@@ -23,22 +15,13 @@
     {
       "source": "/api/(.*)",
       "destination": {
-        "service": "client",
-        "path": "/api/$1"
-      }
-    },
-    {
-      "source": "/(.*\\.[a-zA-Z0-9]+)",
-      "destination": {
-        "service": "client",
-        "path": "/$1"
+        "service": "server"
       }
     },
     {
       "source": "/(.*)",
       "destination": {
-        "service": "client",
-        "path": "/index.html"
+        "service": "client"
       }
     }
   ]
