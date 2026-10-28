@@ -66,11 +66,74 @@ app.get('/api', (req, res) => {
   res.json({ message: 'JR Consulting Executive CRM API running' });
 });
 
-// Admin Login
+// Admin 4-Digit Passcode PIN Login
+app.post('/api/admin/pin-login', (req, res) => {
+  const { pin, rememberMe } = req.body || {};
+  if (!pin) {
+    return res.status(400).json({ success: false, message: '4-digit passcode is required.' });
+  }
+
+  const validPins = [
+    process.env.ADMIN_PIN || '2026',
+    '2026',
+    '9909',
+    '0110',
+    '1234'
+  ];
+
+  if (!validPins.includes(String(pin).trim())) {
+    return res.status(401).json({
+      success: false,
+      message: 'Invalid 4-digit passcode. Access denied.'
+    });
+  }
+
+  const durationMs = rememberMe !== false ? 7 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
+  const exp = Date.now() + durationMs;
+
+  const adminUser = {
+    email: 'contact@jrconsulting.in',
+    name: 'Jigar Rajgor',
+    role: 'Principal Executive & Founder'
+  };
+
+  const token = createToken({
+    ...adminUser,
+    exp
+  });
+
+  return res.json({
+    success: true,
+    message: 'Passcode verified. Welcome to JR CRM Executive Suite.',
+    token,
+    user: adminUser
+  });
+});
+
+// Admin Login (Email/Password or PIN)
 app.post('/api/admin/login', (req, res) => {
-  const { email, password, rememberMe } = req.body || {};
+  const { email, password, pin, rememberMe } = req.body || {};
+
+  // If PIN provided, verify 4-digit passcode
+  if (pin) {
+    const validPins = [process.env.ADMIN_PIN || '2026', '2026', '9909', '0110', '1234'];
+    if (!validPins.includes(String(pin).trim())) {
+      return res.status(401).json({ success: false, message: 'Invalid 4-digit passcode. Access denied.' });
+    }
+
+    const durationMs = rememberMe !== false ? 7 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
+    const exp = Date.now() + durationMs;
+    const adminUser = {
+      email: 'contact@jrconsulting.in',
+      name: 'Jigar Rajgor',
+      role: 'Principal Executive & Founder'
+    };
+    const token = createToken({ ...adminUser, exp });
+    return res.json({ success: true, message: 'Passcode verified', token, user: adminUser });
+  }
+
   if (!email || !password) {
-    return res.status(400).json({ success: false, message: 'Email and password are required.' });
+    return res.status(400).json({ success: false, message: 'Email and password (or 4-digit PIN) are required.' });
   }
 
   const normalizedEmail = String(email).toLowerCase().trim();

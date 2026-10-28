@@ -35,9 +35,9 @@ export default function App() {
           <Route path="/contact" element={<StartProject />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/admin/login" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/crm" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/login" element={<Dashboard />} />
+          <Route path="/crm" element={<Dashboard />} />
 
           {/* Programmatic SEO Routes for City & Specialty Landing Pages */}
           <Route path="/locations/:slug" element={<Home />} />

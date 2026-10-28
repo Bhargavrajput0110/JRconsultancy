@@ -43,7 +43,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="footer-social-btn" aria-label="Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="mailto:jrajgor@jrconsulting.in" className="footer-social-btn" aria-label="Email">
+            <a href="mailto:contact@jrconsulting.in" className="footer-social-btn" aria-label="Email">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
@@ -55,7 +55,8 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
           <ul>
             <li><strong>Jigar Rajgor</strong></li>
             <li><a href="tel:+919909558212" style={{ color: 'inherit', textDecoration: 'none' }}>+91 99095 58212</a></li>
-            <li><a href="mailto:jrajgor@jrconsulting.in" style={{ color: 'inherit', textDecoration: 'none' }}>jrajgor@jrconsulting.in</a></li>
+            <li><a href="mailto:contact@jrconsulting.in" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 600 }}>contact@jrconsulting.in</a></li>
+            <li><a href="mailto:jrajgor@jrconsulting.in" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>jrajgor@jrconsulting.in</a></li>
             <li style={{ marginTop: '1rem', color: 'var(--color-text-muted)' }}>
               Headquartered in Vadodara, Gujarat.<br/>Undertaking Turnkey Projects Pan-India.
             </li>
@@ -91,7 +92,27 @@ const Footer = forwardRef<HTMLElement, FooterProps>(({ className = '' }, ref) =>
 
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} JR Consulting. All rights reserved.</p>
-        <p>Built for the real world — Civil Engineering & Restaurant Operations.</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+          <p style={{ margin: 0 }}>Built for the real world — Civil Engineering & Restaurant Operations.</p>
+          <Link 
+            to="/admin" 
+            style={{ 
+              opacity: 0.45, 
+              fontSize: '0.78rem', 
+              color: 'inherit', 
+              textDecoration: 'none',
+              transition: 'opacity 0.2s ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.95')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.45')}
+          >
+            <span>Admin Portal</span>
+            <span style={{ fontSize: '0.7rem' }}>🔒</span>
+          </Link>
+        </div>
       </div>
     </footer>
   )
