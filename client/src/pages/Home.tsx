@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import SmoothScroll from '../components/SmoothScroll'
 import SpotlightCard from '../components/SpotlightCard'
-import { ShieldCheck, Play, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ShieldCheck, Play, X, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../index.css'
@@ -21,44 +21,77 @@ export default function Home() {
     {
       id: 1,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
-      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
-      subtitle: '"No design is good enough without good execution" — Alembic Project'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
     },
     {
       id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg',
-      title: 'Restaurant Client Review | Turnkey Setup & Operational Success',
-      subtitle: 'Real feedback on kitchen execution, civil coordination & operational launch'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
     },
     {
       id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
-      title: 'Architect Hem Doshi | Firangi Gujarati at Alembic',
-      subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
     },
     {
       id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
-      title: '22nd Parallel | 10+ Years of Operational Trust',
-      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg'
     },
     {
       id: 5,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
-      title: '22nd Parallel | Spatial Flow & Brand Identity',
-      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg'
     },
     {
       id: 6,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
-      title: 'Architect Kennil Doshi | Operational Circulation & Timelines',
-      subtitle: 'Back-of-house workflow, finish standards & milestone adherence'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg'
+    }
+  ]
+
+  const writtenTestimonials = [
+    {
+      id: 1,
+      name: 'Deepti Sarma',
+      role: 'Co-Founder',
+      company: '22nd parallel',
+      quote: "I think Jigar sir's major contribution in 22nd Parallel has been helping us brand the themes for 22nd Parallel. If you look at our murals, the main mural that you will find in every 22nd Parallel is something that was conceptualized and done by Jigar sir for the first time. The entire piece on the seating area where we actually have partitions and aaju-baju mein seatings instead of just spread out. That was again something that was Jigar sir's contribution. The paintings that you see in 22nd Parallel, right? We've always had vectors, and these are branded vectors that we have, and we've always had them in frames. But actually putting them on the walls, bringing them to life size, and, you know, adding life to our walls is something that Jigar sir has actually done for us. So a lot of branding-related contributions is something that we seek from Jigar sir. We collaborate with him, we talk to him, and for me personally, he's been a great sounding board when it comes to branding and aesthetics for 22nd Parallel."
+    },
+    {
+      id: 2,
+      name: 'Kenil Doshi',
+      role: 'Co-Founder & Architect',
+      company: 'Studio Kaha',
+      quote: "Hi, I'm Kenil. I'm an architect, and recently we had an opportunity to work with Jigarbhai on a restaurant. It was really fun working with him because the amount of experience that he has working with restaurants, and as a designer, we always focus on things like planning or design or aesthetics. But what he brings to the table is how the kitchen should work, the workflow of a restaurant, and how everything goes around the space, the way the finishing and the project has developed and how it's turned out. It's really good, and the timeline that he has managed it in is something which is really commendable. The whole collaborative system, how he works and his team works, is something which we really enjoy, and we'll do much more projects like this in future."
+    },
+    {
+      id: 3,
+      name: 'Sundar Sarma',
+      role: 'Co-Founder',
+      company: '22nd Parallel',
+      quote: "I've known Jigarbhai for over 10 years now, and I can say that 22nd Parallel is richer for having had Jigarbhai come on board. Two things that really stand out about him: one is his unique ability to balance utility and aesthetic. You know, he understands that space needs to be used effectively. It needs to look good because we are in the business of pleasing people. And the second thing is, you know, understanding the importance of costs when it comes to real estate. You know, when you have abundance of resources, like abundance of space, abundance of money, it's easy for a lot of people to step in. But when you have lesser space, when you have limited budgets, that's when somebody like Jigarbhai would be really useful for a project, like it has been in the case of 22nd Parallel."
+    },
+    {
+      id: 4,
+      name: 'Hem Doshi',
+      role: 'Co-Founder & Architect',
+      company: 'Studio Kaha',
+      quote: "Hi, I'm architect Hem. We got opportunity to work with Jigarbhai during the planning of restaurant Firangi in Alembic. I would say working with Jigarbhai was a very amazing experience, as he has got so much of experience in planning the restaurant and making it work. So as designers, our job was to take care of the aesthetics, of the functionality, but the behind the scene jo hota hai, jaise ki the planning of the kitchen, the cuisine, how, like what amount of cuisine requires, the size of the kitchen, how the waiters are going to go from one place to another, and lot of things, which is completely managed by Jigarbhai. So when aesthetics and functionality goes together, it creates more meaningful collaborations with any architect. I would say he has been working in this field since now, making restaurants. He owns some of the restaurants, so he really knows how it works. The best part with working with a person like him is experience. He has got so much experience in this field that you get to learn a lot, you have so much of fun, and I'm eagerly waiting to work with him again in a restaurant project."
+    },
+    {
+      id: 5,
+      name: 'Harshyam Patel & Nirzary Daru',
+      role: 'Co-Founder & Interior Designer',
+      company: 'Finesse Design',
+      quote: "Hi, I am Nirzary I am Harshyam  We are interior designers and we've had the opportunity to work on 22nd Parallel project in Karelibaug and Manjalpur. Restaurants ને અંદર different agencies, એમની expertise પ્રમાણે કામ કરી હોય છે. But working together with all those people together, variety challenges આવતી હોય છે, especially in commercial complexes where we've got a limited height and limited space to work with. તે વખતે જ્યારે coordinate કરીને એક જ vision થી જ્યારે લોકો કામ કરતા હોય towards a single goal, so that's a very interesting process. As interior designers, we are focused on what is visually appealing, but functionality is equally important. So creating a space with right planning and coordination is what makes the real difference. Lots of learnings, great coordination, and hopefully many more projects to come."
+    },
+    {
+      id: 6,
+      name: 'Kenil Doshi & Hem Doshi',
+      role: 'Co-Founder & Architect',
+      company: 'Studio Kaha',
+      quote: "No design is good enough without good execution, and that's where Jigarbhai comes into the picture. With working with Jigarbhai was really fun. The amount of experience he has with building restaurants and what he brings to the table is the workflow and how the restaurant usually works. In a project like restaurant, or a project like Firangi, is to understand the designer's vision and the functionality of the kitchen and the workflow of the waiters. That is a very small thing, but it creates the most and major impact in restaurant projects, which Jigarbhai understands a lot. And combining those two together and building this beautiful restaurant is something which we really enjoyed working with, and hopefully we'll do many more projects together."
     }
   ]
   
@@ -1167,6 +1200,105 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
+
+        {/* Written Client Testimonials Grid */}
+        <div style={{ marginTop: '5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Client Endorsements</p>
+            <motion.h3 
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
+              style={{ fontSize: 'clamp(1.6rem, 3.2vw, 2.3rem)', margin: 0, fontFamily: 'var(--font-heading)', color: '#fff', fontWeight: 600, letterSpacing: '-0.02em' }}
+            >
+              Written Testimonials.{' '}
+              <span style={{ color: 'var(--color-accent)', fontWeight: 400 }}>
+                From Founders &amp; Architects.
+              </span>
+            </motion.h3>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            {writtenTestimonials.map((t) => (
+              <motion.div
+                key={t.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={springUp}
+              >
+                <SpotlightCard className="bento-card" style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: '1.85rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                    <div style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(196, 154, 108, 0.12)',
+                      border: '1px solid rgba(196, 154, 108, 0.35)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--color-accent)'
+                    }}>
+                      <Quote size={18} />
+                    </div>
+                    <span style={{
+                      fontSize: '0.72rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.8px',
+                      color: 'var(--color-accent)',
+                      background: 'rgba(196,154,108,0.12)',
+                      border: '1px solid rgba(196,154,108,0.25)',
+                      padding: '3px 10px',
+                      borderRadius: '12px',
+                      fontWeight: 700
+                    }}>
+                      {t.company}
+                    </span>
+                  </div>
+
+                  <p style={{
+                    color: 'var(--color-text)',
+                    fontSize: '0.98rem',
+                    lineHeight: 1.7,
+                    marginBottom: '1.5rem',
+                    fontStyle: 'italic',
+                    whiteSpace: 'pre-line',
+                    flex: 1
+                  }}>
+                    "{t.quote}"
+                  </p>
+
+                  <div style={{
+                    marginTop: 'auto',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid rgba(196, 154, 108, 0.18)'
+                  }}>
+                    <p style={{
+                      color: '#fff',
+                      fontWeight: 700,
+                      margin: 0,
+                      fontSize: '1.02rem',
+                      fontFamily: 'var(--font-heading)'
+                    }}>
+                      {t.name}
+                    </p>
+                    <p style={{
+                      color: 'var(--color-accent)',
+                      fontSize: '0.82rem',
+                      margin: '3px 0 0',
+                      fontWeight: 500
+                    }}>
+                      {t.role} • {t.company}
+                    </p>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Interactive FAQ Section ── */}
@@ -1409,13 +1541,10 @@ export default function Home() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
                       Client Video Review ({selectedVideo + 1} of {clientVideos.length})
                     </span>
                   </div>
-                  <h4 style={{ margin: '3px 0 0', color: '#fff', fontSize: '0.98rem', fontFamily: 'var(--font-heading)' }}>
-                    {clientVideos[selectedVideo].title}
-                  </h4>
                 </div>
 
                 <button
@@ -1490,8 +1619,8 @@ export default function Home() {
                   <span>Prev</span>
                 </button>
 
-                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
-                  {clientVideos[selectedVideo].subtitle}
+                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
+                  Video {selectedVideo + 1} of {clientVideos.length}
                 </span>
 
                 <button
