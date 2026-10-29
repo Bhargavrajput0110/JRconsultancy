@@ -86,44 +86,32 @@ export default function CaseStudiesPage() {
     {
       id: 1,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg',
-      title: 'Kaha Studio | Architectural Execution & Kitchen Workflow',
-      subtitle: '"No design is good enough without good execution" — Alembic Project'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
     },
     {
       id: 2,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg',
-      title: 'Restaurant Client Review | Turnkey Setup & Operational Success',
-      subtitle: 'Real feedback on kitchen execution, civil coordination & operational launch'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
     },
     {
       id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg',
-      title: 'Architect Hem Doshi | Firangi Gujarati at Alembic',
-      subtitle: 'Balancing design aesthetics with commercial kitchen size & cuisine planning'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
     },
     {
       id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg',
-      title: '22nd Parallel | 10+ Years of Operational Trust',
-      subtitle: 'Balancing utility, aesthetics & cost control in compact restaurant spaces'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg'
     },
     {
       id: 5,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg',
-      title: '22nd Parallel | Spatial Flow & Brand Identity',
-      subtitle: 'Conceptualizing signature wall art, seating partitions & dining atmosphere'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg'
     },
     {
       id: 6,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg',
-      title: 'Architect Kennil Doshi | Operational Circulation & Timelines',
-      subtitle: 'Back-of-house workflow, finish standards & milestone adherence'
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936129/WhatsApp_Video_2026-10-25_at_7.13.44_PM_1_t16ktg.jpg'
     }
   ]
 
@@ -974,13 +962,10 @@ export default function CaseStudiesPage() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
                       Client Video Review ({selectedVideo + 1} of {clientVideos.length})
                     </span>
                   </div>
-                  <h4 style={{ margin: '3px 0 0', color: '#fff', fontSize: '0.98rem', fontFamily: 'var(--font-heading)' }}>
-                    {clientVideos[selectedVideo].title}
-                  </h4>
                 </div>
 
                 <button
@@ -1055,8 +1040,8 @@ export default function CaseStudiesPage() {
                   <span>Prev</span>
                 </button>
 
-                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
-                  {clientVideos[selectedVideo].subtitle}
+                <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
+                  Video {selectedVideo + 1} of {clientVideos.length}
                 </span>
 
                 <button
