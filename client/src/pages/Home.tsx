@@ -15,10 +15,7 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false)
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false)
   const videoScrollRef = useRef<HTMLDivElement>(null)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-  const wasPlayingBeforeModalRef = useRef(false)
 
   const clientVideos = [
     {
@@ -186,86 +183,6 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [selectedVideo, clientVideos.length, isWalkthroughOpen])
 
-  // Ambient Sound Controller (Czard Watches style) - Landing page only
-  useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
-
-    audio.volume = 0.18
-
-    const handlePlay = () => setIsAudioPlaying(true)
-    const handlePause = () => setIsAudioPlaying(false)
-    audio.addEventListener('play', handlePlay)
-    audio.addEventListener('pause', handlePause)
-
-    const isExplicitlyMuted = sessionStorage.getItem('jr_ambient_muted') === 'true'
-
-    const attemptAutoplay = () => {
-      if (isExplicitlyMuted) return
-      const playPromise = audio.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay blocked by browser policy; wait for first user gesture
-        })
-      }
-    }
-
-    attemptAutoplay()
-
-    const onUserInteraction = () => {
-      if (sessionStorage.getItem('jr_ambient_muted') === 'true') return
-      if (audio.paused) {
-        audio.play().catch(() => {})
-      }
-    }
-
-    const interactionEvents: (keyof WindowEventMap)[] = ['pointerdown', 'keydown', 'touchstart', 'scroll']
-    interactionEvents.forEach((evt) => window.addEventListener(evt, onUserInteraction, { once: true, passive: true }))
-
-    return () => {
-      audio.removeEventListener('play', handlePlay)
-      audio.removeEventListener('pause', handlePause)
-      interactionEvents.forEach((evt) => window.removeEventListener(evt, onUserInteraction))
-      // Stop and reset audio on leaving landing page
-      audio.pause()
-      audio.currentTime = 0
-    }
-  }, [])
-
-  // Auto-pause ambient audio when video review or walkthrough modal is open
-  useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
-
-    const isAnyModalOpen = selectedVideo !== null || isWalkthroughOpen
-
-    if (isAnyModalOpen) {
-      if (!audio.paused) {
-        wasPlayingBeforeModalRef.current = true
-        audio.pause()
-      }
-    } else {
-      if (wasPlayingBeforeModalRef.current) {
-        wasPlayingBeforeModalRef.current = false
-        if (sessionStorage.getItem('jr_ambient_muted') !== 'true') {
-          audio.play().catch(() => {})
-        }
-      }
-    }
-  }, [selectedVideo, isWalkthroughOpen])
-
-  const toggleSound = () => {
-    const audio = audioRef.current
-    if (!audio) return
-    if (isAudioPlaying) {
-      audio.pause()
-      sessionStorage.setItem('jr_ambient_muted', 'true')
-    } else {
-      sessionStorage.removeItem('jr_ambient_muted')
-      audio.volume = 0.18
-      audio.play().catch(() => {})
-    }
-  }
 
   const scrollVideos = (direction: 'left' | 'right') => {
     if (videoScrollRef.current) {
@@ -1876,24 +1793,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Czard Watches Style Ambient Sound Controller - Landing Page Only */}
-      <audio ref={audioRef} src="/ambient.mp3" preload="auto" loop />
-      <button
-        type="button"
-        onClick={toggleSound}
-        className={`jr-sound ${isAudioPlaying ? 'is-playing' : ''}`}
-        aria-label={isAudioPlaying ? 'Mute ambient sound' : 'Play ambient sound'}
-      >
-        <span className="jr-sound__bars" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-          <i />
-        </span>
-        <span className="jr-sound__label">
-          {isAudioPlaying ? 'Sound On' : 'Sound'}
-        </span>
-      </button>
+
 
     </SmoothScroll>
   )
