@@ -85,28 +85,28 @@ export default function CaseStudiesPage() {
   const clientVideos = [
     {
       id: 1,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
-    },
-    {
-      id: 2,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
-    },
-    {
-      id: 3,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
-    },
-    {
-      id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg'
     },
     {
-      id: 5,
+      id: 2,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
+    },
+    {
+      id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg'
+    },
+    {
+      id: 4,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
+    },
+    {
+      id: 5,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
     },
     {
       id: 6,
@@ -629,13 +629,13 @@ export default function CaseStudiesPage() {
         <section id="video-testimonials" style={{ marginBottom: '6rem' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
             <div>
-              <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Client Stories</p>
+              <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Stories</p>
               <motion.h2 
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
                 className="section-heading"
                 style={{ margin: 0, textAlign: 'left' }}
               >
-                Real Restaurant associated.<br/>
+                Real Restaurant associates.<br/>
                 <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
                   Watch their unfiltered reviews.
                 </span>

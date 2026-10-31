@@ -2177,3 +2177,95 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 35px rgba(196, 154, 108, 0.8) !important;
 }
 
+/* ── Ambient Sound Controller (Czard Watches Style) ── */
+.jr-sound {
+  position: fixed;
+  bottom: clamp(1.2rem, 3vh, 2rem);
+  right: clamp(1.2rem, 3vw, 2.25rem);
+  z-index: 9990;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1.15rem;
+  background: rgba(8, 14, 10, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(196, 154, 108, 0.45);
+  border-radius: 30px;
+  color: var(--color-accent, #c49a6c);
+  font-family: var(--font-body, "Jost", system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(196, 154, 108, 0.25);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  user-select: none;
+}
+.jr-sound:hover {
+  border-color: rgba(196, 154, 108, 0.85);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 30px rgba(196, 154, 108, 0.45);
+  transform: translateY(-2px);
+  color: #fff;
+}
+.jr-sound:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.jr-sound__label {
+  display: block;
+  padding-top: 1px;
+}
+.jr-sound__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  width: 14px;
+  height: 13px;
+}
+.jr-sound__bars i {
+  flex: 1 1 auto;
+  height: 25%;
+  background: currentColor;
+  border-radius: 1px;
+  transform-origin: bottom;
+  transition: height 0.3s ease;
+}
+.jr-sound.is-playing .jr-sound__bars i {
+  height: 100%;
+  animation: jr-sound-bar 0.9s ease-in-out infinite;
+}
+.jr-sound.is-playing .jr-sound__bars i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.jr-sound.is-playing .jr-sound__bars i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.jr-sound.is-playing .jr-sound__bars i:nth-child(4) {
+  animation-delay: 0.45s;
+}
+@keyframes jr-sound-bar {
+  0%, 100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jr-sound.is-playing .jr-sound__bars i {
+    animation: none;
+    height: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .jr-sound {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    bottom: 1.2rem;
+    right: 1.2rem;
+  }
+}

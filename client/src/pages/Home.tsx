@@ -15,33 +15,36 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false)
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false)
   const videoScrollRef = useRef<HTMLDivElement>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const wasPlayingBeforeModalRef = useRef(false)
 
   const clientVideos = [
     {
       id: 1,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
-    },
-    {
-      id: 2,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
-    },
-    {
-      id: 3,
-      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
-      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
-    },
-    {
-      id: 4,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936128/WhatsApp_Video_2026-10-25_at_7.13.43_PM_jgeqay.jpg'
     },
     {
-      id: 5,
+      id: 2,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936133/WhatsApp_Video_2026-10-25_at_7.13.59_PM_lp4euf.jpg'
+    },
+    {
+      id: 3,
       url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.mp4',
       poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936139/WhatsApp_Video_2026-10-25_at_7.13.44_PM_ftv1re.jpg'
+    },
+    {
+      id: 4,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1792936138/WhatsApp_Video_2026-10-25_at_7.13.45_PM_mu7d07.jpg'
+    },
+    {
+      id: 5,
+      url: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.mp4',
+      poster: 'https://res.cloudinary.com/dlxiy6aiq/video/upload/so_1,q_auto,f_auto/v1793214961/WhatsApp_Video_2026-10-29_at_12.44.01_AM_1_bpy39e.jpg'
     },
     {
       id: 6,
@@ -53,24 +56,24 @@ export default function Home() {
   const writtenTestimonials = [
     {
       id: 1,
-      name: 'Deepti Sarma',
-      role: 'Co-Founder',
-      company: '22nd parallel',
-      quote: "I think Jigar sir's major contribution in 22nd Parallel has been helping us brand the themes for 22nd Parallel. If you look at our murals, the main mural that you will find in every 22nd Parallel is something that was conceptualized and done by Jigar sir for the first time. The entire piece on the seating area where we actually have partitions and aaju-baju mein seatings instead of just spread out. That was again something that was Jigar sir's contribution. The paintings that you see in 22nd Parallel, right? We've always had vectors, and these are branded vectors that we have, and we've always had them in frames. But actually putting them on the walls, bringing them to life size, and, you know, adding life to our walls is something that Jigar sir has actually done for us. So a lot of branding-related contributions is something that we seek from Jigar sir. We collaborate with him, we talk to him, and for me personally, he's been a great sounding board when it comes to branding and aesthetics for 22nd Parallel."
-    },
-    {
-      id: 2,
-      name: 'Kenil Doshi',
-      role: 'Co-Founder & Architect',
-      company: 'Studio Kaha',
-      quote: "Hi, I'm Kenil. I'm an architect, and recently we had an opportunity to work with Jigarbhai on a restaurant. It was really fun working with him because the amount of experience that he has working with restaurants, and as a designer, we always focus on things like planning or design or aesthetics. But what he brings to the table is how the kitchen should work, the workflow of a restaurant, and how everything goes around the space, the way the finishing and the project has developed and how it's turned out. It's really good, and the timeline that he has managed it in is something which is really commendable. The whole collaborative system, how he works and his team works, is something which we really enjoy, and we'll do much more projects like this in future."
-    },
-    {
-      id: 3,
       name: 'Sundar Sarma',
       role: 'Co-Founder',
       company: '22nd Parallel',
       quote: "I've known Jigarbhai for over 10 years now, and I can say that 22nd Parallel is richer for having had Jigarbhai come on board. Two things that really stand out about him: one is his unique ability to balance utility and aesthetic. You know, he understands that space needs to be used effectively. It needs to look good because we are in the business of pleasing people. And the second thing is, you know, understanding the importance of costs when it comes to real estate. You know, when you have abundance of resources, like abundance of space, abundance of money, it's easy for a lot of people to step in. But when you have lesser space, when you have limited budgets, that's when somebody like Jigarbhai would be really useful for a project, like it has been in the case of 22nd Parallel."
+    },
+    {
+      id: 2,
+      name: 'Kenil Doshi & Hem Doshi',
+      role: 'Co-Founder & Architect',
+      company: 'Studio Kaha',
+      quote: "No design is good enough without good execution, and that's where Jigarbhai comes into the picture. With working with Jigarbhai was really fun. The amount of experience he has with building restaurants and what he brings to the table is the workflow and how the restaurant usually works. In a project like restaurant, or a project like Firangi, is to understand the designer's vision and the functionality of the kitchen and the workflow of the waiters. That is a very small thing, but it creates the most and major impact in restaurant projects, which Jigarbhai understands a lot. And combining those two together and building this beautiful restaurant is something which we really enjoyed working with, and hopefully we'll do many more projects together."
+    },
+    {
+      id: 3,
+      name: 'Deepti Sarma',
+      role: 'Co-Founder',
+      company: '22nd parallel',
+      quote: "I think Jigar sir's major contribution in 22nd Parallel has been helping us brand the themes for 22nd Parallel. If you look at our murals, the main mural that you will find in every 22nd Parallel is something that was conceptualized and done by Jigar sir for the first time. The entire piece on the seating area where we actually have partitions and aaju-baju mein seatings instead of just spread out. That was again something that was Jigar sir's contribution. The paintings that you see in 22nd Parallel, right? We've always had vectors, and these are branded vectors that we have, and we've always had them in frames. But actually putting them on the walls, bringing them to life size, and, you know, adding life to our walls is something that Jigar sir has actually done for us. So a lot of branding-related contributions is something that we seek from Jigar sir. We collaborate with him, we talk to him, and for me personally, he's been a great sounding board when it comes to branding and aesthetics for 22nd Parallel."
     },
     {
       id: 4,
@@ -88,10 +91,10 @@ export default function Home() {
     },
     {
       id: 6,
-      name: 'Kenil Doshi & Hem Doshi',
+      name: 'Kenil Doshi',
       role: 'Co-Founder & Architect',
       company: 'Studio Kaha',
-      quote: "No design is good enough without good execution, and that's where Jigarbhai comes into the picture. With working with Jigarbhai was really fun. The amount of experience he has with building restaurants and what he brings to the table is the workflow and how the restaurant usually works. In a project like restaurant, or a project like Firangi, is to understand the designer's vision and the functionality of the kitchen and the workflow of the waiters. That is a very small thing, but it creates the most and major impact in restaurant projects, which Jigarbhai understands a lot. And combining those two together and building this beautiful restaurant is something which we really enjoyed working with, and hopefully we'll do many more projects together."
+      quote: "Hi, I'm Kenil. I'm an architect, and recently we had an opportunity to work with Jigarbhai on a restaurant. It was really fun working with him because the amount of experience that he has working with restaurants, and as a designer, we always focus on things like planning or design or aesthetics. But what he brings to the table is how the kitchen should work, the workflow of a restaurant, and how everything goes around the space, the way the finishing and the project has developed and how it's turned out. It's really good, and the timeline that he has managed it in is something which is really commendable. The whole collaborative system, how he works and his team works, is something which we really enjoy, and we'll do much more projects like this in future."
     }
   ]
   
@@ -182,6 +185,87 @@ export default function Home() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [selectedVideo, clientVideos.length, isWalkthroughOpen])
+
+  // Ambient Sound Controller (Czard Watches style) - Landing page only
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    audio.volume = 0.35
+
+    const handlePlay = () => setIsAudioPlaying(true)
+    const handlePause = () => setIsAudioPlaying(false)
+    audio.addEventListener('play', handlePlay)
+    audio.addEventListener('pause', handlePause)
+
+    const isExplicitlyMuted = sessionStorage.getItem('jr_ambient_muted') === 'true'
+
+    const attemptAutoplay = () => {
+      if (isExplicitlyMuted) return
+      const playPromise = audio.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay blocked by browser policy; wait for first user gesture
+        })
+      }
+    }
+
+    attemptAutoplay()
+
+    const onUserInteraction = () => {
+      if (sessionStorage.getItem('jr_ambient_muted') === 'true') return
+      if (audio.paused) {
+        audio.play().catch(() => {})
+      }
+    }
+
+    const interactionEvents: (keyof WindowEventMap)[] = ['pointerdown', 'keydown', 'touchstart', 'scroll']
+    interactionEvents.forEach((evt) => window.addEventListener(evt, onUserInteraction, { once: true, passive: true }))
+
+    return () => {
+      audio.removeEventListener('play', handlePlay)
+      audio.removeEventListener('pause', handlePause)
+      interactionEvents.forEach((evt) => window.removeEventListener(evt, onUserInteraction))
+      // Stop and reset audio on leaving landing page
+      audio.pause()
+      audio.currentTime = 0
+    }
+  }, [])
+
+  // Auto-pause ambient audio when video review or walkthrough modal is open
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    const isAnyModalOpen = selectedVideo !== null || isWalkthroughOpen
+
+    if (isAnyModalOpen) {
+      if (!audio.paused) {
+        wasPlayingBeforeModalRef.current = true
+        audio.pause()
+      }
+    } else {
+      if (wasPlayingBeforeModalRef.current) {
+        wasPlayingBeforeModalRef.current = false
+        if (sessionStorage.getItem('jr_ambient_muted') !== 'true') {
+          audio.play().catch(() => {})
+        }
+      }
+    }
+  }, [selectedVideo, isWalkthroughOpen])
+
+  const toggleSound = () => {
+    const audio = audioRef.current
+    if (!audio) return
+    if (isAudioPlaying) {
+      audio.pause()
+      sessionStorage.setItem('jr_ambient_muted', 'true')
+    } else {
+      sessionStorage.removeItem('jr_ambient_muted')
+      audio.volume = 0.35
+      audio.play().catch(() => {})
+    }
+  }
 
   const scrollVideos = (direction: 'left' | 'right') => {
     if (videoScrollRef.current) {
@@ -605,7 +689,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Kitchen Equipment:</strong> Equipment selection and detailed design review.</div>
+                        <div className="modal-feature-text"><strong>Kitchen Equipment:</strong> Equipment selection & design and detailed design review.</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -663,7 +747,7 @@ export default function Home() {
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
-                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Monthly operational reviews and maintaineance FSSAI standards.</div>
+                        <div className="modal-feature-text"><strong>Post-Launch Audits:</strong> Check Monthly operational reviews and maintaineance of FSSAI standards..</div>
                       </li>
                       <li className="modal-feature-item">
                         <span className="modal-feature-dot" />
@@ -1014,13 +1098,13 @@ export default function Home() {
       <section id="portfolio" className="bento-section" style={{ marginTop: '4rem', paddingBottom: '8rem', scrollMarginTop: '110px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
           <div>
-            <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Client Stories</p>
+            <p className="bento-tag" style={{ display: 'inline-block', marginBottom: '0.8rem' }}>Verified Stories</p>
             <motion.h2 
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={springUp}
               className="section-heading"
               style={{ margin: 0 }}
             >
-              Real Restaurant associated.<br/>
+              Real Restaurant associates.<br/>
               <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
                 Watch their unfiltered reviews.
               </span>
@@ -1791,6 +1875,25 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Czard Watches Style Ambient Sound Controller - Landing Page Only */}
+      <audio ref={audioRef} src="/ambient.mp3" preload="auto" loop />
+      <button
+        type="button"
+        onClick={toggleSound}
+        className={`jr-sound ${isAudioPlaying ? 'is-playing' : ''}`}
+        aria-label={isAudioPlaying ? 'Mute ambient sound' : 'Play ambient sound'}
+      >
+        <span className="jr-sound__bars" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+        </span>
+        <span className="jr-sound__label">
+          {isAudioPlaying ? 'Sound On' : 'Sound'}
+        </span>
+      </button>
 
     </SmoothScroll>
   )

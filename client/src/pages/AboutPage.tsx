@@ -70,7 +70,7 @@ export default function AboutPage() {
           </h1>
 
           <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', maxWidth: '780px', margin: '0 auto 3rem', lineHeight: 1.7 }}>
-            JR Consulting was founded on a simple realization: Most restaurant consultants have never poured concrete or water resoucres and enviroment, while most civil engineers have never managed a chaotic Friday night kitchen rush. We sit at the rare intersection of both.
+            JR Consulting was founded on a simple realization: Most restaurant consultants have never poured concrete or manage water resoucres in accordance with EMS, while most civil engineers have never managed a chaotic Friday night kitchen rush. We sit at the rare intersection of both.
           </p>
         </motion.div>
 
