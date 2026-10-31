@@ -191,7 +191,7 @@ export default function Home() {
     const audio = audioRef.current
     if (!audio) return
 
-    audio.volume = 0.14
+    audio.volume = 0.18
 
     const handlePlay = () => setIsAudioPlaying(true)
     const handlePause = () => setIsAudioPlaying(false)
@@ -262,7 +262,7 @@ export default function Home() {
       sessionStorage.setItem('jr_ambient_muted', 'true')
     } else {
       sessionStorage.removeItem('jr_ambient_muted')
-      audio.volume = 0.14
+      audio.volume = 0.18
       audio.play().catch(() => {})
     }
   }
