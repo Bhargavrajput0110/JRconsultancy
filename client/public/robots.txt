@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dashboard
 
-Sitemap: https://jrconsultancy.in/sitemap.xml
+Sitemap: https://jrconsulting.in/sitemap.xml

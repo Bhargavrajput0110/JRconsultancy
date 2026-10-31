@@ -213,7 +213,7 @@ export default function ProjectDetail() {
   }
 
   const project = projectsData[id]
-  const canonicalUrl = `https://jrconsultancy.in/project/${id}`
+  const canonicalUrl = `https://jrconsulting.in/project/${id}`
 
   const projectSchema = {
     '@context': 'https://schema.org',
@@ -229,7 +229,7 @@ export default function ProjectDetail() {
     'publisher': {
       '@type': 'Organization',
       'name': 'JR Consulting',
-      'url': 'https://jrconsultancy.in'
+      'url': 'https://jrconsulting.in'
     },
     'mainEntityOfPage': canonicalUrl
   }

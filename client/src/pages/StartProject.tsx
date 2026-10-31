@@ -119,7 +119,7 @@ export default function StartProject() {
       <Helmet>
         <title>Start Your Restaurant Project | JR Consulting</title>
         <meta name="description" content="Inquire about restaurant setup, commercial kitchen planning, MEP engineering, or operational turnaround with Jigar Rajgor." />
-        <link rel="canonical" href="https://jrconsultancy.in/start" />
+        <link rel="canonical" href="https://jrconsulting.in/start" />
       </Helmet>
 
       <Header />
