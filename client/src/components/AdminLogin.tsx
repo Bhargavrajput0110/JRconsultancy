@@ -6,7 +6,6 @@ import {
   ShieldCheck, 
   ArrowRight, 
   AlertCircle, 
-  KeyRound, 
   Sparkles,
   ArrowLeft,
   Delete,
@@ -89,10 +88,6 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
     hiddenInputRef.current?.focus();
   };
 
-  const handleQuickFill = () => {
-    handlePinUpdate('2026');
-  };
-
   // Submit 4-digit passcode
   const submitPin = async (passcode: string) => {
     setLoading(true);
@@ -136,7 +131,7 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
       // Trigger shake animation and error
       setShake(true);
       setTimeout(() => setShake(false), 600);
-      setPinError('Incorrect 4-digit passcode. Please try again or use 2026.');
+      setPinError('Incorrect 4-digit passcode. Please try again.');
       setPin(['', '', '', '']);
       hiddenInputRef.current?.focus();
     } finally {
@@ -378,54 +373,6 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
             ? 'Enter your 4-digit master passcode to unlock operations.'
             : 'Enter administrative email & master password.'}
         </p>
-
-        {/* Quick Helper Pill */}
-        <div style={{
-          background: 'rgba(196, 154, 108, 0.08)',
-          border: '1px dashed rgba(196, 154, 108, 0.35)',
-          borderRadius: '14px',
-          padding: '0.65rem 1rem',
-          marginBottom: '1.75rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '10px'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', textAlign: 'left' }}>
-            <KeyRound size={15} color="var(--color-accent, #c49a6c)" />
-            <div style={{ fontSize: '0.78rem', color: '#c5d4cc' }}>
-              <span style={{ fontWeight: 600, color: 'var(--color-accent, #c49a6c)' }}>Default Passcode: </span>
-              <strong style={{ letterSpacing: '2px', color: '#fff' }}>2026</strong>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={handleQuickFill}
-            style={{
-              background: 'rgba(196, 154, 108, 0.22)',
-              border: '1px solid rgba(196, 154, 108, 0.45)',
-              color: 'var(--color-accent, #c49a6c)',
-              borderRadius: '8px',
-              padding: '4px 10px',
-              fontSize: '0.74rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              whiteSpace: 'nowrap'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--color-accent, #c49a6c)';
-              e.currentTarget.style.color = '#050806';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(196, 154, 108, 0.22)';
-              e.currentTarget.style.color = 'var(--color-accent, #c49a6c)';
-            }}
-          >
-            Quick Fill
-          </button>
-        </div>
-
         {/* Error Alert Banner */}
         <AnimatePresence>
           {pinError && (
@@ -802,7 +749,7 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter master password or 2026"
+                  placeholder="Enter master password"
                   required
                   style={{
                     width: '100%',

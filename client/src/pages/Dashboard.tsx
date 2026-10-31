@@ -438,7 +438,7 @@ export default function Dashboard() {
   const executiveName = adminUser?.name || 'Jigar Rajgor';
 
   return (
-    <div className="crm-container">
+    <div className="crm-container crm-layout">
       {/* Toast Notification */}
       <AnimatePresence>
         {notification && (
@@ -600,7 +600,19 @@ export default function Dashboard() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: '100%'
+                  width: '100%',
+                  background: activeTab === tab.id ? 'rgba(196, 154, 108, 0.14)' : 'transparent',
+                  color: activeTab === tab.id ? '#ffffff' : '#8e9f95',
+                  border: activeTab === tab.id ? '1px solid rgba(196, 154, 108, 0.4)' : '1px solid transparent',
+                  padding: '0.85rem 1.1rem',
+                  borderRadius: '14px',
+                  fontSize: '0.92rem',
+                  fontWeight: activeTab === tab.id ? 600 : 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: activeTab === tab.id ? '0 4px 18px rgba(0, 0, 0, 0.45)' : 'none',
+                  outline: 'none',
+                  fontFamily: 'inherit'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -695,7 +707,7 @@ export default function Dashboard() {
       </aside>
 
       {/* MAIN CONTENT AREA */}
-      <main className="crm-main">
+      <main className="crm-main crm-content">
         {/* Top Header */}
         <header className="crm-header">
           <motion.div initial="hidden" animate="visible" variants={springUp}>
