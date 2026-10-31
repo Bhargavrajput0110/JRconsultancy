@@ -8,31 +8,11 @@ import Footer from '../components/Footer'
 import '../index.css'
 
 const CONSULTING_SERVICES = [
-  {
-    id: 'turnkey',
-    label: 'Turnkey Restaurant Setup & Launch',
-    desc: 'Bare-shell civil planning, brand buildout, and launch execution'
-  },
-  {
-    id: 'kitchen-mep',
-    label: 'Commercial Kitchen Layout & MEP Engineering',
-    desc: 'HVAC exhaust hoods, gas banks, electrical & plumbing schematics'
-  },
-  {
-    id: 'operational-audit',
-    label: 'Operational Audit & Efficiency Turnaround',
-    desc: 'Kitchen SOPs, waste leakage control & turnaround strategies'
-  },
-  {
-    id: 'fssai',
-    label: 'FSSAI & Statutory Compliance Advisory',
-    desc: 'FSSAI licensing, hygiene audits & fire/health approvals'
-  },
-  {
-    id: 'advisory',
-    label: 'General Restaurant Advisory',
-    desc: 'Concept feasibility, CAPEX budgeting & location advisory'
-  }
+  'Turnkey Restaurant Setup & Launch',
+  'Commercial Kitchen Layout & MEP Engineering',
+  'Operational Audit & Turnaround',
+  'FSSAI & Compliance Advisory',
+  'General Restaurant Advisory'
 ];
 
 export default function StartProject() {
@@ -276,88 +256,57 @@ export default function StartProject() {
               </div>
             </div>
 
-            {/* Multiple Choice Consulting Services Selector */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {/* Simple Compact Tag Pills */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <label style={{ color: 'var(--color-accent)', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
                   Consulting Services Needed *
                 </label>
-                <span style={{ fontSize: '0.76rem', color: '#8e9f95' }}>
-                  Select all that apply ({selectedServices.length} selected)
+                <span style={{ fontSize: '0.75rem', color: '#8e9f95' }}>
+                  Tap to select ({selectedServices.length} selected)
                 </span>
               </div>
 
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-                gap: '0.75rem'
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.5rem'
               }}>
                 {CONSULTING_SERVICES.map((service) => {
-                  const isSelected = selectedServices.includes(service.label);
+                  const isSelected = selectedServices.includes(service);
                   return (
                     <button
-                      key={service.id}
+                      key={service}
                       type="button"
-                      onClick={() => toggleService(service.label)}
+                      onClick={() => toggleService(service)}
                       style={{
                         background: isSelected 
-                          ? 'rgba(196, 154, 108, 0.14)' 
-                          : 'rgba(255, 255, 255, 0.03)',
+                          ? 'rgba(196, 154, 108, 0.22)' 
+                          : 'rgba(255, 255, 255, 0.05)',
                         border: isSelected 
-                          ? '1.5px solid var(--color-accent, #c49a6c)' 
-                          : '1px solid rgba(255, 255, 255, 0.1)',
-                        borderRadius: '14px',
-                        padding: '0.9rem 1.1rem',
-                        textAlign: 'left',
+                          ? '1px solid var(--color-accent, #c49a6c)' 
+                          : '1px solid rgba(255, 255, 255, 0.15)',
+                        borderRadius: '24px',
+                        padding: '8px 16px',
+                        color: isSelected ? '#ffffff' : '#9bb0a5',
+                        fontSize: '0.86rem',
+                        fontWeight: isSelected ? 600 : 500,
                         cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-                        boxShadow: isSelected 
-                          ? '0 4px 18px rgba(196, 154, 108, 0.15)' 
-                          : 'none'
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        transition: 'all 0.15s ease',
+                        boxShadow: isSelected ? '0 2px 10px rgba(196, 154, 108, 0.2)' : 'none'
                       }}
                     >
-                      {/* Checkbox Icon */}
-                      <div style={{
-                        width: '20px',
-                        height: '20px',
-                        borderRadius: '6px',
-                        border: isSelected ? 'none' : '1.5px solid rgba(255, 255, 255, 0.25)',
-                        background: isSelected ? 'var(--color-accent, #c49a6c)' : 'transparent',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        marginTop: '2px',
-                        transition: 'all 0.2s ease'
+                      <span style={{ 
+                        color: isSelected ? 'var(--color-accent, #c49a6c)' : '#7b8f84',
+                        fontWeight: 700,
+                        fontSize: '0.88rem'
                       }}>
-                        {isSelected && (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#050806" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        )}
-                      </div>
-
-                      <div style={{ flex: 1 }}>
-                        <div style={{
-                          color: isSelected ? '#fff' : '#d1dfd6',
-                          fontWeight: isSelected ? 600 : 500,
-                          fontSize: '0.92rem',
-                          lineHeight: 1.3,
-                          marginBottom: '3px'
-                        }}>
-                          {service.label}
-                        </div>
-                        <div style={{
-                          fontSize: '0.76rem',
-                          color: isSelected ? 'rgba(196, 154, 108, 0.95)' : '#7b8f84',
-                          lineHeight: 1.3
-                        }}>
-                          {service.desc}
-                        </div>
-                      </div>
+                        {isSelected ? '✓' : '+'}
+                      </span>
+                      <span>{service}</span>
                     </button>
                   );
                 })}
