@@ -31,3 +31,7 @@ pdf_preview/
 
 .vercel
 .env*
+ 
+audio_preview.html
+client/public/audio/
+server/data/

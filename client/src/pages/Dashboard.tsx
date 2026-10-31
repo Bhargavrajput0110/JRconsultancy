@@ -254,6 +254,36 @@ export default function Dashboard() {
     try { localStorage.setItem('jr_crm_invoices', JSON.stringify(invoicesList)); } catch {}
   }, [invoicesList]);
 
+  // Sync website inquiries from central API to CRM
+  useEffect(() => {
+    fetch('/api/inquiries')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.inquiries) && data.inquiries.length > 0) {
+          const apiClients: Client[] = data.inquiries.map((inq: any) => ({
+            id: inq.id,
+            name: inq.name,
+            company: inq.location ? `Restaurant (${inq.location})` : 'Restaurant Inquiry',
+            project: Array.isArray(inq.services) ? inq.services.join(' + ') : (inq.services || 'Discovery Scope'),
+            contact: inq.phone,
+            email: inq.email || '',
+            status: 'Website Lead',
+            value: 'Discovery Scope',
+            notes: `${Array.isArray(inq.services) ? inq.services.join(', ') : ''}${inq.details ? `\n${inq.details}` : ''}`,
+            date: inq.createdAt ? inq.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]
+          }));
+
+          setClientsList(prev => {
+            const existingPhones = new Set(prev.map(c => c.contact));
+            const newEntries = apiClients.filter(c => !existingPhones.has(c.contact));
+            if (newEntries.length === 0) return prev;
+            return [...newEntries, ...prev];
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Modal Input States
   const [leadForm, setLeadForm] = useState({ name: '', company: '', phone: '', email: '', budget: '', notes: '' });
   const [projectForm, setProjectForm] = useState({ name: '', location: '', scale: '', value: '', type: 'Turnkey Restobar & Dining' });

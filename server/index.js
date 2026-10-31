@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import crypto from 'crypto';
+import fs from 'fs';
+import path from 'path';
 import { createClient } from '@supabase/supabase-js';
 
 dotenv.config();
@@ -198,6 +200,63 @@ app.get('/api/admin/verify', (req, res) => {
 // Admin Logout
 app.post('/api/admin/logout', (req, res) => {
   return res.json({ success: true, message: 'Successfully logged out.' });
+});
+
+// ── Inquiries & Lead Capture Store ──
+let inquiries = [];
+const INQUIRIES_FILE = path.join(process.cwd(), 'data', 'inquiries.json');
+
+try {
+  if (fs.existsSync(INQUIRIES_FILE)) {
+    const raw = fs.readFileSync(INQUIRIES_FILE, 'utf8');
+    inquiries = JSON.parse(raw);
+  }
+} catch (e) {
+  inquiries = [];
+}
+
+// POST /api/inquiries (Public consultation form submission)
+app.post('/api/inquiries', (req, res) => {
+  const { name, phone, email, location, services, details } = req.body || {};
+  if (!name || !phone) {
+    return res.status(400).json({ success: false, message: 'Name and phone number are required.' });
+  }
+
+  const newInquiry = {
+    id: 'INQ-' + Date.now(),
+    name: String(name).trim(),
+    phone: String(phone).trim(),
+    email: email ? String(email).trim() : '',
+    location: location ? String(location).trim() : '',
+    services: Array.isArray(services) && services.length > 0 ? services : [services || 'Turnkey Restaurant Setup & Launch'],
+    details: details ? String(details).trim() : '',
+    createdAt: new Date().toISOString()
+  };
+
+  inquiries.unshift(newInquiry);
+
+  // Attempt to write to disk
+  try {
+    const dir = path.dirname(INQUIRIES_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(INQUIRIES_FILE, JSON.stringify(inquiries.slice(0, 500), null, 2), 'utf8');
+  } catch (err) {
+    // In serverless read-only mode, in-memory array persists during instance lifetime
+  }
+
+  return res.json({
+    success: true,
+    message: 'Inquiry received successfully and logged to CRM.',
+    inquiry: newInquiry
+  });
+});
+
+// GET /api/inquiries (Retrieve inquiries for CRM Dashboard)
+app.get('/api/inquiries', (req, res) => {
+  return res.json({
+    success: true,
+    inquiries
+  });
 });
 
 if (!process.env.VERCEL) {
